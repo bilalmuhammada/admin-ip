@@ -17,6 +17,7 @@ class AuthController extends Controller
 {
     public function index()
     {
+        dd('ss');
         if (Session::has('user')) {
             return redirect('/dashboard');
         }
