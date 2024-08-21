@@ -17,7 +17,7 @@
                             <a href="#" class="noble-ui-logo d-block mb-2 text-center">
                                 <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo">
                             </a>
-                            <h5 class="text-muted fw-normal mb-4 text-center">Welcome back! Log in to your account.</h5>
+                            <h5 class="text-muted fw-normal mb-4 text-center">Sign in to stay updated on your professional world!</h5>
                             <form class="login-form">
                                 <div class="mb-3">
                                     <label for="userEmail" class="form-label">Email address</label>
