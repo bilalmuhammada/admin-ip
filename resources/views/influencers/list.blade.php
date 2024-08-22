@@ -1,4 +1,14 @@
 @extends('layout.master')
+<style>
+    .dt-button:hover{
+    background-color: blue !important;
+    color: white !important;
+}
+.dt-button{
+    border-color: #997045 !important;
+
+}
+</style>
 @section('content')
 
     <div class="page-content">
@@ -17,10 +27,16 @@
                             <table id="datatable" class="table">
                                 <div style="margin-bottom:10px;">
                                     <a href="{{ env('BASE_URL') . 'influencers/create'}}">
-                                        <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
+                                        {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
                                             Add New Influencer
+                                        </button> --}}
+
+                                          <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
+                                                                                                      class="link-icon text-white"
+                                                                                                      data-feather="plus-circle"></i>
+                                            Add Admin
                                         </button>
                                     </a>
                                     @include('modals.edit-influencer')
@@ -48,17 +64,22 @@
                                     <th>Submitted Files</th>
                                     <th>Status</th>
                                     <th>Action</th> -->
-                                    <th>No.</th>
+                                    <th>#</th>
+                                    <th>ID#</th>
                                     <th>Photo</th>
-                                    <th>ID</th>
-                                    <th>Type</th>
-                                    <th>Name</th>
+                                    {{-- <th>Type</th> --}}
+                                    <th>Name(Full Name)</th>
+                                    <th>Email</th>
                                     <th>Mobile</th>
-                                    <th>Country</th>
-                                    <th>City</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
                                     <th>Member</th>
-                                    <th>Subscription</th>
-                                    <th>Amount</th>
+                                    <th>Added By</th>
+                                  
+                                    <th>City</th>
+                                    <th>Country</th>
+                                    {{-- <th>Subscription</th>
+                                    <th>Amount</th> --}}
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -82,20 +103,29 @@
                 if (value.status === 'active') {
                     checked = 'checked';
                 }
+                // <td>${value.type}</td>
+                    // <td>${value.plan ? value.plan.name : '-'}</td>
+                                    // <td>${value.amount_received}</td>
                 table_body += `<tr>
                                     <td>${count++}</td>
+                                      <td>${value.id}</td>
                                     <td>
                                         <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="profile">
                                     </td>
-                                    <td>${value.id}</td>
-                                    <td>${value.type}</td>
-                                    <td>${value.name}</td>
+                                  <td>${value.name}</td>
+                                    <td>${value.email ?? '-'}</td>
+                                      
+                                    
                                     <td>${value.phone ?? '-'}</td>
-                                    <td>${value.country_name}</td>
-                                    <td>${value.city_name}</td>
+                                    <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
+                                    <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
                                     <td>${value.member_since}</td>
-                                    <td>${value.plan ? value.plan.name : '-'}</td>
-                                    <td>${value.amount_received}</td>
+                                   <td>--</td> 
+                                  <td>${value.city_name}</td>
+                                    <td>${value.country_name}</td>
+                                    
+                                 
+                                
                                     <td><i width="15" class="link-icon text-success" data-feather="check-square"></i> <span class="text-success">${value.status_formatted}</span></td>
                                     <td>
                                     {{--<a href='#'  edit-id='${value.id}' old-status="${value.status}" class='open-popup mr-2 status-change-btn'><i class='fa fa-check-square'></i> Status</a>--}}

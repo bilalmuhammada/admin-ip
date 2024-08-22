@@ -1,4 +1,18 @@
 @extends('layout.master')
+<style>
+    .form-control{
+    border-color: #997045 !important;
+    /* text-align: center; */
+}
+.form-control:hover{
+    border-color: blue;
+    
+}
+.form-control:focus{
+    border-color: blue !important;
+    
+}
+</style>
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">

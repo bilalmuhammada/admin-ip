@@ -1,18 +1,73 @@
 @extends('layout.master')
 @section('content')
+
+<style>
+    @media (min-width: 768px) {
+        .col-md-3 {
+      width: 16% !important;
+        }
+        }
+        .align-items-baseline {
+            text-align: center !important;
+        }
+        .d-flex {
+    display: contents !important;
+}
+.card-title{
+     color: #997045;
+}
+.form-control{
+    border-color: #997045;
+    text-align: center;
+}
+.form-control:hover{
+    border-color: blue;
+    
+}
+.text-success{
+    margin-left: 12px
+}
+.dt-button{
+    /* background-color: #997045 !important; */
+    /* color: white; */
+    /* border-radius: 12px; */
+    width: 60px;
+
+}
+.btn__search:hover{
+    border-color: blue !important; 
+}
+.dt-button:hover{
+    background-color: blue !important;
+color: white;
+}
+.dt-button{
+    border-color: #997045 !important;
+
+}
+.mb-2{
+    text-align: center !important;
+    color: blue !important;
+    margin-top: 0.5rem !important;
+}
+label{
+    color: blue;
+}
+</style>
     <div class="page-content">
+
         <div class="row">
             <div class="col-md-4">
-                <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+                <h4 class="mb-3 mb-md-0">Dashboard</h4>
             </div>
             <div class="col-md-8 text-end">
-                <div>
-                    <button class="dt-button" id="csv-download">CSV</button>&nbsp; &nbsp;
+                <div style="margin-right: 56px;">
+                    {{-- <button class="dt-button" id="csv-download">CSV</button>&nbsp; &nbsp; --}}
                     <button class="dt-button" id="excel-download">Excel</button>&nbsp; &nbsp;
                     <button class="dt-button" id="pdf-download">PDF</button>&nbsp; &nbsp;
                     <button class="dt-button" id="print-page">Print</button>&nbsp; &nbsp;
                     <span class="">
-                    <input type="text" class="btn__search" id="search-box" placeholder="Search">
+                    <input type="text" class="btn__search" id="search-box" style="width: 191px;"  placeholder="Search">
                     </span>
                 </div>
             </div>
@@ -46,12 +101,13 @@
         <div class="row">
             <div class="col-12 col-xl-12 stretch-card">
                 <div class="row flex-grow-1">
-                    <div class="col-md-3 grid-margin stretch-card">
+                    <label for="" style="font-size: 17px;font-weight: bold;">Influencers</label>
+                    <div class="col-md-3 grid-margin stretch-card" style="width: 16% !important;">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Total Influencers</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Total</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -62,11 +118,11 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2 total-influencer">0</h3>
+                                    <div class="col-12 col-md-12 col-xl-12">
+                                        <h3 class="mb-2 mt-2 total-influencer">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="total-influencer-per">+3.3%</span>
@@ -74,8 +130,44 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{--  --}}
+                    <div class="col-md-3 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Active</h6>
+                                    {{-- <div class="dropdown mb-2">
+                                        <button class="btn p-0" type="button" id="dropdownMenuButton"
+                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item d-flex align-items-center"
+                                               href="{{ env('BASE_URL') }}influencers?status=ACTIVE"><i
+                                                    data-feather="eye" class="icon-sm me-2"></i> <span
+                                                    class="">View</span></a>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-xl-12">
+                                        <h3 class="mb-2 active-influencer">0</h3>
+                                        <div class="d-flex align-items-baseline">
+                                            <p class="text-success">
+                                                <span class="active-influencer-per">+3.3%</span>
+                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                            </p>
+                                        </div>
                                     </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -85,37 +177,38 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Popular Influencers</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Pending </h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item d-flex align-items-center"
-                                               href="{{ env('BASE_URL') }}influencers?status=POPULAR"><i
+                                               href="{{ env('BASE_URL') }}influencers?status=PENDING"><i
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2 popular-influencer">0</h3>
+                                    <div class="col-6 col-md-12 col-xl-12">
+                                        <h3 class="mb-2 pending-influencer">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
-                                                <span class="popular-influencer-per">+3.3%</span>
+                                                <span class="pending-influencer-per">+3.3%</span>
                                                 <i data-feather="arrow-up" class="icon-sm mb-1"></i>
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!----------------------->
+                    
                 <!-- <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -151,47 +244,13 @@
                     </div> -->
                     <!----------------------->
 
+                  
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Pending for Approval</h6>
-                                    <div class="dropdown mb-2">
-                                        <button class="btn p-0" type="button" id="dropdownMenuButton"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item d-flex align-items-center"
-                                               href="{{ env('BASE_URL') }}influencers?status=PENDING"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2 pending-influencer">0</h3>
-                                        <div class="d-flex align-items-baseline">
-                                            <p class="text-success">
-                                                <span class="pending-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!----------------------->
-                    <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Blocked Influencers</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Blocked</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -202,14 +261,49 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2 block-influencer">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="block-influencer-per">+3.3%</span>
+                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!----------------------->
+                    <div class="col-md-3 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Popular</h6>
+                                    {{-- <div class="dropdown mb-2">
+                                        <button class="btn p-0" type="button" id="dropdownMenuButton"
+                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item d-flex align-items-center"
+                                               href="{{ env('BASE_URL') }}influencers?status=POPULAR"><i
+                                                    data-feather="eye" class="icon-sm me-2"></i> <span
+                                                    class="">View</span></a>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-12">
+                                        <h3 class="mb-2 popular-influencer">0</h3>
+                                        <div class="d-flex align-items-baseline">
+                                            <p class="text-success">
+                                                <span class="popular-influencer-per">+3.3%</span>
                                                 <i data-feather="arrow-up" class="icon-sm mb-1"></i>
                                             </p>
                                         </div>
@@ -255,48 +349,15 @@
                         </div>
                     </div> -->
                     <!----------------------->
-                    <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Active Influencers</h6>
-                                    <div class="dropdown mb-2">
-                                        <button class="btn p-0" type="button" id="dropdownMenuButton"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item d-flex align-items-center"
-                                               href="{{ env('BASE_URL') }}influencers?status=ACTIVE"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2 active-influencer">0</h3>
-                                        <div class="d-flex align-items-baseline">
-                                            <p class="text-success">
-                                                <span class="active-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
 
                     <!----------------------->
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Influencers Subscription</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Subscriptions</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -307,10 +368,10 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2 favorite-influencer">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
@@ -327,12 +388,14 @@
                     </div>
 
                     <!----------------------->
+                    
+                    <label for="" style="font-size: 17px;font-weight: bold;">Brands</label>
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Total Brands</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Total</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -343,10 +406,10 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2 total-vendor">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
@@ -355,54 +418,18 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!----------------------->
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Popular Brands</h6>
-                                    <div class="dropdown mb-2">
-                                        <button class="btn p-0" type="button" id="dropdownMenuButton"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item d-flex align-items-center"
-                                               href="{{ env('BASE_URL') }}vendors?status=POPULAR"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2 popular-vendor">0</h3>
-                                        <div class="d-flex align-items-baseline">
-                                            <p class="text-success">
-                                                <span class="poplar-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!----------------------->
-                    <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Active Brands</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Active</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -413,10 +440,10 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2 active-vendor">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
@@ -425,19 +452,19 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!----------------------->
-                    <div class="col-md-3 grid-margin stretch-card">
+                      <!----------------------->
+                      <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Pending for Approval</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Pending</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -448,10 +475,10 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2 pending-vendor">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
@@ -460,19 +487,18 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!----------------------->
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Blocked Brands</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Blocked</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -483,10 +509,10 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2 block-vendor">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
@@ -495,13 +521,52 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!----------------------->
+                    <!----------------------->
+                    <div class="col-md-3 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Popular</h6>
+                                    {{-- <div class="dropdown mb-2">
+                                        <button class="btn p-0" type="button" id="dropdownMenuButton"
+                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item d-flex align-items-center"
+                                               href="{{ env('BASE_URL') }}vendors?status=POPULAR"><i
+                                                    data-feather="eye" class="icon-sm me-2"></i> <span
+                                                    class="">View</span></a>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-12">
+                                        <h3 class="mb-2 popular-vendor">0</h3>
+                                        <div class="d-flex align-items-baseline">
+                                            <p class="text-success">
+                                                <span class="poplar-vendor-per">+3.3%</span>
+                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!----------------------->
+                 
+                    <!----------------------->
+                  
                 <!-- <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -609,8 +674,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Brand Subscriptions</h6>
-                                    <div class="dropdown mb-2">
+                                    <h6 class="card-title mb-0">Subscriptions</h6>
+                                    {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton2"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -621,10 +686,10 @@
                                                     data-feather="eye" class="icon-sm me-2"></i> <span
                                                     class="">View</span></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-12">
                                         <h3 class="mb-2">89.87%</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
@@ -633,8 +698,8 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                    </div>
+                                    {{-- <div class="col-6 col-md-12 col-xl-7">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -694,13 +759,33 @@
                 </div>
             </div>
         </div> <!-- row -->
-        <div class="row mb-4">
+        <div class="row mb-4" style="width: 98%;">
             <div class="col">
                 <select name="" id="" class="form-control">
                     <option value="">Sales</option>
                     <option value="">Brands</option>
                     <option value="">Influencer</option>
                 </select>
+            </div>
+            <div class="col">
+               
+                    <select class="js-example-basic-single form-select form-control country_id" id="country_id" data-width="100%"
+                            name="country_id">
+                        <option value="">Select Country</option>
+                        @foreach($countries as $country)
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                        @endforeach
+                    </select>
+               
+            </div>
+            <div class="col">
+                
+                <select class="js-example-basic-single form-control form-select city_id" data-width="100%"
+                                        id="city_id"
+                                        name="city_id">
+                                    <option value="" disabled>Select City</option>
+
+                                </select>
             </div>
             <div class="col">
                 <select name="" id="" class="form-control">
@@ -725,7 +810,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0">Monthly sales</h6>
+                            <h6 class="card-title mb-0" style="text-align: justify;   color: blue;font-size: 13px; ">Sales Analytics</h6>
                             {{--                            <div class="dropdown mb-2">--}}
                             {{--                                <button class="btn p-0" type="button" id="dropdown  MenuButton4"--}}
                             {{--                                        data-bs-toggle="dropdown"--}}
@@ -753,7 +838,7 @@
                             {{--                                </div>--}}
                             {{--                            </div>--}}
                         </div>
-                        <p class="text-muted">Sales</p>
+                        {{-- <p class="text-muted">Sales</p> --}}
                         <div id="monthlySalesChart"></div>
                     </div>
                 </div>
@@ -767,6 +852,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.js"></script>
     <script>
+          $(document).on('change', '#country_id', function () {
+            getCitiesByCountry($(this).val());
+        });
         var influencer_counts = '';
         var vendor_counts = '';
         var data = [];
@@ -993,13 +1081,13 @@
 
                     var options = {
                         series: [{
-                            name: 'Influencers Sub',
+                            name: 'Influencers',
                             data: data.influencer_payment_amount_array
                         }, {
-                            name: 'Brands Sub',
+                            name: 'Brands',
                             data: data.brand_payment_amount_array
                         }, {
-                            name: 'Total Subs',
+                            name: 'Total',
                             data: data.payment_amount_array
                         }],
                         chart: {

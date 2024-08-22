@@ -27,6 +27,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'role' => 'required|exists:roles,code',
         ]);
+        // dd('dd');
 
         if ($validator->fails()) {
             return response()->json([
@@ -36,12 +37,12 @@ class UserController extends Controller
         }
         $role = $request->role;
 
-        $Users = User::with(['subscription', 'plan'])->whereHas('role', function ($Role) use ($role) {
+        $Users = User::with(['subscription','personal_information', 'plan'])->whereHas('role', function ($Role) use ($role) {
             $Role->where('code', $role);
         })->when($request->status, function ($User, $status) {
             $User->where('status', $status);
         })->latest()->get();
-
+// dd(  $Users);
         if ($Users->isNotEmpty()) {
             return response()->json([
                 'status' => true,

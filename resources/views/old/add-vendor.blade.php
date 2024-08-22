@@ -1,4 +1,14 @@
 @include('dashboard/inc/header')
+<style>
+    .form-control{
+    border-color: #997045;
+    text-align: center;
+}
+.form-control:hover{
+    border-color: blue;
+    
+}
+</style>
   <!-- partial:partials/_sidebar -->
   @include('dashboard/inc/sidebar')
 		<!-- partial:partials/_sidebar -->

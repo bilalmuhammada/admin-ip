@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\SiteHelper;
+use App\Models\Country;
 use App\Models\Subscription;
 use App\Models\User;
 use Carbon\Carbon;
@@ -13,8 +14,10 @@ class DashboardController extends Controller
     public function index()
     {
         $users = User::get();
+        $countries = Country::all();
 
         $data = [
+            'countries'=> $countries,
             'menu' => 'dashboard',
             'total_users' => $users->count(),
             'active_users' => $users->where('status', 'active')->count(),

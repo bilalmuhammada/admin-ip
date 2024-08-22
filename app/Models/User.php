@@ -175,6 +175,10 @@ class User extends Authenticatable
         else
             return '';
     }
+    public function personal_information()
+    {
+        return $this->hasOne(UserPersonalInformation::class, 'user_id', 'id');
+    }
 
     public function getCityNameAttribute()
     {
