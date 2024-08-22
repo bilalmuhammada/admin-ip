@@ -40,7 +40,8 @@
                         <h2 class="footer-title">Pages</h2>
                         <ul>
                             <li><a href="{{ env('BASE_URL') }}"><i class="fas fa-angle-right me-1"></i>Home</a></li>
-                            <li><a href="{{ env('BASE_URL') }}"><i class="fas fa-angle-right me-1"></i>About Us</a></li>
+                            <li><a href="#"  data-bs-toggle="modal" data-bs-target="#aboutus" ><i class="fas fa-angle-right me-1"></i>About Us</a></li>
+                            {{-- <li><a href="{{ env('BASE_URL') }}"><i class="fas fa-angle-right me-1"></i>About Us</a></li> --}}
                             <li><a href="{{ env('BASE_URL') }}/contact-us"><i class="fas fa-angle-right me-1"></i>Contact
                                     Us</a></li>
                         @if(session()->missing('User'))
@@ -147,7 +148,8 @@
                     <div class="col-md-4 col-lg-4 text-center">
                         <div class="footer-bottom-logo">
                             <a href="{{ env('BASE_URL') }}" class="menu-logo">
-                                <img src="{{ asset('assets/img/logo/Influencers Pro-01-01.png') }}" class="img-fluid"
+                                {{-- <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo"> --}}
+                                <img src="{{ asset('assets/images/logo/Influencers Pro-01-01.png') }}" class="img-fluid"
                                      alt="Logo">
                             </a>
                         </div>

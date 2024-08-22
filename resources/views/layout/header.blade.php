@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
-
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <script type="text/javascript">
         api_url = "{{env('API_URL')}}";

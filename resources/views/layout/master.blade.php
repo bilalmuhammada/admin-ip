@@ -13,8 +13,13 @@
             @yield('content')
         </div>
     </div>
+    
+  @if(session()->get('user'))
     <!-- footer area start -->
+    
+    @else
     @include('layout.footer')
+    @endif
     <!-- footer area end -->
     <!-- core:js -->
     <script src="{{ asset('assets/vendors/core/core.js')}}"></script>

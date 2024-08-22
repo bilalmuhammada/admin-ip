@@ -8,6 +8,13 @@
     border-color: #997045 !important;
 
 }
+
+.dataTables_filter{
+    
+    padding: 9px !important ;
+    margin-right: 161px !important;
+
+}
 </style>
 @section('content')
 
@@ -68,7 +75,7 @@
                                     <th>ID#</th>
                                     <th>Photo</th>
                                     {{-- <th>Type</th> --}}
-                                    <th>Name(Full Name)</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Gender</th>
