@@ -28,7 +28,7 @@
 
     <div class="row w-100 mx-0 auth-page">
         <div class="col-md-8 col-xl-4 mx-auto">
-            <div class="card">
+            {{-- <div class="card"> --}}
                 <div class="row">
                     <!-- <div class="col-md-4 pe-md-0" style="border:2px solid red;">
                         <div class="auth-side-wrapper">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 
