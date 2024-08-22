@@ -56,6 +56,11 @@ class UserController extends Controller
             'message' => 'No Record Found'
         ]);
     }
+    public function contactForm()
+    {
+       
+        return view('auth.contact-us');
+    }
 
     public function changeStatus(Request $request)
     {

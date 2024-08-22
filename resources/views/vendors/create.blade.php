@@ -6,7 +6,12 @@
 }
 .form-control:hover{
     border-color: blue;
+   
     
+}
+.form-control::placeholder{
+    color: blue !important;
+    font-size: 12px !important;
 }
 .form-control:focus{
     border-color: blue !important;
@@ -16,42 +21,71 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center">Add Brand</h3>
+            <h3 class="card-title text-muted text-center">Brand</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
         <div class="row">
-            <div class="col-md-8 grid-margin stretch-card" style="margin:0px auto;">
+            <div class="col-md-5 grid-margin stretch-card" style="margin:0px auto;">
                 <div class="card">
                     <div class="card-body">
                         <form class="forms-sample" id="form_date">
                             <input type="hidden" name="role" value="vendor">
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Brand Name</label>
                                 <input type="text" class="form-control" name="brand_name" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Brand Name">
+                            </div> --}}
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" name="brand_name">
+                                <div class="invalid-feedback">
+                                    Please provide a valid Brand Name.
+                                </div>
+                                <label class="focus-label">Brand Name</label>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" name="company_name">
+                                <div class="invalid-feedback">
+                                    Please provide a valid Company Name.
+                                </div>
+                                <label class="focus-label">Company Name</label>
+                            </div>
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Company Name</label>
                                 <input type="text" class="form-control" name="company_name" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Company Name">
-                            </div>
-                            <div class="mb-3">
+                            </div> --}}
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Website</label>
                                 <input type="text" class="form-control" name="website" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Website">
+                            </div> --}}
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating "  placeholder="Please provide a valid Business Website." name="website">
+                                {{-- <div class="invalid-feedback">
+                                    Please provide a valid Website.
+                                </div> --}}
+                                <label class="inner_label focus-label">Business Website</label>
                             </div>
-                            <div class="mb-3">
+
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Business Mail</label>
                                 <input type="text" class="form-control" name="email" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Business Mail">
+                            </div> --}}
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating " id="bemail" placeholder="Please provide a valid Business Email." name="email">
+                                <div class="invalid-feedback">
+                                    {{-- Please provide a valid Business Email. --}}
+                                </div>
+                                <label class="inner_label focus-label">Business Email</label>
                             </div>
                             <!-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Brand Email</label>
                                 <input type="text" class="form-control" name="email" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Email">
                             </div> -->
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">First Name</label>
                                 <input type="text" class="form-control" name="first_name" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="First Name">
@@ -60,8 +94,22 @@
                                 <label for="exampleInputUsername1" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" name="last_name" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Last Name">
+                            </div> --}}
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating"  name="name"/>
+                                <div class="invalid-feedback">
+                                    Please provide a valid First Name.
+                                </div>
+                                <label class="focus-label">First Name</label>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" name="last_name">
+                                <div class="invalid-feedback">
+                                    Please provide a valid Last Name.
+                                </div>
+                                <label class="focus-label">Last Name </label>
+                            </div>
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Position</label>
                                 <input type="text" class="form-control" name="position" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="position">
@@ -70,16 +118,55 @@
                                 <label for="exampleInputUsername1" class="form-label">Mobile</label>
                                 <input type="text" class="form-control" name="phone" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Mobile">
+                            </div> --}}
+
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating position"
+                                       name="position">
+                                <div class="invalid-feedback">
+                                    Please provide a valid Position.
+                                </div>
+                                <label class="focus-label">Position </label>
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">Country</label>
-                                <select class="js-example-basic-single form-select country_id" id="country_id" data-width="100%"
-                                        name="country_id">
-                                    <option value="">Select Country</option>
-                                    @foreach($countries as $country)
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating"   pattern="\+?\d*" placeholder="Please provide a valid Mobile." oninput="validateInput(this)" name="phone"/>
+                                {{-- <div class="invalid-feedback">
+                                    Please provide a valid Mobile.
+                                </div> --}}
+                                <label class="inner_label focus-label">Mobile </label>
+                            </div>
+
+                            <div class="form-group form-focus">
+                                                
+                                <select name="gender" class="form-control floating" id="gender">
+                                    {{-- <option selected value=" "> select Gender</option> --}}
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Gender.
+                                </div>
+                                <label class="focus-label">Gender</label>
+                            </div>
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
+                                {{-- <div class="invalid-feedback">
+                                    Please provide a valid age.
+                                </div> --}}
+                                <label class="focus-label">Age</label>
+                            </div>
+
+                            <div class="form-group form-focus">
+                                {{--    <input type="text" class="form-control floating" name="country">--}}
+                                <select name="country_id" class="form-control floating" id="country_id">
+                                    @foreach(getCountries() as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Country.
+                                </div>
+                                <label class="focus-label">Country </label>
                             </div>
                             <!-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Brand State</label>
@@ -89,14 +176,15 @@
 
                                 </select>
                             </div> -->
-                            <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">City</label>
-                                <select class="js-example-basic-single form-select city_id" data-width="100%"
-                                        id="city_id"
-                                        name="city_id">
-                                    <option value="" disabled>Select City</option>
+                            <div class="form-group form-focus">
+                                <select name="city_id" class="form-control floating" id="brand_city_id">
+                                    <option value="">Select City</option>
 
                                 </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid City.
+                                </div>
+                                <label class="focus-label">City </label>
                             </div>
                         {{--                            <div class="mb-3">--}}
                         {{--                                <label for="exampleInputUsername1" class="form-label">Brand Nationality</label>--}}
@@ -122,29 +210,36 @@
                                           maxlength="100" rows="8"
                                           placeholder="This textarea has a limit of 100 chars."></textarea>
                             </div> -->
-                            <div class="mb-3">
-                                <label for="password_brand" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password_brand" 
-                                       autocomplete="off" placeholder="Password">
-                                <i class="fa fa-eye one" id="togglePassword"  onclick="togglePassword('password_brand')"
-                                   style="position: absolute;top: 83%;right: 5%;cursor: pointer;color: lightgray;"></i>
+                            <div class="form-group form-focus">
+                                <input type="password" class="form-control floating" name="password"
+                                       id="brand" placeholder="8  Characters - 1 Capital, 1 Number, 1 Special">
+                                <i class="fa-solid fa-eye" id="eye"
+                                   onclick="togglePassword('brand')"></i>
+                                
+                                <label class="inner_label focus-label bilal-register">Password</label>
                             </div>
-                            <div class="mb-3">
-                                <label for="confirm_password_brand" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password_brand" 
-                                       id="exampleInputUsername1"
-                                       autocomplete="off" placeholder="Confirm Password">
-                                <i class="fa fa-eye one" id="togglePassword" onclick="togglePassword('confirm_password_brand')"
-                                   style="position: absolute;top: 90%;right: 5%;cursor: pointer;color: lightgray;"></i>
+                            <div class="form-group form-focus mb-0">
+                                <input type="password" class="form-control floating"
+                                       name="confirm_password" id="brand_confirm_password">
+                                <i class="fa-solid fa-eye" id="eye"
+                                   onclick="togglePassword('brand_confirm_password')"></i>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Confirm Password.
+                                </div>
+                                <label class="focus-label">Confirm Password</label>
                             </div>
                             {{--                            <div class="mb-3">--}}
                             {{--                                <div class="form-check form-switch mb-2">--}}
                             {{--                                    <input type="checkbox" class="form-check-input" id="formSwitch1" name="status">--}}
                             {{--                                    <label class="form-check-label" for="formSwitch1">Active</label>--}}
                             {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            <button type="submit" class="btn btn-primary me-2">Submit</button>
-                            <button class="btn btn-danger">Cancel</button>
+                            {{--      
+                                              </div>--}}
+
+                            <div class="text-center font-bold">
+                            <button type="submit" class="btn btn-primary me-2">Register</button>
+                        </div>
+                            {{-- <button class="btn btn-danger">Cancel</button> --}}
                         </form>
                     </div>
                 </div>

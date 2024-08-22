@@ -92,7 +92,7 @@ class SiteHelper
         }
     }
 
-    public static function getPreviousMonth($date)
+public static function getPreviousMonth($date)
     {
         if (!empty($date)) {
             return Carbon::parse($date)->subMonth()->format('Y-m');

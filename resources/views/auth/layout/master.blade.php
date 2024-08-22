@@ -10,6 +10,7 @@
             @yield('content')
         </div>
     </div>
+   
     <!-- footer area start -->
     @include('layout.footer')
     <!-- footer area end -->
@@ -55,7 +56,7 @@
     <script src="{{ asset('assets/vendors/dropify/dist/dropify.min.js')}}"></script>
 
     <script src="{{ asset('assets/js/custom.js')}}"></script>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+ 
     <script src="{{ asset('assets/js/authenticate.js')}}"></script>
 
     <script>
