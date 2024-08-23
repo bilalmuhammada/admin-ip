@@ -15,6 +15,13 @@
         font-weight: 900 !important;
 
     }
+    .sidebar .sidebar-body .nav .nav-item:hover .nav-link {
+        background-color: #f2e49c !important;
+    }
+    .sidebar .sidebar-body .nav .nav-item:hover .nav-link .link-title {
+        font-weight: 900 !important;
+       
+    }
 </style>
 <nav class="sidebar">
     <div class="sidebar-header">

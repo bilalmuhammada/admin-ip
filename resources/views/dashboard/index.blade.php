@@ -22,7 +22,7 @@ font-weight:bold !important;
     text-align: center;
 }
 .topcard{
-    margin-bottom: 0px !important;
+    margin-bottom: 4px !important;
 }
 .form-control:hover{
     border-color: blue !important;
@@ -134,7 +134,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="total-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -170,7 +170,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="active-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -205,7 +205,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="pending-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -240,7 +240,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="active-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              // {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="block-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -312,7 +312,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="popular-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -346,7 +346,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="rated-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              //// {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -384,7 +384,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="favorite-influencer-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -422,7 +422,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="total-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -456,7 +456,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="active-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -491,7 +491,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="pending-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                             {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -525,7 +525,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="block-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -561,7 +561,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="poplar-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -598,7 +598,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="rated-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              //// {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -633,7 +633,7 @@ label{
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="favorite-vendor-per">+3.3%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                              //// {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -698,11 +698,11 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2">89.87%</h3>
+                                        <h3 class="mb-2">0</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span>+2.8%</span>
-                                                <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                               {{-- <i data-feather="arrow-up" class="icon-sm mb-1"></i> --}}
                                             </p>
                                         </div>
                                     </div>
@@ -798,7 +798,7 @@ label{
             <div class="col">
                 <select name="" id="" class="form-control">
                     <option value="">AED</option>
-                    <option value="">$</option>
+                    <option value="">USD</option>
                 </select>
             </div>
             <div class="col">
