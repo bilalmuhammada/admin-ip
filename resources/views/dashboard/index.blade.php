@@ -14,14 +14,22 @@
     display: contents !important;
 }
 .card-title{
+font-weight:bold !important; 
      color: #997045;
 }
 .form-control{
     border-color: #997045;
     text-align: center;
 }
+.topcard{
+    margin-bottom: 0px !important;
+}
 .form-control:hover{
-    border-color: blue;
+    border-color: blue !important;
+    
+}
+.form-control:focus{
+    border-color: blue !important;
     
 }
 .text-success{
@@ -101,8 +109,8 @@ label{
         <div class="row">
             <div class="col-12 col-xl-12 stretch-card">
                 <div class="row flex-grow-1">
-                    <label for="" style="font-size: 17px;font-weight: bold;">Influencers</label>
-                    <div class="col-md-3 grid-margin stretch-card" style="width: 16% !important;">
+                    <label for="" style="font-size: 17px !important;font-weight: bold;">Influencers</label>
+                    <div class="col-md-3 topcard grid-margin stretch-card" style="width: 16% !important;">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -138,7 +146,7 @@ label{
                     </div>
 
                     {{--  --}}
-                    <div class="col-md-3 grid-margin stretch-card">
+                    <div class="col-md-3  topcard grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -173,7 +181,7 @@ label{
                         </div>
                     </div>
                     <!-------->
-                    <div class="col-md-3 grid-margin stretch-card">
+                    <div class="col-md-3 topcard grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -245,7 +253,7 @@ label{
                     <!----------------------->
 
                   
-                    <div class="col-md-3 grid-margin stretch-card">
+                    <div class="col-md-3 topcard grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -280,7 +288,7 @@ label{
                         </div>
                     </div>
                     <!----------------------->
-                    <div class="col-md-3 grid-margin stretch-card">
+                    <div class="col-md-3 topcard grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -352,7 +360,7 @@ label{
                    
 
                     <!----------------------->
-                    <div class="col-md-3 grid-margin stretch-card">
+                    <div class="col-md-3 topcard grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -389,7 +397,7 @@ label{
 
                     <!----------------------->
                     
-                    <label for="" style="font-size: 17px;font-weight: bold;">Brands</label>
+                    <label for="" style="font-size: 17px !important;font-weight: bold;">Brands</label>
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -810,7 +818,7 @@ label{
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0" style="text-align: justify;   color: blue;font-size: 13px; ">Sales Analytics</h6>
+                            <h6 class="card-title mb-0" style="text-align: justify;     text-transform: math-auto !important;  color: blue;font-size: 13px; ">Sales Analytics</h6>
                             {{--                            <div class="dropdown mb-2">--}}
                             {{--                                <button class="btn p-0" type="button" id="dropdown  MenuButton4"--}}
                             {{--                                        data-bs-toggle="dropdown"--}}
@@ -1084,7 +1092,7 @@ label{
                             name: 'Influencers',
                             data: data.influencer_payment_amount_array
                         }, {
-                            name: 'Brands',
+                             name: 'Brands',
                             data: data.brand_payment_amount_array
                         }, {
                             name: 'Total',
@@ -1110,20 +1118,33 @@ label{
                             colors: ['transparent']
                         },
                         xaxis: {
-                            categories: data.month_array,
+                            // categories: data.month_array,
+                            categories: data.month_array.map(function(date) {
+            const dateParts = date.split("/"); // Split the date by "/"
+            const year = dateParts[0]; // Get the last two digits of the year
+            const month = dateParts[1];
+
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const monthAbbreviation = monthNames[parseInt(month) - 1]; // Convert month number to abbreviation
+
+            return `${monthAbbreviation}/${year}`; // Combine abbreviation with year
+        }),
+                            // categories: data.month_array.map(month => month + "/24"), 
                         },
                         yaxis: {
                             title: {
-                                text: '$ (thousands)'
+                                text: 'Thousand'
                             }
                         },
                         fill: {
                             opacity: 1
                         },
+                        
                         tooltip: {
                             y: {
                                 formatter: function (val) {
-                                    return "$ " + val + " thousands"
+                                    // return "$ " + val + " thousands"
+                                    return "$ " + val + ""
                                 }
                             }
                         }

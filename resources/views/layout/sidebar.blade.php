@@ -7,6 +7,14 @@
     .nav-link{
         color: blue !important;
     }
+    .sidebar .sidebar-body .nav .nav-item.active .nav-link{
+        background-color: #f2e49c !important;
+
+    }
+    .sidebar .sidebar-body .nav .nav-item.active .nav-link span{
+        font-weight: 900 !important;
+
+    }
 </style>
 <nav class="sidebar">
     <div class="sidebar-header">
