@@ -26,7 +26,7 @@
 </style>
 <div class="page-content d-flex align-items-center justify-content-center">
 
-    <div class="row w-100 mx-0 auth-page">
+    <div class="row w-100 mx-0 auth-page dd">
         <div class="col-md-8 col-xl-4 mx-auto">
             {{-- <div class="card"> --}}
                 <div class="row">
