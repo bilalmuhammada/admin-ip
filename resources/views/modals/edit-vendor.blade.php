@@ -79,8 +79,7 @@
                                autocomplete="off" Value="+6885876">
                          <label for="exampleInputUsername1" class="form-label inner_label focus-label">Mobile</label>
                     </div>
-                    <div class="form-group form-focus">
-                                                
+                    <div class="form-group form-focus">                       
                         <select name="gender" class="form-control floating" id="gender">
                             {{-- <option selected value=" "> select Gender</option> --}}
                             <option value="male">Male</option>

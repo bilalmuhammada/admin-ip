@@ -51,6 +51,24 @@
                         <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1" autocomplete="off" Value="xyz@gmail.com">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Email</label>
                     </div>
+                    <div class="form-group form-focus">                       
+                        <select name="gender" class="form-control floating" id="gender">
+                            {{-- <option selected value=" "> select Gender</option> --}}
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Gender.
+                        </div>
+                        <label class="focus-label">Gender</label>
+                    </div>
+                    <div class="form-group form-focus">
+                        <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
+                        {{-- <div class="invalid-feedback">
+                            Please provide a valid age.
+                        </div> --}}
+                        <label class="focus-label">Age</label>
+                    </div>
                     <div class="form-group form-focus">
                             
                             <select class="js-example-basic-single form-control floating form-select country_id" data-width="100%"
@@ -120,7 +138,7 @@
 										</div>
                     </div> -->
 
-                    <div>
+                    <div class="text-center">
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                     </div>
                    

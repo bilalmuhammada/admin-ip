@@ -4,6 +4,20 @@
     border-color: #997045 !important;
     /* text-align: center; */
 }
+::-webkit-scrollbar {
+  width: 12px; /* You can adjust this value based on your preference */
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #997045;
+  border-radius: 34px;
+}
+
+/* Define the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 .form-control:hover{
     border-color: blue;
    
@@ -37,7 +51,7 @@
                                        autocomplete="off" placeholder="Brand Name">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="brand_name">
+                                <input type="text" class="form-control floating inputbg" name="brand_name">
                                 <div class="invalid-feedback">
                                     Please provide a valid Brand Name.
                                 </div>
@@ -61,7 +75,7 @@
                                        autocomplete="off" placeholder="Website">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating "  placeholder="Please provide a valid Business Website." name="website">
+                                <input type="text" class="form-control floating inputbg "  placeholder="Please provide a valid Business Website." name="website">
                                 {{-- <div class="invalid-feedback">
                                     Please provide a valid Website.
                                 </div> --}}
@@ -74,12 +88,11 @@
                                        autocomplete="off" placeholder="Business Mail">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating " id="bemail" placeholder="Please provide a valid Business Email." name="email">
-                                <div class="invalid-feedback">
-                                    {{-- Please provide a valid Business Email. --}}
-                                </div>
+                                <input type="text" class="form-control floating email" id="bemail" placeholder="Please provide a valid Business Email." name="email">
+                                
                                 <label class="inner_label focus-label">Business Email</label>
                             </div>
+                           
                             <!-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Brand Email</label>
                                 <input type="text" class="form-control" name="email" id="exampleInputUsername1"
@@ -146,7 +159,7 @@
                                 <div class="invalid-feedback">
                                     Please provide a valid Gender.
                                 </div>
-                                <label class="focus-label">Gender</label>
+                                <label class="focus-label">Genderww</label>
                             </div>
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
@@ -249,6 +262,47 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+    
+        $(document).ready(function() {
+    if ($('.floating').length > 0) {
+        // Loop through each input field with the 'floating' class
+        $('.floating').each(function() {
+            var $this = $(this);
+
+            // Initially hide the placeholder if the input is empty
+            if ($this.val().length === 0) {
+                $this.attr('placeholder', '');  // Clear placeholder initially
+            }
+
+            // Show the placeholder on focus
+            $this.on('focus', function() {
+                $this.attr('placeholder', $this.data('placeholder'));  // Show placeholder on focus
+                $(this).parents('.form-focus').addClass('focused');
+            });
+
+            // Hide the placeholder on blur if the input is empty
+            $this.on('blur', function() {
+                if ($this.val().length === 0) {
+                    $this.attr('placeholder', '');  // Hide placeholder on blur if input is empty
+                }
+                $(this).parents('.form-focus').toggleClass('focused', this.value.length > 0);
+            });
+        });
+    } else {
+        // If there are no elements with the 'floating' class, handle accordingly
+        console.log('No floating inputs found.');
+    }
+
+
+
+        // Toggle Password Visibility
+        $('#togglePassword').on('click', function() {
+            let input = $(this).siblings('input');
+            let type = input.attr('type') === 'password' ? 'text' : 'password';
+            input.attr('type', type);
+            $(this).toggleClass('fa-eye fa-eye-slash');
+        });
+});
 
         function togglePassword(inputId, iconId) {
             var passwordInput = document.getElementById(inputId);

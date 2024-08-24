@@ -19,6 +19,20 @@
     /* margin-right: 161px !important; */
 
 }
+::-webkit-scrollbar {
+  width: 12px; /* You can adjust this value based on your preference */
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #997045;
+  border-radius: 34px;
+}
+
+/* Define the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 .c-toggle {
         position: relative;

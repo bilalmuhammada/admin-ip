@@ -19,6 +19,76 @@
     /* margin-right: 161px !important; */
 
 }
+.c-toggle {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+    }
+
+    /* The hidden checkbox input */
+    .c-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider (background) */
+    .c-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red !important; /* Inactive state */
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    /* Circle inside the slider */
+    .c-slider:before {
+        position: absolute;
+        content: "\2715" !important; /* Unicode for X */
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        color: red !important;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    /* Toggle to active (checked) state */
+    input:checked + .c-slider {
+        background-color: green !important; /* Active state */
+    }
+
+    /* Move the circle and change icon when checked */
+    input:checked + .c-slider:before {
+        transform: translateX(30px);
+        content: "\2713" !important; /* Unicode for checkmark */
+        color: green !important;
+    }
+    ::-webkit-scrollbar {
+  width: 12px; /* You can adjust this value based on your preference */
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #997045;
+  border-radius: 34px;
+}
+
+/* Define the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 </style>
 @section('content')
     <div class="page-content">
@@ -201,6 +271,48 @@ $(document).ready(function() {
 
         $(document).ready(function () {
             fetchRecords();
+        });
+
+        $(document).on('change', '.change-status', function () {
+            var status = 'off';
+            if ($(this).attr('state') === '') {
+                status = 'on'
+            }
+
+            $.ajax({
+                url: api_url + 'users/change-status',
+                data: {
+                    status: status,
+                    id: $(this).attr('category-id')
+                },
+                type: 'post',
+                dataType: "JSON",
+                success: function (response) {
+                    if (response.status) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.message,
+                            icon: 'success',
+                        }).then((result) => {
+                            destroyDatatable();
+                            fetchRecords();
+                        })
+                    } else {
+                        Swal.fire({
+                            title: 'Problem!',
+                            text: response.message,
+                            icon: 'warning',
+                        })
+                    }
+                },
+                error: function (response) {
+                    Swal.fire({
+                        title: 'Problem!',
+                        text: 'Unexpected error',
+                        icon: 'warning',
+                    })
+                }
+            });
         });
 
         $(document).on('submit', '#edit-status-form-data', function (e) {

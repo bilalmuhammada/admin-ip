@@ -1104,6 +1104,20 @@ button.bg-danger:hover {
 .pagination>li>span {
     color: #997045;
 }
+::-webkit-scrollbar {
+    width: 12px; /* You can adjust this value based on your preference */
+  }
+  
+  /* Define the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #997045;
+    border-radius: 34px;
+  }
+  
+  /* Define the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
 .page-link:hover {
     color: #997045;
@@ -1121,9 +1135,10 @@ button.bg-danger:hover {
 }
 
 .card {
-    border: 1px solid #e8e8e8;
-    background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(204, 204, 204, 0.25);
+    
+        border: 1px solid #f9fafb;
+        background-color: #f9fafb;
+        box-shadow: 0px 4px 4px rgb(249 250 251);
     /* margin-bottom: 30px; */
 }
 
