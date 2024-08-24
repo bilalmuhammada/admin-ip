@@ -76,15 +76,21 @@ class UserController extends Controller
             ]);
         }
 
-        $user = User::where('id', $request->id)->update([
-            'status' => $request->status
-        ]);
-
-        return response()->json([
-            'status' => true,
-            'message' => 'Status updated successfully!',
-            're' => $request->all()
-        ]);
+        // dd(  $request->id, $request->status);
+        if (!empty($request->status)) {
+            $user = User::find($request->id);
+            $user->status = 'inactive';
+            if ($request->status == 'on') {
+                $user->status = 'active';
+            }
+            $user->save();
+            return response()->json([
+                'status' => true,
+                'message' => 'Status updated successfully!',
+                're' => $request->all()
+            ]);
+        }
+      
 
     }
 

@@ -1,4 +1,23 @@
             <!-- Modal -->
+<style>
+    .modal-title{
+        margin-left: 128px;
+    }
+    .form-control:hover{
+    border-color: blue !important;
+    
+}
+.form-control:focus{
+    border-color: blue !important;
+    
+}
+.form-control{
+    border-color: #997045;
+    /* text-align: center; */
+}
+</style>
+
+
             <div class="modal fade" id="editinfluencer" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" style="width: 600px;">
                   <div class="modal-content" >
@@ -9,31 +28,39 @@
                     <div class="modal-body" >
                     <form class="forms-sample" id="edit-influence-form-data">
                         <input type="hidden" class="id" name="id" value="">
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">First Name</label>
-                        <input type="text" class="form-control first_name" name="first_name" id="exampleInputUsername1" autocomplete="off" >
+                 <div class="form-group form-focus">
+                        
+                        <input type="text" class="first_name form-control floating inputbg" name="first_name" id="exampleInputUsername1" autocomplete="off" >
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">First Name</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Last Name</label>
-                        <input type="text" class="form-control last_name" name="last_name" id="exampleInputUsername1" autocomplete="off" >
+            
+                    
+                    <div class="form-group form-focus">
+                       
+                        <input type="text" class="form-control last_name floating inputbg" name="last_name" id="exampleInputUsername1" autocomplete="off" >
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Last Name</label>
+                    
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1"  class="form-label">Mobile</label>
-                        <input type="text" class="form-control phone" name="phone" id="exampleInputUsername1" autocomplete="off" Value="+77868687">
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating phone" name="phone" id="exampleInputUsername1" autocomplete="off" Value="+77868687">
+                        <label for="exampleInputUsername1"  class="form-label form-label inner_label focus-label">Mobile</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Email</label>
-                        <input type="text" class="form-control email" name="email" id="exampleInputUsername1" autocomplete="off" Value="xyz@gmail.com">
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1" autocomplete="off" Value="xyz@gmail.com">
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Email</label>
                     </div>
-                        <div class="mb-3">
-                            <label for="exampleInputUsername1" class="form-label">Country</label>
-                            <select class="js-example-basic-single form-select country_id" data-width="100%"
+                    <div class="form-group form-focus">
+                            
+                            <select class="js-example-basic-single form-control floating form-select country_id" data-width="100%"
                                     name="country_id">
                                 <option value="" disabled>Select Country</option>
                                 @foreach($countries as $country)
                                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                                 @endforeach
                             </select>
+                            <label for="exampleInputUsername1" class="form-label inner_label focus-label">Country</label>
                         </div>
                         <!-- <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">Influencer State</label>
@@ -43,26 +70,30 @@
 
                             </select>
                         </div> -->
-                        <div class="mb-3">
-                            <label for="exampleInputUsername1" class="form-label">City</label>
-                            <select class="js-example-basic-single form-select city_id" data-width="100%" id="city_id"
+                        <div class="form-group form-focus">
+                           
+                            <select class="js-example-basic-single form-control floating form-select city_id" data-width="100%" id="city_id"
                                     name="city_id">
                                 <option value="" disabled>Select City</option>
 
                             </select>
+                            <label for="exampleInputUsername1" class="form-label inner_label focus-label">City</label>
                         </div>
-                        <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">Password</label>
-                                <input type="text" class="form-control" name="password" id="exampleInputUsername1"
+                        <div class="form-group form-focus">
+                               
+                                <input type="text" class="form-control floating" name="password" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Leave it empty if you don't want to change">
                                        <i class="fa fa-eye one" id="togglePassword" style="position: absolute;top: 75%;right: 5%;cursor: pointer;color: lightgray;"></i>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">Confirm Password</label>
-                                <input type="text" class="form-control" name="confirm_password" id="exampleInputUsername1"
+                                       <label for="exampleInputUsername1" class="form-label inner_label focus-label">Password</label>
+                           
+                                    </div>
+                            <div class="form-group form-focus">
+                             
+                                <input type="text" class="form-control floating" name="confirm_password" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Confirm Password">
                                        <i class="fa fa-eye two" id="togglePassword" style="position: absolute;top: 86%;right: 5%;cursor: pointer;color: lightgray;"></i>
-                            </div>
+                                       <label for="exampleInputUsername1" class="form-label inner_label focus-label">Confirm Password</label>
+                                    </div>
                     <!-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Influencer Type</label>
                         <select class="js-example-basic-single form-select type" data-width="100%" name="type">
@@ -88,8 +119,12 @@
 											<label class="form-check-label" for="formSwitch1">Active</label>
 										</div>
                     </div> -->
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <button type="button" data-bs-dismiss="modal" aria-label="btn-close" class="btn btn-danger">Cancel</button>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                   
+                    {{-- <button type="button" data-bs-dismiss="modal" aria-label="btn-close" class="btn btn-danger">Cancel</button> --}}
                 </form>
                     </div>
                     <!-- <div class="modal-footer">
@@ -99,3 +134,8 @@
                   </div>
                 </div>
               </div>
+
+     {{-- @section('page_scripts') --}}
+
+          
+{{-- @endsection --}}

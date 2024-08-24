@@ -98,8 +98,20 @@
         </div>
     </div>
 @endsection
+
 @section('page_scripts')
+
     <script type="text/javascript">
+ $(document).ready(function() {
+        if ($('.floating').length > 0) {
+            alert('sss');
+            $('.floating').on('focus blur', function (e) {
+                $(this).parents('.form-focus').toggleClass('focused', 
+                    (e.type === 'focus' || this.value.length > 0)
+                );
+            }).trigger('blur');
+        }
+    });
 
         $(document).on('submit', '#form_date', function (e) {
             e.preventDefault();

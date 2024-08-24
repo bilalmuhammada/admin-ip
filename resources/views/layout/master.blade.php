@@ -71,8 +71,12 @@
 <link rel="stylesheet" href="{{asset('assets/datetimepicker/build/jquery.datetimepicker.min.css')}}">
 <script src="{{asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
 
+   
+  
     <script>
         var varyingModal = document.getElementById('varyingModal')
+        // alert(varyingModal);
+        // if(varyingModal){
         varyingModal.addEventListener('show.bs.modal', function (event) {
             // Button that triggered the modal
             var button = event.relatedTarget
@@ -89,6 +93,7 @@
             modalBodyInput.value = recipient
         })
     </script>
-    @yield('page_scripts')
+      @yield('page_scripts')
+
 </body>
 </html>

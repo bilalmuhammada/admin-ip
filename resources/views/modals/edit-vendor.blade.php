@@ -1,4 +1,23 @@
 <!-- Modal -->
+<style>
+    .modal-title{
+        margin-left: 144px !important;
+
+    }
+
+    .form-control:hover{
+    border-color: blue !important;
+    
+}
+.form-control:focus{
+    border-color: blue !important;
+    
+}
+.form-control{
+    border-color: #997045;
+    /* text-align: center; */
+}
+</style>
 <div class="modal fade" id="editvendor" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -9,56 +28,86 @@
             <div class="modal-body">
                 <form class="forms-sample" id="edit-vendor-form-data">
                     <input type="hidden" class="id" name="id" value="">
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Brand Name</label>
-                        <input type="text" class="form-control brand_name" name="brand_name" id="exampleInputUsername1"
+
+                    <div class="form-group form-focus">
+                       
+                        <input type="text" class="form-control floating brand_name" name="brand_name" id="exampleInputUsername1"
                                autocomplete="off" value="Noraiz">
+                        <label for="exampleInputUsername1" class="form-label  inner_label focus-label">Brand Name</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Company Name</label>
-                        <input type="text" class="form-control company_name" name="company_name"
+
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating company_name" name="company_name"
                                id="exampleInputUsername1"
                                autocomplete="off" placeholder="Company Name">
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Company Name</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Website</label>
-                        <input type="text" class="form-control website" name="website" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                       
+                        <input type="text" class="form-control floating website" name="website" id="exampleInputUsername1"
                                autocomplete="off" placeholder="Website">
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Business Website</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Business Mail</label>
-                        <input type="text" class="form-control email" name="email" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1"
                                autocomplete="off" Value="xyz@gmail.com">
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Business Email</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">First Name</label>
-                        <input type="text" class="form-control first_name" name="first_name" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating first_name" name="first_name" id="exampleInputUsername1"
                                autocomplete="off" Value="xyz@gmail.com">
+                               <label for="exampleInputUsername1" class="form-label inner_label focus-label">First Name</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Last Name</label>
-                        <input type="text" class="form-control last_name" name="last_name" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                       
+                        <input type="text" class="form-control  floating last_name" name="last_name" id="exampleInputUsername1"
                                autocomplete="off" Value="xyz@gmail.com">
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Last Name</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Position</label>
-                        <input type="text" class="form-control position" name="position" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating  position" name="position" id="exampleInputUsername1"
                                autocomplete="off" Value="+6885876">
+                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Position</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Mobile</label>
-                        <input type="text" class="form-control phone" name="mobile" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating phone" name="mobile" id="exampleInputUsername1"
                                autocomplete="off" Value="+6885876">
+                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Mobile</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Country</label>
-                        <select class="js-example-basic-single form-select country_id" data-width="100%"
+                    <div class="form-group form-focus">
+                                                
+                        <select name="gender" class="form-control floating" id="gender">
+                            {{-- <option selected value=" "> select Gender</option> --}}
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Gender.
+                        </div>
+                        <label class="focus-label">Gender</label>
+                    </div>
+                    <div class="form-group form-focus">
+                        <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
+                        {{-- <div class="invalid-feedback">
+                            Please provide a valid age.
+                        </div> --}}
+                        <label class="focus-label">Age</label>
+                    </div>
+                    <div class="form-group form-focus">
+                        
+                        <select class="js-example-basic-single form-control  floating form-select country_id" data-width="100%"
                                 name="country_id">
                             <option value="" disabled>Select Country</option>
                             @foreach($countries as $country)
                                 <option value="{{ $country->id }}">{{ $country->name }}</option>
                             @endforeach
                         </select>
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Country</label>
                     </div>
                     <!-- <div class="mb-3">
                         <label for="exampleInputUsername1" class="form-label">Brand State</label>
@@ -68,27 +117,30 @@
 
                         </select>
                     </div> -->
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">City</label>
-                        <select class="js-example-basic-single form-select city_id" data-width="100%" id="city_id"
+                    <div class="form-group form-focus">
+                        
+                        <select class="js-example-basic-single form-control  floating form-select city_id" data-width="100%" id="city_id"
                                 name="city_id">
                             <option value="" disabled>Select City</option>
 
                         </select>
+                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">City</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Password</label>
-                        <input type="text" class="form-control" name="password" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                    
+                        <input type="text" class="form-control floating" name="password" id="exampleInputUsername1"
                                autocomplete="off" placeholder="(Leave it empty if you don't want to change)">
                         <i class="fa fa-eye one" id="togglePassword"
                            style="position: absolute;top: 83%;right: 5%;cursor: pointer;color: lightgray;"></i>
+                           <label for="exampleInputUsername1" class="form-label inner_label focus-label">Password</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputUsername1" class="form-label">Confirm Password</label>
-                        <input type="text" class="form-control" name="confirm_password" id="exampleInputUsername1"
+                    <div class="form-group form-focus">
+                        
+                        <input type="text" class="form-control floating" name="confirm_password" id="exampleInputUsername1"
                                autocomplete="off" placeholder="Confirm Password">
                         <i class="fa fa-eye one" id="togglePassword"
                            style="position: absolute;top: 90%;right: 5%;cursor: pointer;color: lightgray;"></i>
+                           <label for="exampleInputUsername1" class="form-label inner_label focus-label">Confirm Password</label>
                     </div>
                     <!-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Brand Type</label>
@@ -118,9 +170,11 @@
                     {{--                            <label class="form-check-label" for="formSwitch1">Active</label>--}}
                     {{--                        </div>--}}
                     {{--                    </div>--}}
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <button type="button" data-bs-dismiss="modal" aria-label="btn-close" class="btn btn-danger">Cancel
-                    </button>
+                   
+                   
+                   <div class="text-center"> <button type="submit" class="btn btn-primary me-2">Submit</button></div> 
+                    {{-- <button type="button" data-bs-dismiss="modal" aria-label="btn-close" class="btn btn-danger">Cancel
+                    </button> --}}
                 </form>
             </div>
             <!-- <div class="modal-footer">

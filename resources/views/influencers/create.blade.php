@@ -13,9 +13,38 @@
     
 }
 .form-control::placeholder{
+    
     color: blue !important;
     font-size: 12px !important;
 }
+
+.form-control::placeholder {
+            color: transparent;
+        }
+
+        /* When the input is focused, display the placeholder */
+        .form-control:focus::placeholder {
+            color: #999;
+        }
+
+        /* Style the label */
+        .focus-label {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        /* When the input is focused, move the label up */
+        .form-control:focus + .focus-label {
+            top: -10px;
+            font-size: 12px;
+            color: #007bff;
+        }
+
 </style>
 @section('content')
     <div class="page-content">
@@ -66,11 +95,13 @@
                                        autocomplete="off" placeholder="Mobile">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)" placeholder="Please enter a valid Mobile.">
+                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"   placeholder="" 
+                                placeholder="" 
+                                data-placeholder="Please enter a valid Mobile" >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Mobile. --}}
                                 {{-- </div> --}} 
-                                <label class="inner_label focus-label">Mobile </label>
+                                <label class="inner_label focus-label">Mobile</label>
                             </div>
 
                             <div class="form-group form-focus">
@@ -224,10 +255,23 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+     $(document).ready(function() {
+        var $input = $('.form-control');
+        var placeholderText = $input.data('placeholder');
+        
+        $input.on('focus', function() {
+            $(this).attr('placeholder', placeholderText);
+        });
+
+        $input.on('blur', function() {
+            $(this).attr('placeholder', '');
+        });
+    });
 
         $(document).on('change', '#country_id', function () {
             getCitiesByCountry($(this).val());
         });
+       
 
         function togglePassword(inputId, iconId) {
             var passwordInput = document.getElementById(inputId);

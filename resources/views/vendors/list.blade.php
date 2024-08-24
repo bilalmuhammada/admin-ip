@@ -1,4 +1,25 @@
 @extends('layout.master')
+<style>
+    .dt-button:hover{
+    background-color: blue !important;
+    color: white !important;
+}
+.dt-button{
+    border-color: #997045 !important;
+
+}
+.col-sm-3{
+    padding-right: 301px !important;
+
+}
+
+.dataTables_filter{
+    
+    padding: 9px !important ;
+    /* margin-right: 161px !important; */
+
+}
+</style>
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
@@ -45,21 +66,27 @@
                                     <th>Vendor’s.User.Person.Name</th>
                                     <th>Status</th>
                                     <th>Action</th> -->
-                                    <th>No.</th>
+                                    
+                                    <th>#</th>
+                                    <th>ID#</th>
                                     <th>Photo</th>
-                                    <th>ID</th>
                                     <th>Brand Name</th>
                                     <th>Company Name</th>
                                     <th>Website</th>
                                     <th>Business Email</th>
-                                    <th>User Name</th>
+                                    <th>Name</th>
+                                    <th>Position</th>
                                     <th>Mobile</th>
-                                    <th>Country</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
                                     <th>City</th>
+                                    <th>Country</th>
+                                    
                                     <th>Member</th>
                                     <th>Subscription</th>
                                     <th>Amount</th>
-{{--                                    <th>Status</th>--}}
+                                    <th>Invoice#</th>
+                                   <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -74,35 +101,69 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+
+$(document).ready(function() {
+        if ($('.floating').length > 0) {
+            $('.floating').on('focus blur', function(e) {
+                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+            }).trigger('blur');
+        }
+
+        // Toggle Password Visibility
+        $('#togglePassword').on('click', function() {
+            let input = $(this).siblings('input');
+            let type = input.attr('type') === 'password' ? 'text' : 'password';
+            input.attr('type', type);
+            $(this).toggleClass('fa-eye fa-eye-slash');
+        });
+});
+
         function makeTableBody(data) {
             var table_body = '';
             var count = 1;
             data.forEach(function (value, key) {
                 var checked = '';
-                if (value.status === 'active') {
+                if (value.status === 'ACTIVE') {
                     checked = 'checked';
                 }
 
                 table_body += `<tr>
                                     <td>${count++}</td>
+                                      <td>${value.id}</td>
                                     <td>
                                         <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="profile">
                                     </td>
-                                    <td>${value.id}</td>
+                                  
                                     <td>${value.brand_name ?? '-'}</td>
                                     <td>${value.company_name ?? '-'}</td>
                                     <td> ${value.website ?? '-'}</td>
                                     <td>${value.email ?? '-'}</td>
                                     <td>${value.name} ${value.last_name ?? '-'}</td>
+                                     <td>${value.position ?? '-'}</td>
                                     <td>${value.phone ?? '-'}</td>
-                                    <td>${value.country_name}</td>
+                                     <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
+                                    <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
                                     <td>${value.city_name}</td>
+                                    <td>${value.country_name}</td>
+                                    
                                     <td>${value.member_since}</td>
+                                     <td>${value.plan ? value.plan.name : '-'}</td>
                                     <td>${value.amount_received}</td>
-                                    <td>${value.plan ? value.plan.name : '-'}</td>
+                                     <td>${value.invoice_no ?? '-inv'}</td>
+
+                                   <td class='td-toggle'>
+    <label class="c-toggle">
+        <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
+        <span class="c-slider"></span>
+    </label>
+</td>
                                     <td>
-                                    <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'><i class='fa fa-edit'></i> Edit</a>
-                                    <a href='#' id='delete-btn' vendor-id='${value.id}' class='remove-user text-danger'><i class='fa fa-trash'></i> Delete</a>
+                                    <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>
+                                       
+                                        Edit</a>
+                                    <a href='#' id='delete-btn' vendor-id='${value.id}' class='remove-user text-danger'>
+                                        
+                                         Delete</a>
                                     </td>
                                 </tr>`;
 
