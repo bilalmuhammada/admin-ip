@@ -17,12 +17,22 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>ID #</th>
                                     <th>Photo</th>
                                     <th>Name</th>
-                                    <th>ID</th>
+                                    {{-- <th>ID</th> --}}
                                     <th>Email</th>
+                                    <th>Mobile</th>
+                                    {{-- <th>Email</th> --}}
+                                   
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Member</th>
+                                    <th>Added By</th>
+                                    <th>City</th>
+                                    <th>Country</th>
                                     <th>Status</th>
-                                    {{--<th>Action</th>--}}
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody class="t-body"></tbody>
@@ -47,13 +57,24 @@
                 table_body += `<tr>
 
                                 <td> ${Number(count++)} </td>
+                                <td> ${value.id} </td>
                                 <td>
                                     <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
                                 </td>
                                 <td> ${value.name} </td>
-                                <td> ${value.id} </td>
+                                
 
                                 <td> ${value.email} </td>
+<td> ${value.phone ?? '-'} </td>
+
+<td> ${value.gender ?? '-'} </td>
+<td> ${value.age ?? '-'} </td>
+<td> ${value.member_since ?? '-'} </td>
+<td> ${value.addedBy ?? '-'} </td>
+<td> ${value.city ?? '-'} </td>
+<td> ${value.country ?? '-'} </td>
+
+
                                 <td class='td-toggle'>
                                     <label class="c-toggle">
                                         <input type="checkbox" name="change-status" ${checked} class="change-status" admin-id='${value.id}' state='${checked}'>

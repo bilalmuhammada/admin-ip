@@ -166,19 +166,23 @@
                                     <th>#</th>
                                     <th>ID #</th>
                                     <th>Photo</th>
-                                    {{-- <th>Type</th> --}}
+                                    <th>Category</th>
                                     <th>Name</th>
-                                    <th>Email</th>
                                     <th>Mobile</th>
+                                    <th>Email</th>
+                                   
                                     <th>Gender</th>
                                     <th>Age</th>
-                                    <th>Member</th>
-                                    <th>Added By</th>
-                                  
+                                     
                                     <th>City</th>
                                     <th>Country</th>
-                                    {{-- <th>Subscription</th>
-                                    <th>Amount</th> --}}
+                                    <th>Member</th>
+                                    <th>Subscription</th>
+                                    {{-- <th>Added By</th> --}}
+                                 
+                                   
+                                    <th>Amount</th> 
+                                    <th>Invoice #</th> 
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -226,17 +230,22 @@
                                     <td>
                                         <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="profile">
                                     </td>
+                                     <td>${value.category ?? '-'}</td>
                                   <td>${value.name}</td>
+                                     <td>${value.phone ?? '-'}</td>
                                     <td>${value.email ?? '-'}</td>
                                       
                                     
-                                    <td>${value.phone ?? '-'}</td>
+                                   
                                     <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
                                     <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
-                                    <td>${value.member_since}</td>
-                                   <td>--</td> 
-                                  <td>${value.city_name}</td>
+                                      <td>${value.city_name}</td>
                                     <td>${value.country_name}</td>
+                                    <td>${value.member_since}</td>
+                                     <td>${value.plane ? value.plane.name : '-'}</td>
+                                    <td>${value.amount}</td>
+                                   <td>--</td> 
+                                
                                     
 
                                    <td class='td-toggle'>

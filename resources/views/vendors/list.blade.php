@@ -155,7 +155,7 @@
                                     <th>Action</th> -->
                                     
                                     <th>#</th>
-                                    <th>ID #</th>
+                                    <th>User ID #</th>
                                     <th>Photo</th>
                                     <th>Brand Name</th>
                                     <th>Company Name</th>

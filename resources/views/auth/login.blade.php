@@ -22,6 +22,12 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+.fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    color: lightgray !important;}
     
 </style>
 <div class="page-content d-flex align-items-center justify-content-center">
@@ -41,7 +47,7 @@
                             {{-- <a href="#" class="noble-ui-logo d-block mb-2 text-center">
                                 <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo">
                             </a> --}}
-                            <h5 class="text-muted fw-normal mb-4 text-center">Sign in to stay updated on your professional world!</h5>
+                            <h5 class="text-muted fw-normal mb-4 text-center">Welcome back! Log in to your account</h5>
                             <form class="login-form">
                                 {{-- <div class="mb-3">
                                     <label for="userEmail" class="form-label">Email address</label>
@@ -60,7 +66,7 @@
                                 </div> --}}
                                 <div class="form-group form-focus" style="margin-top:14px;">
                                     <input type="password" name="password"class="form-control floating password login-user" id="userPassword" autocomplete="current-password" placeholder="Password">
-                                    <i class="fa-solid fa-eye" id="eye" onclick="togglePassword()"></i>
+                                    <i class="fa fa-eye" id="togglePassword" onclick="togglePassword()"></i>
                                     <div class="invalid-feedback">
                                         Please provide a correct password.
                                     </div>
@@ -99,4 +105,27 @@
 
 </div>
 
+@endsection
+@section('page_scripts')
+    <script type="text/javascript">
+   
+$(document).ready(function() {
+    if ($('.floating').length > 0) {
+        // alert($('.floating').length);
+        $('.floating').on('focus blur', function(e) {
+            $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+        }).trigger('blur');
+    }else{
+        
+    }
+
+    // Toggle Password Visibility
+    $('#togglePassword').on('click', function() {
+        let input = $(this).siblings('input');
+        let type = input.attr('type') === 'password' ? 'text' : 'password';
+        input.attr('type', type);
+        $(this).toggleClass('fa-eye fa-eye-slash');
+    });
+});
+</script>
 @endsection

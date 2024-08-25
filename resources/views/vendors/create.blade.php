@@ -17,6 +17,7 @@
     border-color: blue !important;
     
 }
+
 </style>
 @section('content')
     <div class="page-content">

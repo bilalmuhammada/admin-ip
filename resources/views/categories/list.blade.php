@@ -155,6 +155,21 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+     $(document).ready(function() {
+        if ($('.floating').length > 0) {
+            $('.floating').on('focus blur', function(e) {
+                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+            }).trigger('blur');
+        }
+
+        // Toggle Password Visibility
+        $('#togglePassword').on('click', function() {
+            let input = $(this).siblings('input');
+            let type = input.attr('type') === 'password' ? 'text' : 'password';
+            input.attr('type', type);
+            $(this).toggleClass('fa-eye fa-eye-slash');
+        });
+    });
         function makeTableBody(data) {
             var table_body = '';
             var count = 1;
