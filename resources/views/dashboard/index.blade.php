@@ -21,8 +21,15 @@ font-weight:bold !important;
     border-color: #997045;
     text-align: center;
 }
+.card {
+    
+   border: 1px solid #e8e8e8 !important;
+    background-color: #fff !important;
+    box-shadow: 0px 4px 4px rgba(204, 204, 204, 0.25) !important;
+/* margin-bottom: 30px; */
+}
 .topcard{
-    margin-bottom: 4px !important;
+    margin-bottom: 6px !important;
 }
 .form-control:hover{
     border-color: blue !important;

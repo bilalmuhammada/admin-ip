@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,12 @@ class AdminController extends Controller
         return view('admins.list')->with(['menu' => 'admins']);
     }
 
+
+    public function create()
+    {
+        $countries = Country::all();
+        return view('admins.create')->with(['menu' => 'admins/create', 'countries' => $countries]);
+    }
     public function all()
     {
         $users = User::where('role_id','1')->latest()->get();

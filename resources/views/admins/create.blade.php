@@ -49,7 +49,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center " style="color: blue !important;">Add Influencers</h3>
+            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Admins</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -95,9 +95,9 @@
                                        autocomplete="off" placeholder="Mobile">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"   placeholder="" 
-                                placeholder="" 
-                                data-placeholder="Please enter a valid Mobile" >
+                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"  
+                            
+                                placeholder="Please enter a valid Mobile" >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Mobile. --}}
                                 {{-- </div> --}} 
@@ -106,8 +106,8 @@
 
                             <div class="form-group form-focus">
                                                 
-                                <input type="email" class="form-control floating inputbg" name="email" style="font-weight: 300 !important;"
-                                       placeholder="Please provide a valid Email." value="">
+                                <input type="email" class="form-control floating inputbg" name="email"
+                                       placeholder="Please provide a valid Email." >
                                 {{-- <label class="inner_label focus-label">Email33 </label> --}}
                                 <label for="username" class="inner_label focus-label" style="margin-left: 0px;">Email</label>
 
@@ -135,6 +135,13 @@
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
                                 <label class="focus-label">Age</label>
+                            </div>
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" name="addedby"   pattern="\+?\d*" oninput="validateInputtext(this)">
+                                {{-- <div class="invalid-feedback">
+                                    {{-- Please provide a valid Age. --}}
+                                {{-- </div>  --}}
+                                <label class="focus-label">Added By</label>
                             </div>
 
                             <div class="form-group form-focus">
@@ -255,12 +262,16 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+    function validateInputtext(input) {
+    // Remove any character that is not a letter or space
+    input.value = input.value.replace(/[^A-Za-z\s]/g, '');
+}
         function validateInput(input) {
             
-            // Allow only digits and the '+' sign, and ensure '+' is only at the beginning
-            input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
-        }
-   $(document).ready(function() {
+    // Allow only digits and the '+' sign, and ensure '+' is only at the beginning
+    input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+}
+$(document).ready(function() {
         if ($('.floating').length > 0) {
             // alert($('.floating').length);
             $('.floating').on('focus blur', function(e) {
@@ -278,6 +289,9 @@
             $(this).toggleClass('fa-eye fa-eye-slash');
         });
 });
+    
+
+        
 
         $(document).on('change', '#country_id', function () {
             getCitiesByCountry($(this).val());

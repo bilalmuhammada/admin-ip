@@ -43,10 +43,12 @@ Route::middleware('auth_check')->group(function () {
 
     Route::prefix('/admins')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
+        Route::get('/create', [AdminController::class, 'create']);
     });
 
     Route::prefix('/categories')->group(function () {
          Route::get('/', [CategoryController::class, 'index']);
+         
     });
 
     Route::prefix('/vendors')->group(function () {

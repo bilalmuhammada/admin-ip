@@ -4,20 +4,6 @@
     border-color: #997045 !important;
     /* text-align: center; */
 }
-::-webkit-scrollbar {
-  width: 12px; /* You can adjust this value based on your preference */
-}
-
-/* Define the scrollbar thumb */
-::-webkit-scrollbar-thumb {
-  background-color: #997045;
-  border-radius: 34px;
-}
-
-/* Define the scrollbar track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
 .form-control:hover{
     border-color: blue;
    
@@ -35,12 +21,12 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center">Brand</h3>
+            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Brands</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
         <div class="row">
-            <div class="col-md-5 grid-margin stretch-card" style="margin:0px auto;">
+            <div class="col-md-5 grid-margin stretch-card" style="margin:-32px auto;">
                 <div class="card">
                     <div class="card-body">
                         <form class="forms-sample" id="form_date">
@@ -51,7 +37,7 @@
                                        autocomplete="off" placeholder="Brand Name">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating inputbg" name="brand_name">
+                                <input type="text" class="form-control floating" name="brand_name">
                                 <div class="invalid-feedback">
                                     Please provide a valid Brand Name.
                                 </div>
@@ -75,7 +61,7 @@
                                        autocomplete="off" placeholder="Website">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating inputbg "  placeholder="Please provide a valid Business Website." name="website">
+                                <input type="text" class="form-control floating "  placeholder="Please provide a valid Business Website." name="website">
                                 {{-- <div class="invalid-feedback">
                                     Please provide a valid Website.
                                 </div> --}}
@@ -226,7 +212,7 @@
                             <div class="form-group form-focus">
                                 <input type="password" class="form-control floating" name="password"
                                        id="brand" placeholder="8  Characters - 1 Capital, 1 Number, 1 Special">
-                                <i class="fa-solid fa-eye" id="eye"
+                                <i class="fa fa-eye" id="eye"
                                    onclick="togglePassword('brand')"></i>
                                 
                                 <label class="inner_label focus-label bilal-register">Password</label>
@@ -234,7 +220,7 @@
                             <div class="form-group form-focus mb-0">
                                 <input type="password" class="form-control floating"
                                        name="confirm_password" id="brand_confirm_password">
-                                <i class="fa-solid fa-eye" id="eye"
+                                <i class="fa fa-eye" id="eye"
                                    onclick="togglePassword('brand_confirm_password')"></i>
                                 <div class="invalid-feedback">
                                     Please provide a valid Confirm Password.
@@ -249,7 +235,7 @@
                             {{--      
                                               </div>--}}
 
-                            <div class="text-center font-bold">
+                            <div class="text-center font-bold" style="margin-top: 14px;">
                             <button type="submit" class="btn btn-primary me-2">Register</button>
                         </div>
                             {{-- <button class="btn btn-danger">Cancel</button> --}}
@@ -262,38 +248,20 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
-    
-        $(document).ready(function() {
-    if ($('.floating').length > 0) {
-        // Loop through each input field with the 'floating' class
-        $('.floating').each(function() {
-            var $this = $(this);
-
-            // Initially hide the placeholder if the input is empty
-            if ($this.val().length === 0) {
-                $this.attr('placeholder', '');  // Clear placeholder initially
-            }
-
-            // Show the placeholder on focus
-            $this.on('focus', function() {
-                $this.attr('placeholder', $this.data('placeholder'));  // Show placeholder on focus
-                $(this).parents('.form-focus').addClass('focused');
-            });
-
-            // Hide the placeholder on blur if the input is empty
-            $this.on('blur', function() {
-                if ($this.val().length === 0) {
-                    $this.attr('placeholder', '');  // Hide placeholder on blur if input is empty
-                }
-                $(this).parents('.form-focus').toggleClass('focused', this.value.length > 0);
-            });
-        });
-    } else {
-        // If there are no elements with the 'floating' class, handle accordingly
-        console.log('No floating inputs found.');
-    }
-
-
+        function validateInput(input) {
+            
+            // Allow only digits and the '+' sign, and ensure '+' is only at the beginning
+            input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+        }
+    $(document).ready(function() {
+        if ($('.floating').length > 0) {
+            // alert($('.floating').length);
+            $('.floating').on('focus blur', function(e) {
+                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+            }).trigger('blur');
+        }else{
+            
+        }
 
         // Toggle Password Visibility
         $('#togglePassword').on('click', function() {
