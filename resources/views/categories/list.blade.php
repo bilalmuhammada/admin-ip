@@ -1,6 +1,36 @@
 @extends('layout.master')
 
 <style>
+    .dt-button:hover{
+    background-color: blue !important;
+    color: white !important;
+}
+.dt-button{
+    border-color: #997045 !important;
+
+}
+.col-sm-3{
+    padding-right:116px !important;
+
+}
+.dataTables_filter>input:focus{
+   border-color:blue !important; 
+}
+
+.dataTables_filter>input{
+    
+    
+    border-color:#997045 !important;
+    /* margin-right: 161px !important; */
+
+}
+.dataTables_filter{
+    
+    padding: 2px 29px 0px 0px !important ;
+    /* border-color:#997045 !important; */
+    /* margin-right: 161px !important; */
+
+}
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }
@@ -15,17 +45,78 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.c-toggle {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+    }
+
+    /* The hidden checkbox input */
+    .c-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider (background) */
+    .c-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red !important; /* Inactive state */
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    /* Circle inside the slider */
+    .c-slider:before {
+        position: absolute;
+        content: "\2715" !important; /* Unicode for X */
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        color: red !important;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    /* Toggle to active (checked) state */
+    input:checked + .c-slider {
+        background-color: green !important; /* Active state */
+    }
+
+    /* Move the circle and change icon when checked */
+    input:checked + .c-slider:before {
+        transform: translateX(30px);
+        content: "\2713" !important; /* Unicode for checkmark */
+        color: green !important;
+    }
+    .open-popup{
+        margin-right: 7px !important;
+        color: blue !important;
+    }
 </style>
 @section('content')
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title">All Categories</h6>
+            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Categories</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
 
-        <div class="row">
+        <div class="row" style="margin-top: -28px;">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -33,20 +124,20 @@
                         <div style="margin-bottom:10px;">
                             <button class="btn btn-primary btn-icon-text mb-2 mb-md-0" data-bs-toggle="modal"
                                     data-bs-target="#addcategory"><i width="15" class="link-icon text-white"
-                                                                     data-feather="plus-circle"></i> Add New
-                                Category
+                                                                     data-feather="plus-circle"></i> Add
+                                                                     Categories
                             </button>
                             @include('modals.add-category')
                             @include('modals.edit-category')
                         </div>
                         <div class="table-responsive">
-                            <table id="table" class="table">
+                            <table id="datatable" class="table">
                                 <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Photo</th>
                                     <th>Category</th>
-                                    <th>Slug</th>
+                                    <th>Category #</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -83,18 +174,22 @@
                                     <label class="c-toggle">
                                         <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
                                         <span class="c-slider"></span>
-                                        <span class="c-labels" data-on="Active" data-off="Inactive"></span>
+                                        
                                     </label>
                                 </td>
                                 <td>
-                                    <a href='#' id='edit-category-btn'  category-id='${value.id}' class='open-popup mr-2' data-bs-toggle="modal" data-bs-target="#editcategory"><i class='fa fa-edit'></i> Edit</a>
-                                    <a href='#' id='delete-category-btn' category-id='${value.id}' class='remove-user text-danger'><i class='fa fa-trash'></i> Delete</a>
+                                    <a href='#' id='edit-category-btn btn-info'  category-id='${value.id}' class='open-popup mr-2' data-bs-toggle="modal" data-bs-target="#editcategory">
+
+                                        Edit</a>
+                                    <a href='#' id='delete-category-btn' category-id='${value.id}' class='remove-user text-danger'>
+                                        
+                                         Delete</a>
                                 </td>
                                </tr>`;
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#table');
+            initializeDatatable('#datatable');
         }
 
         function fetchRecords() {

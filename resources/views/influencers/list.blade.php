@@ -13,9 +13,21 @@
 
 }
 
+.dataTables_filter>input:focus{
+   border-color:blue !important; 
+}
+
+.dataTables_filter>input{
+    
+    
+    border-color:#997045 !important;
+    /* margin-right: 161px !important; */
+
+}
 .dataTables_filter{
     
-    padding: 9px !important ;
+    padding: 2px 55px 0px 0px !important ;
+    /* border-color:#997045 !important; */
     /* margin-right: 161px !important; */
 
 }
@@ -90,17 +102,22 @@
         content: "\2713" !important; /* Unicode for checkmark */
         color: green !important;
     }
+
+    .open-popup{
+        margin-right: 7px !important;
+        color: blue !important;
+    }
 </style>
 @section('content')
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title">All Influencers</h6>
+            <h6 class="card-title" style="color: blue !important;margin-left: 25px;"> Influencers</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
 
-        <div class="row">
+        <div class="row"  style="margin-top: -28px;">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -147,7 +164,7 @@
                                     <th>Status</th>
                                     <th>Action</th> -->
                                     <th>#</th>
-                                    <th>ID#</th>
+                                    <th>ID #</th>
                                     <th>Photo</th>
                                     {{-- <th>Type</th> --}}
                                     <th>Name</th>

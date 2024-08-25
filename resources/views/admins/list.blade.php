@@ -2,7 +2,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title">Admin Users</h6>
+            <h6 class="card-title" style="color: blue !important;">Admins</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>

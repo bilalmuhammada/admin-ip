@@ -55,11 +55,20 @@ var data_table;
 
 function initializeDatatable(selector = '#table') {
     data_table = $(selector).DataTable({
-        dom: '<"row"<"col-sm-4"l><"col-sm-5 justify-content-end d-flex"B><"col-sm-3 justify-content-end d-flex"f>>tip',
+         dom: '<"row"<"col-sm-4"l><"col-sm-5 justify-content-end d-flex"B><"col-sm-3 justify-content-end d-flex"f>>tip',
+    //    dom:'Bftip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+              'excel', 'pdf','print'
+        ],
+        responsive: true 
+        // scrollX: true 
     });
+    $('#datatable_filter label').contents().filter(function() {
+        return this.nodeType === 3; // Removes the text node inside the label
+    }).remove();
+
+    $('#datatable_filter input').attr('placeholder','Search...').unwrap(); // Removes the label but keeps the input
+
 }
 
 function destroyDatatable() {

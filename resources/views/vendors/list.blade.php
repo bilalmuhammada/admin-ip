@@ -13,10 +13,23 @@
 
 }
 
+.dataTables_filter>input:focus{
+   border-color:blue !important; 
+}
+
+.dataTables_filter>input{
+    
+    
+    border-color:#997045 !important;
+    /* margin-right: 161px !important; */
+
+}
 .dataTables_filter{
     
-    padding: 9px !important ;
+    padding: 2px 47px 0px 0px !important ;
+    /* border-color:#997045 !important; */
     /* margin-right: 161px !important; */
+
 
 }
 .c-toggle {
@@ -89,15 +102,19 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+.open-popup{
+        margin-right: 7px !important;
+        color: blue !important;
+    }
 </style>
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title">All Brands</h6>
+            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Brands</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
-        <div class="row">
+        <div class="row"  style="margin-top: -28px;">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -107,7 +124,7 @@
                                 <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                               class="link-icon text-white"
                                                                                               data-feather="plus-circle"></i>
-                                    Add New Brand
+                                    Add Brand
                                 </button>
                             </a>
                             @include('modals.edit-vendor')
@@ -138,7 +155,7 @@
                                     <th>Action</th> -->
                                     
                                     <th>#</th>
-                                    <th>ID#</th>
+                                    <th>ID #</th>
                                     <th>Photo</th>
                                     <th>Brand Name</th>
                                     <th>Company Name</th>
