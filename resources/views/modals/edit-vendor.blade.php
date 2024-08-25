@@ -2,6 +2,7 @@
 <style>
     .modal-title{
         margin-left: 144px !important;
+        color: blue !important;
 
     }
 
@@ -46,13 +47,13 @@
                     <div class="form-group form-focus">
                        
                         <input type="text" class="form-control floating website" name="website" id="exampleInputUsername1"
-                               autocomplete="off" placeholder="Website">
+                               autocomplete="off" placeholder="Please provide a valid Business Website.">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Business Website</label>
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1"
-                               autocomplete="off" Value="xyz@gmail.com">
+                        <input type="text" class="form-control floating email" placeholder="Please provide a valid Business Email."  name="email" id="exampleInputUsername1"
+                               autocomplete="off" Value="">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Business Email</label>
                     </div>
                     <div class="form-group form-focus">
@@ -75,8 +76,8 @@
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating phone" name="mobile" id="exampleInputUsername1"
-                               autocomplete="off" Value="+6885876">
+                        <input type="text" class="form-control floating phone" name="mobile" placeholder="Please provide a valid Mobile."  id="exampleInputUsername1"
+                               autocomplete="off" value="">
                          <label for="exampleInputUsername1" class="form-label inner_label focus-label">Mobile</label>
                     </div>
                     <div class="form-group form-focus">                       
@@ -128,7 +129,7 @@
                     <div class="form-group form-focus">
                     
                         <input type="text" class="form-control floating" name="password" id="exampleInputUsername1"
-                               autocomplete="off" placeholder="(Leave it empty if you don't want to change)">
+                               autocomplete="off"  placeholder="8 Characters - 1 Capital, 1 Number, 1 Special">
                         <i class="fa fa-eye one" id="togglePassword"
                            style="position: absolute;top: 83%;right: 5%;cursor: pointer;color: lightgray;"></i>
                            <label for="exampleInputUsername1" class="form-label inner_label focus-label">Password</label>

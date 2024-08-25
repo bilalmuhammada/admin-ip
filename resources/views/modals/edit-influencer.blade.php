@@ -2,6 +2,7 @@
 <style>
     .modal-title{
         margin-left: 128px;
+        color: blue !important;
     }
     .form-control:hover{
     border-color: blue !important;
@@ -43,12 +44,12 @@
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating phone" name="phone" id="exampleInputUsername1" autocomplete="off" Value="+77868687">
+                        <input type="text" class="form-control floating phone" name="phone" id="exampleInputUsername1" placeholder="Please enter a valid Mobile" autocomplete="off" Value="">
                         <label for="exampleInputUsername1"  class="form-label form-label inner_label focus-label">Mobile</label>
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1" autocomplete="off" Value="xyz@gmail.com">
+                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1"    placeholder="Please provide a valid Email."  autocomplete="off" Value="xyz@gmail.com">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Email</label>
                     </div>
                     <div class="form-group form-focus">                       
@@ -100,7 +101,7 @@
                         <div class="form-group form-focus">
                                
                                 <input type="text" class="form-control floating" name="password" id="exampleInputUsername1"
-                                       autocomplete="off" placeholder="Leave it empty if you don't want to change">
+                                       autocomplete="off"  placeholder="8 Characters - 1 Capital, 1 Number, 1 Special">
                                        <i class="fa fa-eye one" id="togglePassword" style="position: absolute;top: 75%;right: 5%;cursor: pointer;color: lightgray;"></i>
                                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Password</label>
                            

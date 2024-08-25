@@ -95,9 +95,9 @@
                                        autocomplete="off" placeholder="Mobile">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"   placeholder="" 
-                                placeholder="" 
-                                data-placeholder="Please enter a valid Mobile" >
+                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"    
+
+                                placeholder="Please enter a valid Mobile" >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Mobile. --}}
                                 {{-- </div> --}} 
