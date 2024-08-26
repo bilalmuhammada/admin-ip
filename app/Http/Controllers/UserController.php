@@ -112,7 +112,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
 //            'type' => 'required',
             'password' => 'required|min:8|required_with:confirm_password|same:confirm_password',
-            // 'role' => 'required|exists:roles,code',
+             'role' => 'required|exists:roles,code',
         ]);
 
         if ($validator->fails()) {
@@ -140,6 +140,7 @@ class UserController extends Controller
             'last_name' => $request->last_name,
             'brand_name' => $request->brand_name,
             'role_id' => $role_id,
+            'addedby' => $request->addedby,
             'email' => $request->email,
             'description' => $request->description,
             'phone' => $request->phone,
@@ -220,6 +221,7 @@ class UserController extends Controller
             'last_name' => $request->last_name,
             'brand_name' => $request->brand_name,
             'email' => $request->email,
+            'addedby' => $request->addedby,
             'description' => $request->description,
             'phone' => $request->phone,
             'position' => $request->position,
@@ -231,6 +233,7 @@ class UserController extends Controller
 //            'status' => $request->status == 'on' ? 1 : 0,
         ];
 
+      
 
         if ($request->password) {
             $user_data_array['password'] = Hash::make($request->password);
@@ -238,7 +241,14 @@ class UserController extends Controller
 
         $User = User::with(['role', 'attachment'])->find($request->id);
         $User->update($user_data_array);
-
+        $match = ['user_id' => $request->id];
+        // personal information store here
+        UserPersonalInformation::updateOrCreate($match, [
+            // 'dialects' => $request->dialects,
+            'user_id' => $request->id,
+            'age' => $request->age,
+            'gender' => $request->gender,
+        ]);
         if ($User && $image) {
             if ($User->attachment && File::exists(public_path('uploads/users/' . $User->attachment->name))) {
                 unlink(public_path('uploads/users/' . $User->attachment->name));

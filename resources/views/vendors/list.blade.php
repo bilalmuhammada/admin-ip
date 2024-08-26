@@ -110,6 +110,13 @@
         margin-right: 7px !important;
         color: blue !important;
     }
+    .fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 @section('content')
     <div class="page-content">

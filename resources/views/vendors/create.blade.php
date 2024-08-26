@@ -17,6 +17,13 @@
     border-color: blue !important;
     
 }
+.fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 
 </style>
 @section('content')

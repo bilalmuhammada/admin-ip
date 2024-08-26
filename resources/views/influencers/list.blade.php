@@ -107,6 +107,13 @@
         margin-right: 7px !important;
         color: blue !important;
     }
+    .fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 @section('content')
 
@@ -325,8 +332,10 @@ function validateInput(input) {
                         $('.email').val(response.data.email);
                         $('.description').text(response.data.description);
                         $('.phone').val(response.data.phone);
-                        $('.country').val(response.data.country);
-                        $('.city').val(response.data.city);
+                        $('.country_id').val(response.data.country_id);
+                        $('.gender').val(response.data.personal_information.gender);
+                        $('.age').val(response.data.personal_information.age)
+                        $('.city_id').val(response.data.city_id);
                         $('.nationality').val(response.data.nationality);
                         $('.type').val(response.data.type);
                         $('.image-show').attr('src', response.data.image_url);
@@ -499,6 +508,37 @@ function validateInput(input) {
             var id = $(this).attr('influencer-id');
             var url = api_url + 'users/' + id + '/delete';
             deleteRecord(url, $(this));
+        });
+
+        $(document).on('change', '#country_id', function () {
+            var nationality_id = $(this).val();
+            if (nationality_id) {
+                $.ajax({
+                    url: api_url + 'get-cities-by-country',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "nationality_id": nationality_id
+                    },
+                    success: function (response) {
+                        if (response.data.length > 0) {
+                            var states = response.data;
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+
+                            if (states) {
+                                $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                    $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                });
+                            }
+                        } else {
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+                        }
+                    }
+                });
+            }
         });
     </script>
 @endsection

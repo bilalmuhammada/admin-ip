@@ -59,7 +59,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form class="forms-sample" id="form_date">
-                            <input type="hidden" name="role" value="influencer">
+                            <input type="hidden" name="role" value="admin">
                             {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">First Name</label>
                                 <input type="text" class="form-control" name="first_name" id="exampleInputUsername1"
@@ -95,9 +95,10 @@
                                        autocomplete="off" placeholder="Mobile">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"  
+                                <input type="text" class="form-control floating phone " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"  
                             
-                                placeholder="Please enter a valid Mobile" >
+                                {{-- placeholder="Please enter a valid Mobile" --}}
+                                 >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Mobile. --}}
                                 {{-- </div> --}} 
@@ -106,7 +107,7 @@
 
                             <div class="form-group form-focus">
                                                 
-                                <input type="email" class="form-control floating inputbg" name="email"
+                                <input type="email" class="form-control floating inputbg email" name="email"
                                        {{-- placeholder="Please provide a valid Email." --}}
                                         >
                                 {{-- <label class="inner_label focus-label">Email33 </label> --}}
@@ -120,7 +121,7 @@
                             </div> --}}
                             <div class="form-group form-focus">
                                                 
-                                <select name="gender" class="form-control floating" id="gender">
+                                <select name="gender" class="form-control floating gender" id="gender">
                                     {{-- <option selected value=" "> select Gender</option> --}}
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -131,14 +132,14 @@
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
+                                <input type="text" class="form-control floating age" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
                                 <label class="focus-label">Age</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="addedby"   >
+                                <input type="text" class="form-control floating addedby" name="addedby"   >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -146,7 +147,7 @@
                             </div>
 
                             <div class="form-group form-focus">
-                                <select name="country_id" class="form-control floating" id="country_id">
+                                <select name="country_id" class="form-control floating country_id" id="country_id">
                                     @foreach(getCountries() as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
@@ -317,7 +318,7 @@ $(document).ready(function() {
             e.preventDefault();
             var formData = new FormData($(this)[0]);
             $.ajax({
-                url: api_url + 'admins/store',
+                url: api_url + 'users/store',
                 type: 'post',
                 dataType: "JSON",
                 data: formData,
@@ -346,6 +347,37 @@ $(document).ready(function() {
                     })
                 }
             });
-        })
+        });
+
+        $(document).on('change', '#country_id', function () {
+            var nationality_id = $(this).val();
+            if (nationality_id) {
+                $.ajax({
+                    url: api_url + 'get-cities-by-country',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "nationality_id": nationality_id
+                    },
+                    success: function (response) {
+                        if (response.data.length > 0) {
+                            var states = response.data;
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+
+                            if (states) {
+                                $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                    $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                });
+                            }
+                        } else {
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+                        }
+                    }
+                });
+            }
+        });
     </script>
 @endsection

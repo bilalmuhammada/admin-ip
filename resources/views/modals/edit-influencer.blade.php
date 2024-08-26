@@ -16,6 +16,13 @@
     border-color: #997045;
     /* text-align: center; */
 }
+.fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 
 
@@ -57,7 +64,7 @@
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Email</label>
                     </div>
                     <div class="form-group form-focus">                       
-                        <select name="gender" class="form-control floating" id="gender">
+                        <select name="gender" class="form-control floating gender" id="gender">
                             {{-- <option selected value=" "> select Gender</option> --}}
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -68,7 +75,7 @@
                         <label class="focus-label">Gender</label>
                     </div>
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
+                        <input type="text" class="form-control floating age"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
                         {{-- <div class="invalid-feedback">
                             Please provide a valid age.
                         </div> --}}

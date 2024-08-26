@@ -44,7 +44,13 @@
             font-size: 12px;
             /* color: #007bff; */
         }
-
+        .fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 @section('content')
     <div class="page-content">
@@ -333,6 +339,37 @@
                     })
                 }
             });
-        })
+        });
+
+        $(document).on('change', '#country_id', function () {
+            var nationality_id = $(this).val();
+            if (nationality_id) {
+                $.ajax({
+                    url: api_url + 'get-cities-by-country',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "nationality_id": nationality_id
+                    },
+                    success: function (response) {
+                        if (response.data.length > 0) {
+                            var states = response.data;
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+
+                            if (states) {
+                                $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                    $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                });
+                            }
+                        } else {
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+                        }
+                    }
+                });
+            }
+        });
     </script>
 @endsection
