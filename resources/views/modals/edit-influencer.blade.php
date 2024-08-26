@@ -84,7 +84,7 @@
                     <div class="form-group form-focus">
                             
                             <select class="js-example-basic-single form-control floating form-select country_id" data-width="100%"
-                                    name="country_id">
+                                    name="country_id" id="country_id">
                                 <option value="" disabled>Select Country</option>
                                 @foreach($countries as $country)
                                     <option value="{{ $country->id }}">{{ $country->name }}</option>

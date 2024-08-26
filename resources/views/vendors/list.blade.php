@@ -413,8 +413,8 @@ $(document).ready(function() {
                         $('.description').val(response.data.description);
                         $('.phone').val(response.data.phone);
                         $('.position').val(response.data.position);
-                        $('.gender').val(response.data.personal_information.gender);
-                        $('.age').val(response.data.personal_information.age);
+                        $('.gender').val(response.data.personal_information ? response.data.personal_information.gender :'');
+                        $('.age').val(response.data.personal_information ? response.data.personal_information.age :'');
                         $('.country_id').val(response.data.country_id);
                         $('.city_id').val(response.data.city_id);
                         // $('.nationality').val(response.data.nationality);

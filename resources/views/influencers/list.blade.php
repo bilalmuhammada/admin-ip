@@ -333,8 +333,8 @@ function validateInput(input) {
                         $('.description').text(response.data.description);
                         $('.phone').val(response.data.phone);
                         $('.country_id').val(response.data.country_id);
-                        $('.gender').val(response.data.personal_information.gender);
-                        $('.age').val(response.data.personal_information.age)
+                        $('.gender').val(response.data.personal_information ? response.data.personal_information.gender:'');
+                        $('.age').val(response.data.personal_information ? response.data.personal_information.age :'')
                         $('.city_id').val(response.data.city_id);
                         $('.nationality').val(response.data.nationality);
                         $('.type').val(response.data.type);
@@ -512,6 +512,7 @@ function validateInput(input) {
 
         $(document).on('change', '#country_id', function () {
             var nationality_id = $(this).val();
+            // alert(nationality_id );
             if (nationality_id) {
                 $.ajax({
                     url: api_url + 'get-cities-by-country',

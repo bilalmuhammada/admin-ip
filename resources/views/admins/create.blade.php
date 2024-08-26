@@ -44,7 +44,13 @@
             font-size: 12px;
             /* color: #007bff; */
         }
-
+        .fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 @section('content')
     <div class="page-content">

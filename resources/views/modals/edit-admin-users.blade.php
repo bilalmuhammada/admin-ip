@@ -21,11 +21,12 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Edit Admin Users</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Edit Admin</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                         </div>
                         <div class="modal-body" style="margin-top: -27px">
-                            <form class="forms-sample">
+                            <form class="forms-sample" id="edit-admin-form-data">
+                                <input type="hidden" class="id" name="id" value="">
                                 {{-- <div class="mb-3">
                                     <label for="exampleInputUsername1" class="form-label">Admin Name</label>
                                     <input type="text" class="form-control" name="name" id="exampleInputUsername1" autocomplete="off" value="Noraiz">
@@ -265,7 +266,7 @@
                                     </div>
                                 </div> -->
                                 <div class="text-center font-bold" style="margin-top: 14px;">
-                                    <button type="submit" class="btn btn-primary me-2">Register</button>
+                                    <button type="submit" class="btn btn-primary me-2">submit</button>
                                 </div>
                             </form>
                         </div>

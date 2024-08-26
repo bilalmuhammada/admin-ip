@@ -278,12 +278,13 @@ class UserController extends Controller
     {
         $User = User::where('id', $request->id)->first();
 
-        if ($User && $User->attachment) {
-            if (File::exists(public_path('uploads/users/' . $User->attachment->name))) {
-                unlink(public_path('uploads/users/' . $User->attachment->name));
-            }
+        if ($User || $User->attachment) {
+            // dd('dd');
+            // if (File::exists(public_path('uploads/users/' . $User->attachment->name))) {
+            //     unlink(public_path('uploads/users/' . $User->attachment->name));
+            // }
 
-            Attachment::where('object', 'User')->where('object_id', $User->id)->delete();
+            // Attachment::where('object', 'User')->where('object_id', $User->id)->delete();
             $User->delete();
         }
         return response()->json([

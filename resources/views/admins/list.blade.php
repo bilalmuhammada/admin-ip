@@ -107,6 +107,13 @@
         margin-right: 7px !important;
         color: blue !important;
     }
+    .fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 @section('content')
     <div class="page-content">
@@ -120,7 +127,9 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <table id="datatable" class="table">
+                        
+                            <div class="table-responsive">
+                                <table id="datatable" class="table">
                             <div style="margin-bottom:10px;">
                                 <a href="{{ env('BASE_URL') . 'admins/create'}}">
                                     {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
@@ -138,11 +147,9 @@
                                 @include('modals.edit-admin-users')
 
                                 @include('modals.edit-vendor-and-influencer-status-modal')
-                        <!-- <h6 class="card-title">All Transactions</h6> -->
-                        <div class="table-responsive">
-                            <table id="table" class="table">
                                 <thead>
-                                <tr>
+                        <!-- <h6 class="card-title">All Transactions</h6> -->
+                        <tr>
                                     <th>#</th>
                                     <th>ID #</th>
                                     <th>Photo</th>
@@ -220,8 +227,8 @@
 <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
 <td> ${value.member_since ?? '-'} </td>
 <td> ${value.addedby ?? '-'} </td>
-       <td>${value.city_name}</td>
-                                    <td>${value.country_name}</td>
+       <td>${value.city_name ?? '-'}</td>
+                                    <td>${value.country_name ?? '-'}</td>
 
 
                                                     <td class='td-toggle'>
@@ -246,7 +253,7 @@
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#table');
+            initializeDatatable('#datatable');
         }
 
         function fetchRecords() {
@@ -276,6 +283,45 @@
             fetchRecords();
         });
 
+        $(document).on('submit', '#edit-status-form-data', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: api_url + 'users/change-status',
+                data: {
+                    status: $("#editStatusModal .status").val(),
+                    id: $("#editStatusModal .id").val(),
+                },
+                type: 'post',
+                dataType: "JSON",
+                success: function (response) {
+                    if (response.status) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.message,
+                            icon: 'success',
+                        }).then((result) => {
+                            destroyDatatable();
+                            fetchRecords();
+                            $("#editStatusModal").modal('hide')
+                        })
+                    } else {
+                        Swal.fire({
+                            title: 'Problem!',
+                            text: response.message,
+                            icon: 'warning',
+                        })
+                    }
+                },
+                error: function (response) {
+                    Swal.fire({
+                        title: 'Problem!',
+                        text: 'Unexpected error',
+                        icon: 'warning',
+                    })
+                }
+            });
+        });
+
         $(document).on('change', '.change-status', function () {
             var status = 'off';
             if ($(this).attr('state') === '') {
@@ -283,10 +329,10 @@
             }
 
             $.ajax({
-                url: api_url + 'admins/change-status',
+                url: api_url + 'users/change-status',
                 data: {
                     status: status,
-                    admin_id: $(this).attr('admin-id')
+                    id: $(this).attr('category-id')
                 },
                 type: 'post',
                 dataType: "JSON",
@@ -317,7 +363,6 @@
                 }
             });
         });
-
         $(document).on('click', '#edit-role-btn', function () {
             var role_id = $(this).attr('role-id');
             $.ajax({
@@ -440,8 +485,8 @@
                         $('.phone').val(response.data.phone);
                         $('.addedby').val(response.data.addedby);
                         $('.country_id').val(response.data.country_id);
-                        $('.gender').val(response.data.personal_information.gender);
-                        $('.age').val(response.data.personal_information.age)
+                        $('.gender').val(response.data.personal_information ? response.data.personal_information.gender:'');
+                        $('.age').val(response.data.personal_information ? response.data.personal_information.age :'')
                         $('.city_id').val(response.data.city_id);
                         // $('.nationality').val(response.data.nationality);
                         $('.type').val(response.data.type);
@@ -481,9 +526,10 @@
             });
         });
 
-        $(document).on('submit', '#edit-influence-form-data', function (e) {
+        $(document).on('submit', '#edit-admin-form-data', function (e) {
             e.preventDefault();
             var formData = new FormData($(this)[0]);
+            alert('dd');
             setTimeout($.ajax({
                 url: api_url + 'users/update',
                 type: 'POST',
@@ -520,7 +566,37 @@
             }), 1000);
         });
 
+        $(document).on('change', '#country_id', function () {
+            var nationality_id = $(this).val();
+            // alert(nationality_id );
+            if (nationality_id) {
+                $.ajax({
+                    url: api_url + 'get-cities-by-country',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "nationality_id": nationality_id
+                    },
+                    success: function (response) {
+                        if (response.data.length > 0) {
+                            var states = response.data;
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
 
+                            if (states) {
+                                $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                    $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                });
+                            }
+                        } else {
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+                        }
+                    }
+                });
+            }
+        });
 
     </script>
 @endsection
