@@ -107,7 +107,8 @@
                             <div class="form-group form-focus">
                                                 
                                 <input type="email" class="form-control floating inputbg" name="email"
-                                       placeholder="Please provide a valid Email." >
+                                       {{-- placeholder="Please provide a valid Email." --}}
+                                        >
                                 {{-- <label class="inner_label focus-label">Email33 </label> --}}
                                 <label for="username" class="inner_label focus-label" style="margin-left: 0px;">Email</label>
 
@@ -137,7 +138,7 @@
                                 <label class="focus-label">Age</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="addedby"   pattern="\+?\d*" oninput="validateInputtext(this)">
+                                <input type="text" class="form-control floating" name="addedby"   >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -193,7 +194,8 @@
                             <div class="form-group form-focus">
                                 <input type="password" class="form-control floating" name="password"
                                        id="influencer_password"
-                                placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" >
+                                {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
+                                 >
                                 <i class="fa fa-eye" id="eye"
                                    onclick="togglePassword('influencer_password')"></i>
 
@@ -315,7 +317,7 @@ $(document).ready(function() {
             e.preventDefault();
             var formData = new FormData($(this)[0]);
             $.ajax({
-                url: api_url + 'users/store',
+                url: api_url + 'admins/store',
                 type: 'post',
                 dataType: "JSON",
                 data: formData,

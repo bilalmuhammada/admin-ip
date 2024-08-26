@@ -135,7 +135,7 @@
                                           <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
-                                            Add Admin
+                                            Add Influencer
                                         </button>
                                     </a>
                                     @include('modals.edit-influencer')
@@ -198,7 +198,15 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+
+function validateInput(input) {
+            
+            // Allow only digits and the '+' sign, and ensure '+' is only at the beginning
+            input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+        } 
+        
      $(document).ready(function() {
+        
         if ($('.floating').length > 0) {
             $('.floating').on('focus blur', function(e) {
                 $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));

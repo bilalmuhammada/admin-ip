@@ -4,18 +4,26 @@
     color: blue !important;
     font-size: 12px !important;
 }
+
+.fa-eye-slash {
+    position: absolute !important;
+    top: 28% !important;
+    right: 4% !important;
+    cursor: pointer !important;
+    /* color: lightgray !important; */
+    }
 </style>
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center">Edit Profile</h3>
+            <h3 class="card-title text-muted text-center" style="color: blue !important;">Edit Profile</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
         <div class="row">
             <div class="col-md-5 grid-margin stretch-card" style="margin:0px auto;">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="  margin-top: -35px;">
                         <form class="forms-sample" id="form_date">
                             <input type="hidden" name="role" value="vendor">
 
@@ -51,16 +59,22 @@
                                 <label class="focus-label">Mobile </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="password" placeholder="8  Characters - 1 Capital, 1 Number, 1 Special" value="">
+                                <input type="password" class="form-control floating" name="password"
+                                 {{-- placeholder="8  Characters - 1 Capital, 1 Number, 1 Special"  --}}
+                                 value="">
+                                 <i class="fa fa-eye" id="togglePassword"
+                                 onclick="togglePassword('profile')"></i>
                                <div class="invalid-feedback">
                                   Please provide a valid Password.
                         </div>
                         <label class="focus-label">Change Password </label>
                </div>
                <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="password" value="">
-                <div class="invalid-feedback">                                           Please provide a valid Password.
-                  </div>
+                <input type="password" class="form-control floating" name="password" value="">
+                <i class="fa fa-eye" id="togglePassword"
+                onclick="togglePassword('brand_confirm_password')"></i>
+                {{-- <div class="invalid-feedback">                                           Please provide a valid Password.
+                  </div> --}}
                  <label class="focus-label">Confirm Password </label>
                   </div>
 
@@ -84,7 +98,7 @@
                             {{--                                    <label class="form-check-label" for="formSwitch1">Active</label>--}}
                             {{--                                </div>--}}
                             {{--                            </div>--}}
-                            <div class="text-center">
+                            <div class="text-center" style="margin-top: 12px;"> 
                                 {{-- <button class="t-btn account-setting-update" type="button">
                                     Update
                                 </button> --}}
@@ -104,13 +118,20 @@
     <script type="text/javascript">
  $(document).ready(function() {
         if ($('.floating').length > 0) {
-            alert('sss');
+            
             $('.floating').on('focus blur', function (e) {
                 $(this).parents('.form-focus').toggleClass('focused', 
                     (e.type === 'focus' || this.value.length > 0)
                 );
             }).trigger('blur');
         }
+
+        $('#togglePassword').on('click', function() {
+            let input = $(this).siblings('input');
+            let type = input.attr('type') === 'password' ? 'text' : 'password';
+            input.attr('type', type);
+            $(this).toggleClass('fa-eye fa-eye-slash');
+        });
     });
 
         $(document).on('submit', '#form_date', function (e) {

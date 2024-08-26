@@ -125,7 +125,7 @@
                             <button class="btn btn-primary btn-icon-text mb-2 mb-md-0" data-bs-toggle="modal"
                                     data-bs-target="#addcategory"><i width="15" class="link-icon text-white"
                                                                      data-feather="plus-circle"></i> Add
-                                                                     Categories
+                                                                     Category
                             </button>
                             @include('modals.add-category')
                             @include('modals.edit-category')
@@ -193,7 +193,7 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <a href='#' id='edit-category-btn btn-info'  category-id='${value.id}' class='open-popup mr-2' data-bs-toggle="modal" data-bs-target="#editcategory">
+                                    <a href='#' id='edit-category-btn'  category-id='${value.id}' class='open-popup mr-2' data-bs-toggle="modal" data-bs-target="#editcategory">
 
                                         Edit</a>
                                     <a href='#' id='delete-category-btn' category-id='${value.id}' class='remove-user text-danger'>
@@ -208,9 +208,10 @@
         }
 
         function fetchRecords() {
+            // alert(api_url);
             $.ajax({
                 url: api_url + 'categories/list',
-                type: 'post',
+                type: 'get',
                 dataType: "JSON",
                 success: function (response) {
                     if (response.status) {
@@ -277,12 +278,14 @@
 
         $(document).on('click', '#edit-category-btn', function () {
             var category_id = $(this).attr('category-id');
+        // alert(category_id);
             $.ajax({
                 url: api_url + 'categories/edit/' + category_id,
                 type: 'post',
                 dataType: "JSON",
                 success: function (response) {
                     if (response.status) {
+                        console.log(response.data)
                         $('.category_id').val(response.data.id);
                         $('.name').val(response.data.name);
                         $('.slug').val(response.data.slug);

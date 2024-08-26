@@ -58,9 +58,9 @@ Route::middleware('auth_check')->group(function () {
         Route::post('transactions', [UserController::class, 'transactions']);
         Route::post('{id}/delete-transaction', [UserController::class, 'deleteTransaction']);
     });
-
-    Route::prefix('categories/')->group(function () {
-        Route::post('/list', [CategoryController::class, 'all']);
+    Route::post("/get-cities-by-country", \App\Http\Controllers\UserController::class . '@getCitiesByCountry');
+    Route::prefix('/categories')->group(function () {
+        Route::get('/list', [CategoryController::class, 'all']);
         Route::post('/change-status', [CategoryController::class, 'changeStatus']);
         Route::post('/store', [CategoryController::class, 'store']);
         Route::post('/edit/{category_id}', [CategoryController::class, 'edit']);

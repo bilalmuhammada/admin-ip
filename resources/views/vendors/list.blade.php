@@ -8,6 +8,10 @@
     border-color: #997045 !important;
 
 }
+.current:hover,.paginate_button:hover{
+    background-color: blue !important;
+    color: white !important;
+} 
 .col-sm-3{
     padding-right: 301px !important;
 
@@ -110,14 +114,14 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Brands</h6>
+            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Brand</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
         <div class="row"  style="margin-top: -28px;">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" >
                         <!-- <h6 class="card-title">All Transactions</h6> -->
                         <div style="margin-bottom:10px;">
                             <a href="{{ env('BASE_URL') . 'vendors/create' }}">
@@ -155,7 +159,7 @@
                                     <th>Action</th> -->
                                     
                                     <th>#</th>
-                                    <th>User ID #</th>
+                                    <th>ID #</th>
                                     <th>Photo</th>
                                     <th>Brand Name</th>
                                     <th>Company Name</th>
@@ -188,7 +192,12 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
-
+function validateInput(input) {
+            
+            // Allow only digits and the '+' sign, and ensure '+' is only at the beginning
+            input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+        } 
+        
 $(document).ready(function() {
         if ($('.floating').length > 0) {
             $('.floating').on('focus blur', function(e) {
@@ -397,9 +406,11 @@ $(document).ready(function() {
                         $('.description').val(response.data.description);
                         $('.phone').val(response.data.phone);
                         $('.position').val(response.data.position);
-                        $('.country').val(response.data.country);
-                        $('.city').val(response.data.city);
-                        $('.nationality').val(response.data.nationality);
+                        $('.gender').val(response.data.personal_information.gender);
+                        $('.age').val(response.data.personal_information.age);
+                        $('.country_id').val(response.data.country_id);
+                        $('.city_id').val(response.data.city_id);
+                        // $('.nationality').val(response.data.nationality);
                         $('.type').val(response.data.type);
                         $('.company_name').val(response.data.company_name);
                         $('.website').val(response.data.website);
@@ -410,7 +421,7 @@ $(document).ready(function() {
                         setTimeout(function () {
 
                             $('.country_id').val(response.data.country_id);
-                            $('.state_id').val(response.data.state_id);
+                            // $('.state_id').val(response.data.state_id);
                             $('.city_id').val(response.data.city_id);
                         }, 200)
 
@@ -515,6 +526,40 @@ $(document).ready(function() {
             var id = $(this).attr('vendor-id');
             var url = api_url + 'users/' + id + '/delete';
             deleteRecord(url, $(this));
+        });
+
+
+        
+        $(document).on('change', '#country_id', function () {
+            var nationality_id = $(this).val();
+            // alert(nationality_id );
+            if (nationality_id) {
+                $.ajax({
+                    url: api_url + 'get-cities-by-country',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "nationality_id": nationality_id
+                    },
+                    success: function (response) {
+                        if (response.data.length > 0) {
+                            var states = response.data;
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+
+                            if (states) {
+                                $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                    $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                });
+                            }
+                        } else {
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+                        }
+                    }
+                });
+            }
         });
     </script>
 @endsection

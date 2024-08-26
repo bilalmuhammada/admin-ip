@@ -43,11 +43,11 @@
                     </div> -->
                     <div class="col-md-11 ps-md-0 mx-auto">
                         <div class="auth-form-wrapper px-4 py-4">
-                            <h3 style="text-align: center;">Welcome Back!</h3>
-                            {{-- <a href="#" class="noble-ui-logo d-block mb-2 text-center">
+                            {{-- <h3 style="text-align: center;">Welcome Back!</h3> --}}
+                            <a href="#" class="noble-ui-logo d-block mb-2 text-center">
                                 <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo">
-                            </a> --}}
-                            <h5 class="text-muted fw-normal mb-4 text-center">Welcome back! Log in to your account</h5>
+                            </a>
+                            <h5 class="text-bold fw-normal mb-4 text-center">Welcome back! Log in to your account.</h5>
                             <form class="login-form">
                                 {{-- <div class="mb-3">
                                     <label for="userEmail" class="form-label">Email address</label>

@@ -49,7 +49,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center " style="color: blue !important;">Add Influencers</h3>
+            <h3 class="card-title text-muted text-center " style="color: blue !important;">Add Influencer</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -97,7 +97,8 @@
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating " name="phone"  pattern="\+?\d*"  oninput="validateInput(this)"    
 
-                                placeholder="Please enter a valid Mobile" >
+                                {{-- placeholder="Please enter a valid Mobile"  --}}
+                                >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Mobile. --}}
                                 {{-- </div> --}} 
@@ -107,7 +108,8 @@
                             <div class="form-group form-focus">
                                                 
                                 <input type="email" class="form-control floating inputbg" name="email" style="font-weight: 300 !important;"
-                                       placeholder="Please provide a valid Email." value="">
+                                       {{-- placeholder="Please provide a valid Email."  --}}
+                                       value="">
                                 {{-- <label class="inner_label focus-label">Email33 </label> --}}
                                 <label for="username" class="inner_label focus-label" style="margin-left: 0px;">Email</label>
 
@@ -186,7 +188,8 @@
                             <div class="form-group form-focus">
                                 <input type="password" class="form-control floating" name="password"
                                        id="influencer_password"
-                                placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" >
+                                {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special"  --}}
+                                >
                                 <i class="fa fa-eye" id="eye"
                                    onclick="togglePassword('influencer_password')"></i>
 

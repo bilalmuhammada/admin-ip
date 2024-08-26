@@ -1,10 +1,18 @@
 <!-- partial:partials/_navbar.html -->
 
 <style>
-   .text-body:hover, .dropdown-item:hover{
+  
+   .dropdown-item:hover{
         background-color: blue !important;
-        color: white !important;    
+            
         }
+
+    .dropdown-item, .tt-menu .tt-suggestion {
+    font-size: rem;
+    font-size: 23px;
+    padding: 0px;
+ border-radius: 2px;
+    }
 </style>
 <nav class="navbar">
     <a href="#" class="sidebar-toggler">

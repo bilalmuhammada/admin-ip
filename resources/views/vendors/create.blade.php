@@ -22,7 +22,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Brands</h3>
+            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Brand</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -62,7 +62,9 @@
                                        autocomplete="off" placeholder="Website">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating "  placeholder="Please provide a valid Business Website." name="website">
+                                <input type="text" class="form-control floating "  
+                                {{-- placeholder="Please provide a valid Business Website."  --}}
+                                name="website">
                                 {{-- <div class="invalid-feedback">
                                     Please provide a valid Website.
                                 </div> --}}
@@ -75,7 +77,9 @@
                                        autocomplete="off" placeholder="Business Mail">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating email" id="bemail" placeholder="Please provide a valid Business Email." name="email">
+                                <input type="text" class="form-control floating email" id="bemail" 
+                                {{-- placeholder="Please provide a valid Business Email."  --}}
+                                name="email">
                                 
                                 <label class="inner_label focus-label">Business Email</label>
                             </div>
@@ -96,7 +100,7 @@
                                        autocomplete="off" placeholder="Last Name">
                             </div> --}}
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating"  name="name"/>
+                                <input type="text" class="form-control floating"  name="first_name"/>
                                 <div class="invalid-feedback">
                                     Please provide a valid First Name.
                                 </div>
@@ -129,7 +133,9 @@
                                 <label class="focus-label">Position </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating"   pattern="\+?\d*" placeholder="Please provide a valid Mobile." oninput="validateInput(this)" name="phone"/>
+                                <input type="text" class="form-control floating"   pattern="\+?\d*" 
+                                {{-- placeholder="Please provide a valid Mobile." --}}
+                                 oninput="validateInput(this)" name="phone"/>
                                 {{-- <div class="invalid-feedback">
                                     Please provide a valid Mobile.
                                 </div> --}}
@@ -212,7 +218,9 @@
                             </div> -->
                             <div class="form-group form-focus">
                                 <input type="password" class="form-control floating" name="password"
-                                       id="brand" placeholder="8  Characters - 1 Capital, 1 Number, 1 Special">
+                                       id="brand"
+                                        {{-- placeholder="8  Characters - 1 Capital, 1 Number, 1 Special" --}}
+                                        >
                                 <i class="fa fa-eye" id="eye"
                                    onclick="togglePassword('brand')"></i>
                                 
@@ -286,9 +294,9 @@
             }
         }
 
-        $(document).on('change', '#country_id', function () {
-            getCitiesByCountry($(this).val());
-        });
+        // $(document).on('change', '#country_id', function () {
+        //     getCitiesByCountry($(this).val());
+        // });
 
         $(document).on('submit', '#form_date', function (e) {
             e.preventDefault();
@@ -324,5 +332,36 @@
                 }
             });
         })
+
+        $(document).on('change', '#country_id', function () {
+            var nationality_id = $(this).val();
+            if (nationality_id) {
+                $.ajax({
+                    url: api_url + 'get-cities-by-country',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "nationality_id": nationality_id
+                    },
+                    success: function (response) {
+                        if (response.data.length > 0) {
+                            var states = response.data;
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+
+                            if (states) {
+                                $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                    $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                                });
+                            }
+                        } else {
+                            $("#city_id").empty();
+                            $("#brand_city_id").empty();
+                        }
+                    }
+                });
+            }
+        });
     </script>
 @endsection

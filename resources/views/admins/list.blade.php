@@ -2,15 +2,33 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important;">Admins</h6>
+            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Admins</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
         @include('modals.edit-admin-users')
-        <div class="row">
+        <div class="row" style="margin-top: -51px;">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                        <table id="datatable" class="table">
+                            <div style="margin-bottom:10px;">
+                                <a href="{{ env('BASE_URL') . 'admins/create'}}">
+                                    {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
+                                                                                                  class="link-icon text-white"
+                                                                                                  data-feather="plus-circle"></i>
+                                        Add New Influencer
+                                    </button> --}}
+
+                                      <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
+                                                                                                  class="link-icon text-white"
+                                                                                                  data-feather="plus-circle"></i>
+                                        Add Admin
+                                    </button>
+                                </a>
+                                @include('modals.edit-admin-users')
+
+                                @include('modals.edit-vendor-and-influencer-status-modal')
                         <!-- <h6 class="card-title">All Transactions</h6> -->
                         <div class="table-responsive">
                             <table id="table" class="table">
@@ -61,7 +79,7 @@
                                 <td>
                                     <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
                                 </td>
-                                <td> ${value.name} </td>
+                                <td> ${value.first_name} ${value.last_name} </td>
                                 
 
                                 <td> ${value.email} </td>
@@ -70,7 +88,7 @@
 <td> ${value.gender ?? '-'} </td>
 <td> ${value.age ?? '-'} </td>
 <td> ${value.member_since ?? '-'} </td>
-<td> ${value.addedBy ?? '-'} </td>
+<td> ${value.addedby ?? '-'} </td>
 <td> ${value.city ?? '-'} </td>
 <td> ${value.country ?? '-'} </td>
 
@@ -82,13 +100,14 @@
                                         <span class="c-labels" data-on="Active" data-off="Inactive"></span>
                                     </label>
                                 </td>
-                               </tr>`;
-                // <td>
-                //     <i width="15" class="link-icon text-success" data-feather="edit" data-bs-toggle="modal" data-bs-target="#editvendor"></i>
-                //         <span id='edit-admin-btn' admin-id='${value.id}'  class="text-success"> Edit</span>
-                //         <i width="15" class="link-icon text-danger" data-feather="trash-2" onclick="showSwal('passing-parameter-execute-cancel')"></i>
-                //         <span id='delete-admin-btn' admin-id='${value.id}' class="text-danger"> Delete</span>
-                //         </td>
+                              
+                <td>
+                    <i width="15" class="link-icon text-success" data-feather="edit" data-bs-toggle="modal" data-bs-target="#editvendor"></i>
+                        <span id='edit-admin-btn' admin-id='${value.id}'  class="text-success"> Edit</span>
+                        <i width="15" class="link-icon text-danger" data-feather="trash-2" onclick="showSwal('passing-parameter-execute-cancel')"></i>
+                        <span id='delete-admin-btn' admin-id='${value.id}' class="text-danger"> Delete</span>
+                        </td>
+                 </tr>`;
             });
 
             $('.t-body').html(table_body);

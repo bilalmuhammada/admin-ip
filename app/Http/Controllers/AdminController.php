@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -21,7 +24,7 @@ class AdminController extends Controller
     }
     public function all()
     {
-        $users = User::where('role_id','1')->latest()->get();
+        $users = admin::all();
         if ($users->isNotEmpty()) {
             return response()->json([
                 'status' => true,
@@ -36,6 +39,41 @@ class AdminController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => FALSE,
+                'message' => $validator->errors()->first()
+            ]);
+        }
+
+        
+
+        $Category = Admin::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'gender' => $request->gender,
+            'age' => $request->age,
+            'addedby' => $request->addedby,
+            'country_id' => $request->country_id,
+            'city_id' => $request->city_id,
+            'password' =>Hash::make($request->password),
+            
+        ]);
+
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Admin created successfully'
+        ]);
+    }
     public function changeStatus(Request $request)
     {
         if (!empty($request->status)) {

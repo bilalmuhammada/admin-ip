@@ -26,7 +26,7 @@
                       <h5 class="modal-title" id="exampleModalCenterTitle">Edit Influencer</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                     </div>
-                    <div class="modal-body" >
+                    <div class="modal-body" style="margin-top: -45px;" >
                     <form class="forms-sample" id="edit-influence-form-data">
                         <input type="hidden" class="id" name="id" value="">
                  <div class="form-group form-focus">
@@ -44,12 +44,16 @@
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating phone" name="phone" id="exampleInputUsername1" placeholder="Please enter a valid Mobile" autocomplete="off" Value="">
+                        <input type="text" class="form-control floating phone" name="phone"  pattern="\+?\d*" oninput="validateInput(this)" id="exampleInputUsername1" 
+                        {{-- placeholder="Please enter a valid Mobile"  --}}
+                        autocomplete="off" Value="">
                         <label for="exampleInputUsername1"  class="form-label form-label inner_label focus-label">Mobile</label>
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1"    placeholder="Please provide a valid Email."  autocomplete="off" Value="xyz@gmail.com">
+                        <input type="text" class="form-control floating email" name="email" id="exampleInputUsername1"   
+                         {{-- placeholder="Please provide a valid Email."   --}}
+                         autocomplete="off" Value="">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Email</label>
                     </div>
                     <div class="form-group form-focus">                       
@@ -101,16 +105,20 @@
                         <div class="form-group form-focus">
                                
                                 <input type="text" class="form-control floating" name="password" id="exampleInputUsername1"
-                                       autocomplete="off"  placeholder="8 Characters - 1 Capital, 1 Number, 1 Special">
-                                       <i class="fa fa-eye one" id="togglePassword" style="position: absolute;top: 75%;right: 5%;cursor: pointer;color: lightgray;"></i>
+                                       autocomplete="off"  p
+                                       {{-- laceholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
+                                       >
+                                       <i class="fa fa-eye one" id="togglePassword" style="position: absolute;top: 36%;right: 5%;cursor: pointer;color: lightgray;"></i>
                                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Password</label>
                            
                                     </div>
                             <div class="form-group form-focus">
                              
                                 <input type="text" class="form-control floating" name="confirm_password" id="exampleInputUsername1"
-                                       autocomplete="off" placeholder="Confirm Password">
-                                       <i class="fa fa-eye two" id="togglePassword" style="position: absolute;top: 86%;right: 5%;cursor: pointer;color: lightgray;"></i>
+                                       autocomplete="off"
+                                        {{-- placeholder="Confirm Password" --}}
+                                        >
+                                       <i class="fa fa-eye two" id="togglePassword" style="position: absolute;top: 36%;right: 5%;cursor: pointer;color: lightgray;"></i>
                                        <label for="exampleInputUsername1" class="form-label inner_label focus-label">Confirm Password</label>
                                     </div>
                     <!-- <div class="mb-3">

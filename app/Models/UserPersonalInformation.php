@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserPersonalInformation extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     protected $appends = ['is_collaboration_formatted', 'willing_to_travel_formatted'];
 
     // public function spoken_language()

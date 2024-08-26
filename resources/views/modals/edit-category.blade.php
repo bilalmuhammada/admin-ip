@@ -3,6 +3,7 @@
             <style>
                 .modal-title{
         margin-left: 128px;
+        color: blue;
     }
     .form-control:hover{
     border-color: blue !important;
@@ -41,15 +42,15 @@
                                     <label for="exampleInputEmail1" class="form-label" class="form-control">Category Image</label><br />
                                     <img class="wd-80 ht-80 rounded-circle image" style="margin-bottom:5px;">
                                     <br />
-                                    <input type="file" class="form-control" id="myDropify" name="image"/>
+                                    <input type="file" class="form-control" id="myDropify"  accept="image/*" name="image"/>
                                 </div>
 
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <div class="form-check form-switch mb-2">
                                         <input type="checkbox" class="form-check-input status" id="formSwitch1" name="status">
                                         <label class="form-check-label" for="formSwitch1">Active</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary me-2" id="edit-category-submit">Submit</button>
 

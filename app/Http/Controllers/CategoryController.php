@@ -59,7 +59,7 @@ class CategoryController extends Controller
             SiteHelper::sendFileToSite(public_path('uploads/categories') . '/' . $file_name . '.' . $type, 'categories');
         }
 
-        $status = 'inactive';
+        $status = 'active'; //inactive
         if ($request->status) {
             $status = 'active';
         }
@@ -89,9 +89,11 @@ class CategoryController extends Controller
 
     public function edit($category_id = '')
     {
+     
         if ($category_id != '') {
             $category = Category::find($category_id);
 
+           
             if (!empty($category)) {
                 return response()->json([
                     'status' => true,
@@ -131,7 +133,7 @@ class CategoryController extends Controller
             $image_name = '';
         }
 
-        $status = 'inactive';
+        $status = 'active'; //inactive
         if ($request->status) {
             $status = 'active';
         }

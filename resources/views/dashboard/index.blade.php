@@ -29,7 +29,7 @@ font-weight:bold !important;
 /* margin-bottom: 30px; */
 }
 .topcard{
-    margin-bottom: 6px !important;
+    margin-bottom: 10px !important;
 }
 .form-control:hover{
     border-color: blue !important;

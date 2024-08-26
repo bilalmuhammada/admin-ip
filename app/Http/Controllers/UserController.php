@@ -9,7 +9,9 @@ use App\Models\Role;
 use App\Models\State;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\UserPersonalInformation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +23,16 @@ class UserController extends Controller
     {
         return view('users.list')->with(['menu' => 'users']);
     }
-
+    public function getCitiesByCountry(Request $request)
+    {
+        $state_ids = getStateByCountryId($request->nationality_id)->pluck('id');
+        $cities = getCityByStateIds($state_ids);
+// dd($cities);
+        return response()->json([
+            'status' => true,
+            'data' => $cities
+        ]);
+    }
     public function all(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -101,7 +112,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
 //            'type' => 'required',
             'password' => 'required|min:8|required_with:confirm_password|same:confirm_password',
-            'role' => 'required|exists:roles,code',
+            // 'role' => 'required|exists:roles,code',
         ]);
 
         if ($validator->fails()) {
@@ -110,7 +121,7 @@ class UserController extends Controller
                 'message' => $validator->errors()->first()
             ]);
         }
-
+        $user_id = Auth::id();
         $role_id = Role::where('code', $request->role)->first()->id;
 
         $image = $request->file('image');
@@ -141,6 +152,14 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
 //            'status' => $request->status == 'on' ? 1 : 0,
         ]);
+        $match = ['user_id' => $User->id];
+        // personal information store here
+        UserPersonalInformation::updateOrCreate($match, [
+            // 'dialects' => $request->dialects,
+            'user_id' => $User->id,
+            'age' => $request->age,
+            'gender' => $request->gender,
+        ]);
 
         if ($User && $image) {
             Attachment::create([
@@ -163,10 +182,13 @@ class UserController extends Controller
     }
 
     public function show($id)
+
+
     {
+        
         return response()->json([
             'status' => true,
-            'data' => User::find($id)
+            'data' =>User::with(['subscription','personal_information', 'plan'])->find($id)
         ]);
     }
 
@@ -409,12 +431,12 @@ class UserController extends Controller
         ]);
     }
 
-    public function getCitiesByCountry(Request $request)
-    {
-        $states_ids = State::where('country_id', $request->country_id)->pluck('id')->toArray();
-        return response()->json([
-            'status' => true,
-            'data' => \App\Models\City::whereIn('state_id', $states_ids)->get()
-        ]);
-    }
+    // public function getCitiesByCountry(Request $request)
+    // {
+    //     $states_ids = State::where('country_id', $request->country_id)->pluck('id')->toArray();
+    //     return response()->json([
+    //         'status' => true,
+    //         'data' => \App\Models\City::whereIn('state_id', $states_ids)->get()
+    //     ]);
+    // }
 }

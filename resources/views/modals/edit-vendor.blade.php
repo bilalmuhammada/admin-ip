@@ -26,7 +26,7 @@
                 <h5 class="modal-title" id="exampleModalCenterTitle">Edit Brand</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="    margin-top: -27px;">
                 <form class="forms-sample" id="edit-vendor-form-data">
                     <input type="hidden" class="id" name="id" value="">
 
@@ -47,41 +47,47 @@
                     <div class="form-group form-focus">
                        
                         <input type="text" class="form-control floating website" name="website" id="exampleInputUsername1"
-                               autocomplete="off" placeholder="Please provide a valid Business Website.">
+                               autocomplete="off"
+                                {{-- placeholder="Please provide a valid Business Website." --}}
+                                >
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Business Website</label>
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating email" placeholder="Please provide a valid Business Email."  name="email" id="exampleInputUsername1"
+                        <input type="text" class="form-control floating email" 
+                        {{-- placeholder="Please provide a valid Business Email." --}}
+                          name="email" id="exampleInputUsername1"
                                autocomplete="off" Value="">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Business Email</label>
                     </div>
                     <div class="form-group form-focus">
                         
                         <input type="text" class="form-control floating first_name" name="first_name" id="exampleInputUsername1"
-                               autocomplete="off" Value="xyz@gmail.com">
+                               autocomplete="off" Value="">
                                <label for="exampleInputUsername1" class="form-label inner_label focus-label">First Name</label>
                     </div>
                     <div class="form-group form-focus">
                        
                         <input type="text" class="form-control  floating last_name" name="last_name" id="exampleInputUsername1"
-                               autocomplete="off" Value="xyz@gmail.com">
+                               autocomplete="off" Value="">
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Last Name</label>
                     </div>
                     <div class="form-group form-focus">
                         
                         <input type="text" class="form-control floating  position" name="position" id="exampleInputUsername1"
-                               autocomplete="off" Value="+6885876">
+                               autocomplete="off" Value="">
                          <label for="exampleInputUsername1" class="form-label inner_label focus-label">Position</label>
                     </div>
                     <div class="form-group form-focus">
                         
-                        <input type="text" class="form-control floating phone" name="mobile" placeholder="Please provide a valid Mobile."  id="exampleInputUsername1"
+                        <input type="text" class="form-control floating phone" name="phone" pattern="\+?\d*" oninput="validateInput(this)"
+                         {{-- placeholder="Please provide a valid Mobile."  --}}
+                          id="exampleInputUsername1"
                                autocomplete="off" value="">
-                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Mobile</label>
+                         <label for="exampleInputUsername1" class="form-label inner_label focus-label" >Mobile</label>
                     </div>
                     <div class="form-group form-focus">                       
-                        <select name="gender" class="form-control floating" id="gender">
+                        <select name="gender" class="form-control floating gender" id="gender">
                             {{-- <option selected value=" "> select Gender</option> --}}
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -92,7 +98,7 @@
                         <label class="focus-label">Gender</label>
                     </div>
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
+                        <input type="text" class="form-control floating age"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
                         {{-- <div class="invalid-feedback">
                             Please provide a valid age.
                         </div> --}}
@@ -100,7 +106,7 @@
                     </div>
                     <div class="form-group form-focus">
                         
-                        <select class="js-example-basic-single form-control  floating form-select country_id" data-width="100%"
+                        <select class="js-example-basic-single form-control  floating form-select country_id" id="country_id" data-width="100%"
                                 name="country_id">
                             <option value="" disabled>Select Country</option>
                             @foreach($countries as $country)
