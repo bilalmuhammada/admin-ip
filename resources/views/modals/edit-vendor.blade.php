@@ -41,7 +41,9 @@
                         
                         <input type="text" class="form-control floating company_name" name="company_name"
                                id="exampleInputUsername1"
-                               autocomplete="off" placeholder="Company Name">
+                               autocomplete="off"
+                                {{-- placeholder="Company Name" --}}
+                                >
                         <label for="exampleInputUsername1" class="form-label inner_label focus-label">Company Name</label>
                     </div>
                     <div class="form-group form-focus">
@@ -135,7 +137,9 @@
                     <div class="form-group form-focus">
                     
                         <input type="text" class="form-control floating" name="password" id="exampleInputUsername1"
-                               autocomplete="off"  placeholder="8 Characters - 1 Capital, 1 Number, 1 Special">
+                               autocomplete="off"  
+                               {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
+                               >
                         <i class="fa fa-eye one" id="togglePassword"
                            style="position: absolute;top: 83%;right: 5%;cursor: pointer;color: lightgray;"></i>
                            <label for="exampleInputUsername1" class="form-label inner_label focus-label">Password</label>
@@ -143,7 +147,9 @@
                     <div class="form-group form-focus">
                         
                         <input type="text" class="form-control floating" name="confirm_password" id="exampleInputUsername1"
-                               autocomplete="off" placeholder="Confirm Password">
+                               autocomplete="off" 
+                               {{-- placeholder="Confirm Password" --}}
+                               >
                         <i class="fa fa-eye one" id="togglePassword"
                            style="position: absolute;top: 90%;right: 5%;cursor: pointer;color: lightgray;"></i>
                            <label for="exampleInputUsername1" class="form-label inner_label focus-label">Confirm Password</label>

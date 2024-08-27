@@ -132,7 +132,7 @@
                         <div class="table-responsive">
                             <table id="datatable" class="table">
                                 <div style="margin-bottom:10px;">
-                                    <a href="{{ env('BASE_URL') . 'influencers/create'}}">
+                                    <a href="{{ env('BASE_URL') . '/influencers/create'}}">
                                         {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
@@ -299,7 +299,7 @@ function validateInput(input) {
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='6'>No Record Found</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='17'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {

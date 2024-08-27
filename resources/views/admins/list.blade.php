@@ -131,7 +131,7 @@
                             <div class="table-responsive">
                                 <table id="datatable" class="table">
                             <div style="margin-bottom:10px;">
-                                <a href="{{ env('BASE_URL') . 'admins/create'}}">
+                                <a href="{{ env('BASE_URL') . '/admins/create'}}">
                                     {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                   class="link-icon text-white"
                                                                                                   data-feather="plus-circle"></i>

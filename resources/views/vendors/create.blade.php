@@ -159,7 +159,7 @@
                                 <div class="invalid-feedback">
                                     Please provide a valid Gender.
                                 </div>
-                                <label class="focus-label">Genderww</label>
+                                <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">

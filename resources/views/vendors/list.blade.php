@@ -131,7 +131,7 @@
                     <div class="card-body" >
                         <!-- <h6 class="card-title">All Transactions</h6> -->
                         <div style="margin-bottom:10px;">
-                            <a href="{{ env('BASE_URL') . 'vendors/create' }}">
+                            <a href="{{ env('BASE_URL') . '/vendors/create' }}">
                                 <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                               class="link-icon text-white"
                                                                                               data-feather="plus-circle"></i>
@@ -292,7 +292,7 @@ $(document).ready(function() {
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='8'>No Data</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='20'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {
