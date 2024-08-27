@@ -53,7 +53,7 @@
                     {{-- </div> --}}
                     <ul class="list-unstyled p-1 text-center">
                         <li class="dropdown-item py-2">
-                            <a href="{{ env('BASE_URL') }}edit-profile" class="text-body  text-bold ms-0" style="font-weight: bold;">
+                            <a href="{{ env('BASE_URL') }}/edit-profile" class="text-body  text-bold ms-0" style="font-weight: bold;">
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
                                 <span>Edit Profile</span>
                             </a>
