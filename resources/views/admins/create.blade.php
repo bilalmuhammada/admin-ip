@@ -55,7 +55,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Admins</h3>
+            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Admin</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>

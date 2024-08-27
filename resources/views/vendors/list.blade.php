@@ -124,7 +124,7 @@ th{
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;">Brand</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;">Brands</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
