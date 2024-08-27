@@ -24,7 +24,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [AuthController::class, 'index']);
-Route::get('/login', [AuthController::class, 'index']);
+Route::get('login', [AuthController::class, 'index']);
 Route::get('/edit-profile', [AuthController::class, 'editProfile']);
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::get('/reset/{password_reset_code}', [AuthController::class, 'checkForgotPasswordCode']);
