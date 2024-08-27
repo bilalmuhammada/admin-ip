@@ -4,7 +4,7 @@
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title">Influencer Reviews</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold; ">Influencer Reviews</h6>
             </ol>
         </nav>
         <div class="row">
@@ -15,15 +15,15 @@
                             <table id="dataTable" class="table">
                                 <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th>#</th>
                                     <th>Photo</th>
-                                    <th>ID</th>
+                                    <th>ID #</th>
                                     <th>Type</th>
                                     <th>Name</th>
-                                    <th>Review Rate</th>
-                                    <th>Review Message</th>
-                                    <th>Review Language</th>
-                                    <th>Review Date</th>
+                                    <th>Rate</th>
+                                    <th>Message</th>
+                                    <th>Language</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>

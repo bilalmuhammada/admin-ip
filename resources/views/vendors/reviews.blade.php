@@ -5,7 +5,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title">Brand Reviews</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold; >Brand Reviews</h6>
             </ol>
         </nav>
 {{--        <div class="row">--}}
@@ -40,16 +40,16 @@
                                     <th>Reviewer Date</th>
                                     <th>Reviewer Star Rate</th>
                                     <th>Action</th> -->
-                                    <th>No.</th>
+                                    <th>#</th>
                                     <th>Photo</th>
-                                    <th>ID</th>
+                                    <th>ID #</th>
                                     <th>Brand Name</th>
                                     <th>Company Name</th>
                                     <th>Name</th>
-                                    <th>Review Rate</th>
-                                    <th>Review Message</th>
-                                    <th>Review Language</th>
-                                    <th>Review Date</th>
+                                    <th>Rate</th>
+                                    <th>Message</th>
+                                    <th>Language</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
