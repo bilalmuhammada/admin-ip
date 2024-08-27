@@ -32,7 +32,7 @@
     
     padding: 2px 47px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    /* margin-right: 161px !important; */
+    margin-right: -142px !important;
 
 
 }
@@ -121,7 +121,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Brand</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;">Brand</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -188,7 +188,10 @@
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody class="t-body"></tbody>
+                                <tbody class="t-body">
+
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -289,7 +292,7 @@ $(document).ready(function() {
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='6'>No Record Found</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='8'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {
