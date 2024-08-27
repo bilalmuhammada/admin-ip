@@ -2,14 +2,23 @@
 
 <style>
   
-   .dropdown-item:hover{
+ .dropdown-menu .dropdown-item a {
+        color: inherit !important;
+        text-decoration: none;
+       
+    }
+
+    .dropdown-menu .dropdown-item:hover {
         background-color: blue !important;
-            
-        }
+    }
+
+    .dropdown-menu .dropdown-item:hover a {
+        color: white !important;
+    }
 
     .dropdown-item, .tt-menu .tt-suggestion {
-    font-size: rem;
-    font-size: 23px;
+   
+    font-size: 14px;
     padding: 0px;
  border-radius: 2px;
     }
@@ -32,8 +41,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="wd-30 ht-30 rounded-circle" src="@if(session()->has('user')) {{ session()->get('user')['image_url'] }} @else https://via.placeholder.com/30x30 @endif" alt="profile">
                 </a>
-                <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
-                    <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                <div class="dropdown-menu p-0" style="min-width: 7rem;" aria-labelledby="profileDropdown">
+                    {{-- <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                         <div class="mb-3">
                             <img class="wd-80 ht-80 rounded-circle" src="@if(session()->has('user')) {{ session()->get('user')['image_url'] }} @else https://via.placeholder.com/30x30 @endif" alt="">
                         </div>
@@ -41,7 +50,7 @@
                             <p class="tx-16 fw-bolder">Admin</p>
                             <p class="tx-12 text-muted">admin@gmail.com</p>
                         </div> --}}
-                    </div>
+                    {{-- </div> --}}
                     <ul class="list-unstyled p-1 text-center">
                         <li class="dropdown-item py-2">
                             <a href="{{ env('BASE_URL') }}edit-profile" class="text-body  text-bold ms-0" style="font-weight: bold;">
