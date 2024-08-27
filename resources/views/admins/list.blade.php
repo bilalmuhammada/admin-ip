@@ -163,6 +163,7 @@
                                     <th>Age</th>
                                     <th>Member</th>
                                     <th>Added By</th>
+                                    <th>Position</th>
                                     <th>City</th>
                                     <th>Country</th>
                                     <th>Status</th>
@@ -227,6 +228,7 @@
 <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
 <td> ${value.member_since ?? '-'} </td>
 <td> ${value.addedby ?? '-'} </td>
+<td> ${value.position ?? '-'} </td>
        <td>${value.city_name ?? '-'}</td>
                                     <td>${value.country_name ?? '-'}</td>
 
@@ -484,6 +486,7 @@
                         $('.description').text(response.data.description);
                         $('.phone').val(response.data.phone);
                         $('.addedby').val(response.data.addedby);
+                        $('.position').val(response.data.position);
                         $('.country_id').val(response.data.country_id);
                         $('.gender').val(response.data.personal_information ? response.data.personal_information.gender:'');
                         $('.age').val(response.data.personal_information ? response.data.personal_information.age :'')

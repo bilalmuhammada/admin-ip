@@ -151,6 +151,14 @@
                                 {{-- </div>  --}}
                                 <label class="focus-label">Added By</label>
                             </div>
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating position"
+                                       name="position">
+                                {{-- <div class="invalid-feedback">
+                                    Please provide a valid Position.
+                                </div> --}}
+                                <label class="focus-label">Position </label>
+                            </div>
 
                             <div class="form-group form-focus">
                                 <select name="country_id" class="form-control floating country_id" id="country_id">
