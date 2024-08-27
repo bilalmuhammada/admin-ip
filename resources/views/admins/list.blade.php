@@ -266,7 +266,7 @@
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='12'>No Data</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='14'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {
