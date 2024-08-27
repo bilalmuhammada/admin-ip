@@ -44,7 +44,7 @@ $(document).on('click', '.login-submit-button', function () {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                window.location.assign(base_url + '/dashboard');
+                window.location.assign(base_url + '/dashboarrrd');
             } else {
                 Swal.fire({
                     title: 'Problem!',
