@@ -54,7 +54,9 @@
                                     <input type="email" name="email" class="form-control login-user" id="userEmail" placeholder="Email" name="email">
                                 </div> --}}
                                 <div class="form-group form-focus">
-                                    <input type="email" class="form-control floating email" id="userEmail" placeholder="Email" name="email">
+                                    <input type="email" class="form-control floating email" id="userEmail" 
+                                    {{-- placeholder="Email"  --}}
+                                    name="email">
                                     <div class="invalid-feedback">
                                         Please provide a valid email.
                                     </div>
