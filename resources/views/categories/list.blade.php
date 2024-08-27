@@ -34,7 +34,9 @@
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }
-
+th{
+        font-weight: 900 !important;
+    }
 /* Define the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
   background-color: #997045;

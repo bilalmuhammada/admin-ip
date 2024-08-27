@@ -1,4 +1,10 @@
 @extends('layout.master')
+
+<style>
+        th{
+        font-weight: 900 !important;
+    }
+</style>
 @section('content')
 
     <div class="page-content">

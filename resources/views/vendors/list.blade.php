@@ -8,6 +8,9 @@
     border-color: #997045 !important;
 
 }
+th{
+        font-weight: 900 !important;
+    }
 .current:hover,.paginate_button:hover{
     background-color: blue !important;
     color: white !important;

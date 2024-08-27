@@ -72,7 +72,9 @@
         transition: 0.4s;
         border-radius: 34px;
     }
-
+    th{
+        font-weight: 900 !important;
+    }
     /* Circle inside the slider */
     .c-slider:before {
         position: absolute;

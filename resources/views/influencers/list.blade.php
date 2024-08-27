@@ -114,6 +114,9 @@
     cursor: pointer !important;
     /* color: lightgray !important; */
     }
+    th{
+        font-weight: 900 !important;
+    }
 </style>
 @section('content')
 
