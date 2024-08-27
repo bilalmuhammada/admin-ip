@@ -22,6 +22,9 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+.main-wrapper .page-wrapper{
+    min-height: 50vh !important;
+}
 .fa-eye-slash {
     position: absolute !important;
     top: 28% !important;

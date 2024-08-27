@@ -779,7 +779,7 @@ label{
                 <select name="" id="" class="form-control">
                     <option value="">Sales</option>
                     <option value="">Brands</option>
-                    <option value="">Influencer</option>
+                    <option value="">Influencers</option>
                 </select>
             </div>
             <div class="col">
