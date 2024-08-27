@@ -144,13 +144,7 @@
                                 {{-- </div>  --}}
                                 <label class="focus-label">Age</label>
                             </div>
-                            <div class="form-group form-focus">
-                                <input type="text" class="form-control floating addedby" name="addedby"  pattern="\+?\d*" oninput="validateInputtext(this)"  >
-                                {{-- <div class="invalid-feedback">
-                                    {{-- Please provide a valid Age. --}}
-                                {{-- </div>  --}}
-                                <label class="focus-label">Added By</label>
-                            </div>
+                          
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating position"  pattern="\+?\d*" oninput="validateInputtext(this)"
                                        name="position">
@@ -159,7 +153,13 @@
                                 </div> --}}
                                 <label class="focus-label">Position </label>
                             </div>
-
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating addedby" name="addedby"  pattern="\+?\d*" oninput="validateInputtext(this)"  >
+                                {{-- <div class="invalid-feedback">
+                                    {{-- Please provide a valid Age. --}}
+                                {{-- </div>  --}}
+                                <label class="focus-label">Added By</label>
+                            </div>
                             <div class="form-group form-focus">
                                 <select name="country_id" class="form-control floating country_id" id="country_id">
                                     @foreach(getCountries() as $country)
