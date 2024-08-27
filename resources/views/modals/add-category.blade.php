@@ -29,13 +29,15 @@ border-color: #997045;
                     <div class="form-group form-focus">
                       
                         <input type="text" class="form-control floating" name="name" id="name" autocomplete="off"
-                               placeholder="Name">
+                               {{-- placeholder="Name" --}}
+                               >
                                <label for="name" class="form-label inner_label focus-label">Category Name</label>
                     </div>
                     <div class="form-group form-focus">
                        
                         <input type="text" class="form-control floating" name="slug" id="slug" autocomplete="off"
-                               placeholder="Category #">
+                               {{-- placeholder="Category #" --}}
+                               >
                         <label for="slug" class="form-label inner_label focus-label">Category #</label>
                     </div>
                     <div class="mb-3">

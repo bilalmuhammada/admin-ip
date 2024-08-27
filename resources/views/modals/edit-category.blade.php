@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label" class="form-control">Category Image</label><br />
-                                    <img class="wd-80 ht-80 rounded-circle image" style="margin-bottom:5px;">
+                                    <img class="wd-80 ht-80 rounded-circle image" style="margin-left: 180px; margin-bottom:5px;">
                                     <br />
                                     <input type="file" class="form-control" id="myDropify"  accept="image/*" name="image"/>
                                 </div>
