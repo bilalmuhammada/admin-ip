@@ -48,11 +48,15 @@
                                 <label class="focus-label">Name </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="email" class="form-control floating" name="email" placeholder="Please provide a valid Email."  value="{{ $admin->email ?? '' }}">
+                                <input type="email" class="form-control floating" name="email" 
+                                {{-- placeholder="Please provide a valid Email."  --}}
+                                 value="{{ $admin->email ?? '' }}">
                                 <label class="focus-label">Email </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="phone" placeholder="Please enter a valid Mobile." value="{{ $admin->phone ?? '' }}">
+                                <input type="text" class="form-control floating" name="phone"
+                                 {{-- placeholder="Please enter a valid Mobile."  --}}
+                                 value="{{ $admin->phone ?? '' }}">
                                 {{-- <div class="invalid-feedback">
                                     Please provide a valid Mobile.
                                 </div> --}}
