@@ -67,7 +67,9 @@
                                     <input type="password" name="password" class="form-control login-user" id="userPassword" autocomplete="current-password" placeholder="Password">
                                 </div> --}}
                                 <div class="form-group form-focus" style="margin-top:14px;">
-                                    <input type="password" name="password"class="form-control floating password login-user" id="userPassword" autocomplete="current-password" placeholder="Password">
+                                    <input type="password" name="password"class="form-control floating password login-user" id="userPassword" autocomplete="current-password" 
+                                    {{-- placeholder="Password" --}}
+                                    >
                                     <i class="fa fa-eye" id="togglePassword" onclick="togglePassword()"></i>
                                     <div class="invalid-feedback">
                                         Please provide a correct password.
