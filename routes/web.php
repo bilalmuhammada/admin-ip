@@ -39,7 +39,7 @@ Route::get('/termcondition', function () {
     return view('auth.termcondition');
 });
 Route::middleware('auth_check')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard', [DashboardController::class, 'index']);
 
     Route::prefix('/admins')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
