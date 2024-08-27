@@ -54,37 +54,37 @@
             //    dd($menu); 
             @endphp
             <li class="nav-item @if (isset($menu) && $menu == 'vendors') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . 'vendors'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/vendors'}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Brands</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL'). 'influencers'}}" class="nav-link">
+                <a href="{{ env('BASE_URL'). '/influencers'}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Influencers</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'admins') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . 'admins'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/admins'}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Admins</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'vendors/create') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . 'vendors/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/vendors/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
                     <span class="link-title">Add Brands</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers/create') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . 'influencers/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/influencers/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
                     <span class="link-title">Add Influencers</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'admins/create') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . 'admins/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/admins/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
                     <span class="link-title">Add Admins</span>
                 </a>
@@ -104,13 +104,13 @@
                 </a>
             </li> --}}
             <li class="nav-item @if (isset($menu) && $menu == 'vendors/reviews') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . 'vendors/reviews'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/vendors/reviews'}}" class="nav-link">
                     <i class="link-icon" data-feather="activity"></i>
                     <span class="link-title">Brand Reviews</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers/reviews') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . 'influencers/reviews'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/influencers/reviews'}}" class="nav-link">
                     <i class="link-icon" data-feather="activity"></i>
                     <span class="link-title">Influencer Reviews</span>
                 </a>
