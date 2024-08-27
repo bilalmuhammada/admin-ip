@@ -5,7 +5,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title" style="color: blue; font-weight: bold; >Brand Reviews</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold;" >Brand Reviews</h6>
             </ol>
         </nav>
 {{--        <div class="row">--}}
@@ -109,7 +109,7 @@
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='6'>No Record Found</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='12'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {

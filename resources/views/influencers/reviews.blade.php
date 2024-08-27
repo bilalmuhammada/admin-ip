@@ -82,7 +82,7 @@
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='6'>No Record Found</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='11'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {
