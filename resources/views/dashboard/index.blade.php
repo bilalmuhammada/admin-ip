@@ -13,6 +13,9 @@
         .d-flex {
     display: contents !important;
 }
+.apexcharts-legend .apexcharts-align-center .apx-legend-position-bottom{
+margin-bottom: -3px !important;
+}
 .card-title{
 font-weight:bold !important; 
      color: #997045;
