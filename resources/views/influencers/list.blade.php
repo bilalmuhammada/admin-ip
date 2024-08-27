@@ -28,7 +28,7 @@
     
     padding: 2px 55px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    /* margin-right: 161px !important; */
+    margin-right: -80px !important;
 
 }
 ::-webkit-scrollbar {
@@ -119,7 +119,7 @@
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important;margin-left: 25px;"> Influencers</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Influencers</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
