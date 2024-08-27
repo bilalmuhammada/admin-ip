@@ -24,7 +24,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [AuthController::class, 'index']);
-Route::get('login', [AuthController::class, 'index']);
+Route::get('/login', [AuthController::class, 'index']);
 Route::get('/edit-profile', [AuthController::class, 'editProfile']);
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::get('/reset/{password_reset_code}', [AuthController::class, 'checkForgotPasswordCode']);
@@ -39,7 +39,7 @@ Route::get('/termcondition', function () {
     return view('auth.termcondition');
 });
 Route::middleware('auth_check')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::prefix('/admins')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
