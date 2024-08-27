@@ -17,6 +17,9 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+.main-wrapper .page-wrapper{
+    min-height: 50vh !important;
+}
 </style>
 @section('content')
 
