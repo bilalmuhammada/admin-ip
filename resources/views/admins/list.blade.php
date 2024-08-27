@@ -163,11 +163,13 @@
                                    
                                     <th>Gender</th>
                                     <th>Age</th>
-                                    <th>Member</th>
-                                    <th>Added By</th>
                                     <th>Position</th>
+                                   
+                                    <th>Added By</th>
+                                   
                                     <th>City</th>
                                     <th>Country</th>
+                                    <th>Member</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -228,13 +230,14 @@
 
   <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
 <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
-<td> ${value.member_since ?? '-'} </td>
-<td> ${value.addedby ?? '-'} </td>
 <td> ${value.position ?? '-'} </td>
+
+<td> ${value.addedby ?? '-'} </td>
+
        <td>${value.city_name ?? '-'}</td>
                                     <td>${value.country_name ?? '-'}</td>
 
-
+<td> ${value.member_since ?? '-'} </td>
                                                     <td class='td-toggle'>
     <label class="c-toggle">
         <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
