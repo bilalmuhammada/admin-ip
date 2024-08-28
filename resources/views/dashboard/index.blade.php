@@ -10,6 +10,10 @@
         .align-items-baseline {
             text-align: center !important;
         }
+
+        .apexcharts-toolbar{
+            display: none;
+        }
         .d-flex {
     display: contents !important;
 }
