@@ -113,7 +113,7 @@ th{
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important;margin-left: 25px;">Categories</h6>
+            <h6 class="card-title" style="color: blue !important;font-weight: bold; margin-left: 25px;">Categories</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>

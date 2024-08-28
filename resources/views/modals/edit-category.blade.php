@@ -36,7 +36,7 @@
                                 <div class="form-group form-focus">
                                    
                                     <input type="text" class="form-control slug floating" name="slug" id="exampleInputUsername1" autocomplete="off" value="/category/adz">
-                                    <label for="exampleInputUsername1" class="form-label inner_label focus-label">Slug</label>
+                                    <label for="exampleInputUsername1" class="form-label inner_label focus-label">Category #</label>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label" class="form-control">Category Image</label><br />
