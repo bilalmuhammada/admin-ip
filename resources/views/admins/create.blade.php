@@ -146,7 +146,7 @@
                             </div>
                           
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating position"  pattern="\+?\d*" oninput="validateInputtext(this)"
+                                <input type="text" class="form-control floating position"   oninput="validateInputText(this)"
                                        name="position">
                                 {{-- <div class="invalid-feedback">
                                     Please provide a valid Position.
@@ -154,7 +154,7 @@
                                 <label class="focus-label">Position </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating addedby" name="addedby"  pattern="\+?\d*" oninput="validateInputtext(this)"  >
+                                <input type="text" class="form-control floating addedby" name="addedby"   oninput="validateInputText(this)"  >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -281,7 +281,7 @@
     <script type="text/javascript">
     function validateInputText(input) {
     // Remove any character that is not a letter (A-Z, a-z) or space
-    input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
+       input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
 }
         function validateInput(input) {
             
