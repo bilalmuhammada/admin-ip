@@ -65,7 +65,7 @@
                                         <a href="#" class="btn btn-primary me-2 mb-2 mb-md-0 text-white forgot-submit">Reset</a>
                                     </div>
                                     <div class="row" style="margin-top: 14px;">
-                                        <div class="col-6 text-end dont-have" style="margin-left: -104px; color: blue;"><a style="margin-left: 20px;" href="{{ env('BASE_URL') }}/login"></a>Login</a></div>
+                                        <div class="col-6 text-end dont-have" style="margin-left: -104px; color: blue;"><a style="margin-left: 20px;" href="{{ env('BASE_URL') }}/login">Login</a></div>
                                     </div>
                                 </form>
                             </div>
