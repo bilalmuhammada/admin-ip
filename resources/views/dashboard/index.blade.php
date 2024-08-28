@@ -975,13 +975,19 @@ label{
             document.body.appendChild(link);
             link.click();
         })
-
+    
         // For Excel, you can use a library like 'xlsx'
         $(document).on('click', '#excel-download', function (e) {
+            // import XLSX from 'xlsx-style';
             e.preventDefault();
             var ws = XLSX.utils.json_to_sheet(data);
+            
+    
             var wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        
+      
+   
+            XLSX.utils.book_append_sheet(wb, ws, "Dashboard");
             XLSX.writeFile(wb, 'IP-Admin-Dashboard.xlsx');
         });
 
