@@ -94,7 +94,7 @@
                                 </div> --}}
                                 <div class="row">
                                     <div class="col-6 text-start">
-                                        <a class="forgot-link" href="{{ env('BASE_URL') }}/forgot-password" style="color:#0504aa;">Forgot
+                                        <a class="forgot-link" href="{{ env('BASE_URL') }}/forgot-password" style="margin-left:6px; color:#0504aa;">Forgot
                                             Password?</a>
                                     </div>
                                     {{-- <div class="col-6 text-end dont-have">New to InfluencerPro? <a
