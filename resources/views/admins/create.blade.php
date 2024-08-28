@@ -279,9 +279,9 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
-    function validateInputtext(input) {
-    // Remove any character that is not a letter or space
-    input.value = input.value.replace(/[^A-Za-z\s]/g, '');
+    function validateInputText(input) {
+    // Remove any character that is not a letter (A-Z, a-z) or space
+    input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
 }
         function validateInput(input) {
             
