@@ -52,6 +52,7 @@
                                     <th>Brand Name</th>
                                     <th>Company Name</th>
                                     <th>Name</th>
+                                    <th>Position</th>
                                     <th>Rate</th>
                                     <th>Message</th>
                                     <th>Language</th>
@@ -90,6 +91,7 @@
                                     <td>${value.user.brand_name ?? '-'}</td>
                                     <td>${value.user.company_name ?? '-'}</td>
                                     <td>${value.user ? value.user.name : '-'} ${value.user.last_name ?? ''}</td>
+                                    <td>${value.position}</td>
                                     <td>${value.overall_rating}</td>
                                     <td>${value.message ?? '-'}</td>
                                     <td>${value.language ?? '-'}</td>
@@ -115,7 +117,7 @@
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='12'>No Data</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='13'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {

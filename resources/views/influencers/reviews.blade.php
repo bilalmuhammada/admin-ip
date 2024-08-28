@@ -24,7 +24,7 @@
                                     <th>#</th>
                                     <th>Photo</th>
                                     <th>ID #</th>
-                                    <th>Type</th>
+                                    <th>Category</th>
                                     <th>Name</th>
                                     <th>Rate</th>
                                     <th>Message</th>
