@@ -28,7 +28,7 @@
     
     padding: 2px 55px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    margin-right: -124px !important;
+    margin-right: -135px !important;
 
 }
 ::-webkit-scrollbar {
