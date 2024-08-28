@@ -59,6 +59,12 @@ font-weight:bold !important;
 .btn__search:hover{
     border-color: blue !important; 
 }
+.btn__search{
+    border-color: #997045 !important; 
+    border: 1px solid #997045 !important;
+    padding: 3px 0px 4px 0px !important;
+
+}
 .dt-button:hover{
     background-color: blue !important;
 color: white;
