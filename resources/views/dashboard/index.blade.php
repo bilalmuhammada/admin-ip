@@ -929,7 +929,7 @@ label{
                         {category: 'Blocked', count: influencer_counts.block_Influencer_count},
                         // {category: 'Favorite Influencers', count: influencer_counts.favorite_Influencer_count},
                         {category: 'Subscriptions', count: 0},
-                        {category: 'Total', count: vendor_counts.total_vendor_count},
+                        {category: 'Total Brands', count: vendor_counts.total_vendor_count},
                         {category: 'Popular', count: vendor_counts.popular_vendor_count},
                         {category: 'Active', count: vendor_counts.active_vendor_count},
                         {category: 'Pending', count: vendor_counts.pending_vendor_count},
@@ -961,7 +961,7 @@ label{
             var encodedUri = encodeURI(csvContent);
             var link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "my_data.csv");
+            link.setAttribute("download", "IP-Admin-Dashboard.csv");
             document.body.appendChild(link);
             link.click();
         })
@@ -972,7 +972,7 @@ label{
             var ws = XLSX.utils.json_to_sheet(data);
             var wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-            XLSX.writeFile(wb, 'my_data.xlsx');
+            XLSX.writeFile(wb, 'IP-Admin-Dashboard.xlsx');
         });
 
         // For PDF, you can use a library like 'jsPDF'
@@ -986,7 +986,7 @@ label{
                 rows.push(temp);
             });
             doc.autoTable(col, rows);
-            doc.save('my_data.pdf');
+            doc.save('IP-Admin-Dashboard.pdf');
         });
 
         $(document).on('click', '#print-page', function (e) {
