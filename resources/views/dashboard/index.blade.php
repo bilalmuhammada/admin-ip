@@ -56,6 +56,11 @@ font-weight:bold !important;
     width: 60px;
 
 }
+.btn__search::placeholder{
+    
+    padding-left: 10px !important;
+
+}
 .btn__search:hover{
     border-color: blue !important; 
 }
@@ -95,7 +100,7 @@ label{
                     <button class="dt-button" id="pdf-download">PDF</button>&nbsp; &nbsp;
                     <button class="dt-button" id="print-page">Print</button>&nbsp; &nbsp;
                     <span class="">
-                    <input type="text" class="btn__search" id="search-box" style="width: 191px;"  placeholder="Search">
+                    <input type="text" class="btn__search" id="search-box" style="width: 171px;"  placeholder="Search">
                     </span>
                 </div>
             </div>

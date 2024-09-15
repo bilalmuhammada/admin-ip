@@ -9,7 +9,7 @@
 
 }
 .col-sm-3{
-    padding-right: 230px !important;
+    padding-right: 285px !important;
 
 }
 
@@ -30,7 +30,7 @@
     /* border-color:#997045 !important; */
     margin-right: -135px !important;
 
-}
+} 
 ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }

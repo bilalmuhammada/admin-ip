@@ -129,6 +129,7 @@
                                                 
                                 <select name="gender" class="form-control floating gender" id="gender">
                                     {{-- <option selected value=" "> select Gender</option> --}}
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
@@ -162,6 +163,7 @@
                             </div>
                             <div class="form-group form-focus">
                                 <select name="country_id" class="form-control floating country_id" id="country_id">
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
                                     @foreach(getCountries() as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
@@ -199,7 +201,7 @@
                             </div> --}}
                             <div class="form-group form-focus">
                                 <select name="city_id" class="form-control floating city_id" id="city_id">
-                                    <option value="">Select City</option>
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid City.
