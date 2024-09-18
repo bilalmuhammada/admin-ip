@@ -82,6 +82,9 @@ color: white;
     border-color: #997045 !important;
 
 }
+.form-select{
+        background-image:none !important;
+}
 .mb-2{
     text-align: center !important;
     color: blue !important;
