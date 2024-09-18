@@ -25,9 +25,11 @@ class UserController extends Controller
     }
     public function getCitiesByCountry(Request $request)
     {
-        $state_ids = getStateByCountryId($request->nationality_id)->pluck('id');
+        // dd( $request->country_id);
+        $state_ids = getStateByCountryId($request->country_id)->pluck('id');
+        
         $cities = getCityByStateIds($state_ids);
-// dd($cities);
+
         return response()->json([
             'status' => true,
             'data' => $cities

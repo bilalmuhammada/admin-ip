@@ -61,6 +61,7 @@ function getCityByStateId($stateId)
 
 function getCityByStateIds($stateId)
 {
+   
     $Cities = \App\Models\City::whereIn('state_id', $stateId)->get();
 
     return $Cities;

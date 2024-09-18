@@ -38,6 +38,9 @@ font-weight:bold !important;
 .topcard{
     margin-bottom: 10px !important;
 }
+/* option{
+    text-align: left;
+} */
 .form-control:hover{
     border-color: blue !important;
     
@@ -84,6 +87,7 @@ color: white;
     color: blue !important;
     margin-top: 0.5rem !important;
 }
+
 label{
     color: blue;
 }
@@ -805,7 +809,7 @@ label{
                
                     <select class="js-example-basic-single form-select form-control country_id" id="country_id" data-width="100%"
                             name="country_id">
-                        <option value="">Select Country</option>
+                        <option value=""> Country</option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
@@ -817,12 +821,13 @@ label{
                 <select class="js-example-basic-single form-control form-select city_id" data-width="100%"
                                         id="city_id"
                                         name="city_id">
-                                    <option value="" disabled>Select City</option>
+                                    <option value="" disabled> City</option>
 
                                 </select>
             </div>
             <div class="col">
                 <select name="" id="" class="form-control">
+                    <option value="">Currency</option>
                     <option value="">AED</option>
                     <option value="">USD</option>
                 </select>
@@ -887,6 +892,7 @@ label{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.js"></script>
     <script>
           $(document).on('change', '#country_id', function () {
+        //   alert($(this).val());
             getCitiesByCountry($(this).val());
         });
         var influencer_counts = '';

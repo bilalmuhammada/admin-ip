@@ -72,7 +72,22 @@
 <script src="{{asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
 
    
-  
+  <style>
+    ::-webkit-scrollbar {
+  width: 12px; /* You can adjust this value based on your preference */
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #997045;
+  border-radius: 34px;
+}
+
+/* Define the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+  </style>
     <script>
         var varyingModal = document.getElementById('varyingModal')
         // alert(varyingModal);
