@@ -830,7 +830,7 @@ label{
             </div>
             <div class="col">
                 <select name="" id="" class="form-control">
-                    <option value="">Currency</option>
+                    <option value="" >Currency</option>
                     <option value="">AED</option>
                     <option value="">USD</option>
                 </select>
