@@ -157,7 +157,7 @@ function getCitiesByCountry(country_id) {
                 var states = response.data;
                 $("#city_id").empty();
                
-                $("#city_id").append('<option hidden selected disable value=""> &nbsp; &nbsp; </option>');
+                $("#city_id").append('<option hidden selected disable value="">City</option>');
 
                 if (states) {
                     $.each(states, function (index, value) {
