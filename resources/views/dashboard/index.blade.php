@@ -56,18 +56,19 @@ font-weight:bold !important;
     width: 60px;
 
 }
-.btn__search::placeholder{
+/* .btn__search::placeholder{
     
     padding-left: 10px !important;
 
-}
+} */
+
 .btn__search:hover{
     border-color: blue !important; 
 }
 .btn__search{
     border-color: #997045 !important; 
     border: 1px solid #997045 !important;
-    padding: 3px 0px 4px 0px !important;
+    padding: 3px 0px 4px 10px !important;
 
 }
 .dt-button:hover{
@@ -100,7 +101,7 @@ label{
                     <button class="dt-button" id="pdf-download">PDF</button>&nbsp; &nbsp;
                     <button class="dt-button" id="print-page">Print</button>&nbsp; &nbsp;
                     <span class="">
-                    <input type="text" class="btn__search" id="search-box" style="width: 171px;"  placeholder="Search">
+                    <input type="text" class="btn__search" id="search-box" style="width: 171px; box-sizing: border-box;" value="" placeholder="Search">
                     </span>
                 </div>
             </div>
