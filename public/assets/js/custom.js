@@ -68,6 +68,7 @@ function initializeDatatable(selector = '#table') {
     }).remove();
 
     $('#datatable_filter input').attr('placeholder','Search...').unwrap(); // Removes the label but keeps the input
+    // $('#datatable_filter input').css('padding-right','12px;'); // Removes the label but keeps the input
 
 }
 

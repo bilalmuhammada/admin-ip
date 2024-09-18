@@ -21,6 +21,7 @@
     
     
     border-color:#997045 !important;
+    /* padding-right: 12px !important; */
     /* margin-right: 161px !important; */
 
 }

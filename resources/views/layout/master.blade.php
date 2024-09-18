@@ -73,6 +73,9 @@
 
    
   <style>
+    .dataTables_wrapper .dataTables_filter input{
+        padding: 5px 0px 6px 14px !important; 
+    }
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }
