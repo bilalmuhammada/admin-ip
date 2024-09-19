@@ -824,7 +824,7 @@ label{
                 <select class="js-example-basic-single form-control form-select city_id" data-width="100%"
                                         id="city_id"
                                         name="city_id">
-                                    <option value="" disabled> City</option>
+                                    <option value=""  > City</option>
 
                                 </select>
             </div>
