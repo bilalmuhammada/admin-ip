@@ -45,6 +45,7 @@ function getCountries()
     return $Countries;
 }
 
+
 function getStateByCountryId($countryId)
 {
     $States = \App\Models\State::where('country_id', $countryId)->get();

@@ -800,21 +800,21 @@ label{
                 </div>
             </div>
         </div> <!-- row -->
-        <div class="row mb-4" style="width: 98%;">
+        <div class="row mb-4" style="width: 98%;margin-top: 14px;">
             <div class="col">
-                <select name="" id="" class="form-control">
-                    <option value="">Sales</option>
-                    <option value="">Brands</option>
-                    <option value="">Influencers</option>
+                <select name="filtergraph" id="filtergraph" class="form-control filtergraph">
+                    <option value="sales">Sales</option>
+                    <option value="counts" >Counts</option>
+                    {{-- <option value="">Influencers</option> --}}
                 </select>
             </div>
             <div class="col">
                
-                    <select class="js-example-basic-single form-select form-control country_id" id="country_id" data-width="100%"
+                    <select class="js-example-basic-single form-select country_dropdown form-control country_id" id="country_id" data-width="100%"
                             name="country_id">
                         <option value=""> Country</option>
                         @foreach($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            <option value="{{ $country->id }}" >{{ $country->name }}</option>
                         @endforeach
                     </select>
                
@@ -828,20 +828,27 @@ label{
 
                                 </select>
             </div>
+                    @php
+                     $currency = \App\Helpers\SiteHelper::getCurrency();
+                    @endphp
+
             <div class="col">
-                <select name="" id="" class="form-control">
-                    <option value="" >Currency</option>
-                    <option value="">AED</option>
-                    <option value="">USD</option>
+                <select name="currency" class="form-control currency_dropdown" name="currency_dropdown" id="" >
+                    <option value="">Currency</option>
+                    @foreach($currency as $currencyn)
+                    <option data-currency-id="{{ $currencyn->currency }}"
+                            {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->currency }}"
+                            style="font-size:10px !important;">{{ $currencyn->currency }}</option>
+                @endforeach
                 </select>
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker" id="from_date" placeholder="DD/MM/YYYY"
-                       value="{{ \Carbon\Carbon::now()->startOfYear()->format('d/m/Y') }}">
+                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="DD.MM.YYYY"
+                       value="{{ \Carbon\Carbon::now()->startOfYear()->format('d.m.Y') }}">
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker" id="to_date"
-                       placeholder="DD/MM/YYYY" {{ \Carbon\Carbon::now()->endOfYear()->format('d/m/Y') }}>
+                <input type="text" class="form-control datepicker1" id="to_date1"
+                       placeholder="DD.MM.YYYY" {{ \Carbon\Carbon::now()->endOfYear()->format('d.m.Y') }}>
             </div>
             {{--            <div class="col">--}}
             {{--                <input type="text" placeholder="Search" class="form-control">--}}
@@ -919,6 +926,18 @@ label{
         var fontFamily = "'Roboto', Helvetica, sans-serif"
 
         $(document).ready(function () {
+            $(".datepicker1").datepicker({
+        dateFormat: "dd-mm-yy",
+        changeMonth: true, 
+        changeYear: true,
+
+        });
+        $(".datepicker1").change(function() {
+    var input = $(this); // Store reference to `this`
+    setTimeout(function() {
+        input.parents('.form-focus').toggleClass('focused', input.val().length > 0);
+    }, 10);
+});
             render_monthly_sale_chart();
 
             $.ajax({
@@ -1024,8 +1043,7 @@ label{
             e.preventDefault();
             window.print();
         });
-
-        $(document).on('change', '#from_date, #tod_date', function () {
+        $(document).on('change', '#from_date1, #tod_date1, #filtergraph', function () {
             render_monthly_sale_chart();
         })
 
@@ -1036,7 +1054,8 @@ label{
                 method: 'GET',
                 data: {
                     from_date: $('#from_date').val(),
-                    to_date: $('#to_date').val()
+                    to_date: $('#to_date').val(),
+                    filtergraph: $('#filtergraph').val()
                 },
                 success: function (data) {
 
@@ -1174,7 +1193,7 @@ label{
                         },
                         yaxis: {
                             title: {
-                                text: 'Thousand'
+                                text: data.filtergraph  
                             }
                         },
                         fill: {
@@ -1193,6 +1212,19 @@ label{
 
                     var apexBarChart = new ApexCharts(document.querySelector("#monthlySalesChart"), options);
                     apexBarChart.render();
+                    $('#filtergraph').on('change', function () {
+                filtergraph = $(this).val(); // Get updated filtergraph value
+                if (apexBarChart) {
+        apexBarChart.destroy();
+    }
+                apexBarChart.updateOptions({
+                    yaxis: {
+                        title: {
+                            text: filtergraph === "sales" ? "Sales" : "Counts" // Update title based on selection
+                        }
+                    }
+                });
+            });
                 }
             });
 

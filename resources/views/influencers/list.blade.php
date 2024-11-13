@@ -186,6 +186,7 @@
                                      
                                     <th>City</th>
                                     <th>Country</th>
+                                    <th>Collaboration</th>
                                     <th>Member</th>
                                     <th>Subscription</th>
                                     {{-- <th>Added By</th> --}}
@@ -259,6 +260,7 @@ function validateInput(input) {
                                     <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
                                       <td>${value.city_name}</td>
                                     <td>${value.country_name}</td>
+                                     <td>${'--'}</td>
                                     <td>${value.member_since}</td>
                                      <td>${value.plane ? value.plane.name : '-'}</td>
                                     <td>${value.amount}</td>

@@ -134,6 +134,7 @@ class DashboardController extends Controller
         return response()->json([
             'status' => true,
             'payment_amount_array' => $subscriptionPaymentArray,
+            'filtergraph' => $request->input('filtergraph') === "sales" ? "Sales":"Counts",
             'month_array' => $subscriptionPaymentMonthArray,
             'influencer_payment_amount_array' => $subscriptionInfluencerPaymentArray,
             'brand_payment_amount_array' => $subscriptionBrandPaymentArray,

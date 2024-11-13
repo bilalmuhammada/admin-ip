@@ -266,6 +266,7 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+    
         function validateInput(input) {
             
             // Allow only digits and the '+' sign, and ensure '+' is only at the beginning

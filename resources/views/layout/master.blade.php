@@ -77,7 +77,7 @@
         padding: 5px 0px 6px 14px !important; 
     }
     ::-webkit-scrollbar {
-  width: 12px; /* You can adjust this value based on your preference */
+  width: 6px; /* You can adjust this value based on your preference */
 }
 
 /* Define the scrollbar thumb */
@@ -92,6 +92,21 @@
 }
   </style>
     <script>
+       $(document).ready(function () {
+         $(".currency_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+        });
+        $(".country_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+            // minimumResultsForSearch: -1
+        });
+      
+        $(".chat").select2({
+   
+    minimumResultsForSearch: -1
+});
         var varyingModal = document.getElementById('varyingModal')
         // alert(varyingModal);
         // if(varyingModal){

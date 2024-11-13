@@ -179,11 +179,15 @@ th{
                                     <th>Position</th>
                                     <th>Mobile</th>
                                     <th>Gender</th>
+                                    <th>DOB</th>
                                     <th>Age</th>
+                                    <th>Nationality</th>
                                     <th>City</th>
                                     <th>Country</th>
                                     
-                                    <th>Member</th>
+                                    <th>Joined</th>
+                                    <th>Added BY</th>
+                                    <th>ID</th>
                                     <th>Subscription</th>
                                     <th>Amount</th>
                                     <th>Invoice#</th>
@@ -252,10 +256,13 @@ $(document).ready(function() {
                                     <td>${value.phone ?? '-'}</td>
                                      <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
                                     <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
+                                    <td>${ value.personal_information ? value.personal_information.dob :'-'}</td>
                                     <td>${value.city_name}</td>
                                     <td>${value.country_name}</td>
-                                    
-                                    <td>${value.member_since}</td>
+                                    <td>${value.nationality ?? '--'}</td>
+                                    <td>${value.member_since.split('/').join('.')}</td>
+                                    <td>${'--'}</td>
+                                    <td>${"--"}</td>
                                      <td>${value.plan ? value.plan.name : '-'}</td>
                                     <td>${value.amount_received}</td>
                                      <td>${value.invoice_no ?? '-inv'}</td>

@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Models\Attachment;
 use App\Models\CollectionCenter;
+use App\Models\Country;
 use App\Models\User;
 use App\Models\UserNotification;
 use App\Notifications\EmailNotification;
@@ -73,6 +74,16 @@ class SiteHelper
             return NULL;
         }
     }
+    public static function getCurrency()
+{
+    
+    $currency = Country::orderBy('currency_symbol')->get();
+   
+    
+   
+
+    return $currency;
+}
 
     public static function checkPermission($menu_key)
     {

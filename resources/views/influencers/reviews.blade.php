@@ -10,7 +10,7 @@
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title" style="color: blue; font-weight: bold; ">Influencer Reviews</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold; "> Reported Influencer</h6>
             </ol>
         </nav>
         <div class="row">
@@ -22,14 +22,24 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Photo</th>
                                     <th>ID #</th>
-                                    <th>Category</th>
+                                    <th>Photo</th>
                                     <th>Name</th>
-                                    <th>Rate</th>
+
+                                    <th>Gender</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Nationality</th>
+                                    <th>Reported/Blocked By</th>
+                                    <th>ID#</th>
+                                    <th>Reason</th>
                                     <th>Message</th>
-                                    <th>Language</th>
                                     <th>Date</th>
+
+                                    <th>Action By</th>
+                                    <th>ID#</th>
+                                    <th>Date</th>
+                            
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -59,13 +69,25 @@
                 }
                 table_body += `<tr>
                                     <td>${count++}</td>
+                                      <td>${value.id}</td>
                                     <td><img src="${value.user.attachment ? value.user.attachment.file_url : '-'}" alt=""></td>
-                                    <td>${value.id}</td>
+                                  
                                     <td>${value.category ? value.category.name : '-'}</td>
                                     <td>${value.user ? value.user.name : '-'} ${value.user ? value.user.last_name : ''}</td>
                                     <td>${value.overall_rating}</td>
                                     <td>${value.message ?? '-'}</td>
                                     <td>${value.language ?? '-'}</td>
+
+      <td>${value.message ?? '-'}</td>
+                                    <td>${value.language ?? '-'}</td>
+                                          <td>${value.message ?? '-'}</td>
+                                    <td>${value.language ?? '-'}</td>
+
+                                          <td>${value.message ?? '-'}</td>
+                                    <td>${value.language ?? '-'}</td>
+                                          <td>${value.message ?? '-'}</td>
+                                    
+
                                     <td>${value.date_formatted}</td>
                                     <td>${value.status ?? '-'}</td>
                                     <td>
@@ -88,7 +110,7 @@
                     if (response.status) {
                         makeTableBody(response.data);
                     } else {
-                        $('.t-body').html("<tr><td class='text-center' colspan='11'>No Data</td></tr>");
+                        $('.t-body').html("<tr><td class='text-center' colspan='17'>No Data</td></tr>");
                     }
                 },
                 error: function (response) {
