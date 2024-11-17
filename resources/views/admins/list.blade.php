@@ -169,7 +169,7 @@
                                    
                                     <th>City</th>
                                     <th>Country</th>
-                                    <th>Member</th>
+                                    <th>Joined</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -237,7 +237,7 @@
        <td>${value.city_name ?? '-'}</td>
                                     <td>${value.country_name ?? '-'}</td>
 
-<td> ${value.member_since ?? '-'} </td>
+<td>${value.member_since.split('/').join('-')}</td> 
                                                     <td class='td-toggle'>
     <label class="c-toggle">
         <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>

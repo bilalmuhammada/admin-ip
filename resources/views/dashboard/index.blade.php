@@ -38,6 +38,19 @@ font-weight:bold !important;
 .topcard{
     margin-bottom: 10px !important;
 }
+.select2-selection--single:hover{
+    color: blue;
+}
+.select2-container .select2-selection--single {
+    height: 47px !important;
+    border: 1px solid #997045 !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    text-align: center;
+}
+.select2-results__option{
+    text-align: center;
+}
 /* option{
     text-align: left;
 } */
@@ -50,7 +63,7 @@ font-weight:bold !important;
     
 }
 .text-success{
-    margin-left: 12px
+    margin-left: 6px
 }
 .dt-button{
     /* background-color: #997045 !important; */
@@ -86,6 +99,7 @@ color: white;
         background-image:none !important;
 }
 .mb-2{
+    font-size: 16px;
     text-align: center !important;
     color: blue !important;
     margin-top: 0.5rem !important;
@@ -163,7 +177,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 mt-2 total-influencer">0</h3>
+                                        <h4 class="mb-2 mt-2 total-influencer">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="total-influencer-per">+3.3%</span>
@@ -199,7 +213,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 active-influencer">0</h3>
+                                        <h4 class="mb-2 active-influencer">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="active-influencer-per">+3.3%</span>
@@ -234,7 +248,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 pending-influencer">0</h3>
+                                        <h4 class="mb-2 pending-influencer">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="pending-influencer-per">+3.3%</span>
@@ -306,7 +320,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 block-influencer">0</h3>
+                                        <h4 class="mb-2 block-influencer">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="block-influencer-per">+3.3%</span>
@@ -341,7 +355,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 popular-influencer">0</h3>
+                                        <h4 class="mb-2 popular-influencer">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="popular-influencer-per">+3.3%</span>
@@ -413,7 +427,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 favorite-influencer">0</h3>
+                                        <h4 class="mb-2 favorite-influencer">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="favorite-influencer-per">+3.3%</span>
@@ -451,7 +465,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 total-vendor">0</h3>
+                                        <h4 class="mb-2 total-vendor">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="total-vendor-per">+3.3%</span>
@@ -485,7 +499,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 active-vendor">0</h3>
+                                        <h4 class="mb-2 active-vendor">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="active-vendor-per">+3.3%</span>
@@ -520,7 +534,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 pending-vendor">0</h3>
+                                        <h4 class="mb-2 pending-vendor">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="pending-vendor-per">+3.3%</span>
@@ -554,7 +568,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 block-vendor">0</h3>
+                                        <h4 class="mb-2 block-vendor">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="block-vendor-per">+3.3%</span>
@@ -590,7 +604,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2 popular-vendor">0</h3>
+                                        <h4 class="mb-2 popular-vendor">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span class="poplar-vendor-per">+3.3%</span>
@@ -731,7 +745,7 @@ label{
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-12">
-                                        <h3 class="mb-2">0</h3>
+                                        <h4 class="mb-2">0</h4>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span>+2.8%</span>
@@ -814,7 +828,9 @@ label{
                             name="country_id">
                         <option value=""> Country</option>
                         @foreach($countries as $country)
-                            <option value="{{ $country->id }}" >{{ $country->name }}</option>
+
+                            <option  {{$country->name == request()->name ? 'selected' : '' }}  data-flag-url="{{ $country->flag_url }}" style="margin-bottom: 5px;width: 31px;" 
+                            value="{{ $country->id }}" >{{ $country->name }}</option>
                         @endforeach
                     </select>
                
@@ -837,8 +853,8 @@ label{
                     <option value="">Currency</option>
                     @foreach($currency as $currencyn)
                     <option data-currency-id="{{ $currencyn->currency }}"
-                            {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->currency }}"
-                            style="font-size:10px !important;">{{ $currencyn->currency }}</option>
+                            {{$currencyn->currency_symbol == request()->currency ? 'selected' : '' }}  data-flag-url="{{ $currencyn->flag_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->id }}"
+                            style="font-size:10px !important;">{{ $currencyn->currency_short_name }}</option>
                 @endforeach
                 </select>
             </div>

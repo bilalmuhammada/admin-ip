@@ -91,7 +91,22 @@
   background: transparent;
 }
   </style>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script>
+
+function formatCountry(country) {
+            if (!country.id) {
+                return country.text;
+            }
+
+            var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
+
+            var $country = $(
+                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-5px;"> <span  style="font-size:14px; margin-left: 4px;">' + country.text + '</span>'
+            );
+            return $country;
+        };
        $(document).ready(function () {
          $(".currency_dropdown").select2({
             templateSelection: formatCountry,
@@ -124,7 +139,9 @@
 
             modalTitle.textContent = 'New message to ' + recipient
             modalBodyInput.value = recipient
-        })
+        });
+
+      });
     </script>
       @yield('page_scripts')
 

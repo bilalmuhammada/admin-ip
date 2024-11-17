@@ -260,7 +260,7 @@ $(document).ready(function() {
                                     <td>${value.city_name}</td>
                                     <td>${value.country_name}</td>
                                     <td>${value.nationality ?? '--'}</td>
-                                    <td>${value.member_since.split('/').join('.')}</td>
+                                    <td>${value.member_since.split('/').join('-')}</td>
                                     <td>${'--'}</td>
                                     <td>${"--"}</td>
                                      <td>${value.plan ? value.plan.name : '-'}</td>
