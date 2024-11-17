@@ -16786,7 +16786,7 @@ ul {
 }
 
 .footer-top {
-    padding: 60px 0;
+    padding: 20px 0;
 }
 
 .footer .footer-widget .footer-about-content p {
@@ -16801,7 +16801,7 @@ ul {
     color: #101828;
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     position: relative;
     padding-bottom: 10px;
 }
@@ -16833,7 +16833,7 @@ h2.footer-title:before {
 }
 
 .footer .footer-menu ul li {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 .footer .footer-menu ul li:last-child {

@@ -65,8 +65,32 @@
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody class="t-body">
-
+                                <tbody class="t-body1">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>101</td>
+                                        <td><img src="https://dummyimage.com/100x100/000/fff" alt=""></td>  
+                                        <td>Dummy Brand</td>
+                                        <td>Dummy Company</td>
+                                        <td>John Doe</td>
+                                        <td>Male</td>
+                                        <td>3443433443</td>
+                                        <td>pakistan</td>
+                                        <td>john</td>
+                                        <td>222</td>
+                                        <td>not good</td>
+                                        <td>bad service</td>
+                                        <td>English</td>
+                                        <td>Excellent service</td>
+                                        <td>English</td>
+                                        <td>Excellent service</td>
+                                        <td>2024-11-17</td>
+                                        <td>Active</td>
+                                        <td>
+                                            <a href='#' id='delete-btn' review-id='101' class='remove-review text-danger'><i class='fa fa-trash'></i></a>
+                                        </td>
+                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -89,6 +113,9 @@
                     checked = 'checked';
                 }
                 table_body += `<tr>
+
+
+                                   
                                     <td>${count++}</td>
                                     <td>${value.id}</td>
                                     <td><img src="${value.user.attachment ? value.user.attachment.file_url : ''}" alt=""></td>

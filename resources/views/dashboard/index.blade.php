@@ -65,6 +65,9 @@ font-weight:bold !important;
 .text-success{
     margin-left: 6px
 }
+.select2-selection__arrow{
+   display: none;
+}
 .dt-button{
     /* background-color: #997045 !important; */
     /* color: white; */
