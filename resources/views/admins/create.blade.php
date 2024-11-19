@@ -44,13 +44,13 @@
             font-size: 12px;
             /* color: #007bff; */
         }
-        .fa-eye-slash {
-    position: absolute !important;
-    top: 28% !important;
-    right: 4% !important;
-    cursor: pointer !important;
-    /* color: lightgray !important; */
-    }
+        .toggle-password {
+            position: absolute;
+            right: 23px;
+            top: 43%;
+            transform: translateY(-50%);
+            cursor: pointer;
+}
 </style>
 @section('content')
     <div class="page-content">
@@ -139,11 +139,9 @@
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating age" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
-                                {{-- <div class="invalid-feedback">
-                                    {{-- Please provide a valid Age. --}}
-                                {{-- </div>  --}}
-                                <label class="focus-label">Age</label>
+                                <input type="text" class="form-control datepicker1 floating" id="datepicker1" name="age">
+                                
+                                <label class="focus-label">Date of Birth</label>
                             </div>
                           
                             <div class="form-group form-focus">
@@ -161,6 +159,20 @@
                                 {{-- </div>  --}}
                                 <label class="focus-label">Added By</label>
                             </div>
+
+                           
+                            <div class="form-group form-focus">
+                                {{--    <input type="text" class="form-control floating" name="country">--}}
+                                <select name="nationality_id" class="form-control nationality floating" id="nationality_id">
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
+                                    @foreach(getnationality() as $nationality)
+                                        <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
+                                    @endforeach
+                                </select>
+                               
+                                <label class="focus-label">Nationality </label>
+                            </div>
+
                             <div class="form-group form-focus">
                                 <select name="country_id" class="form-control floating country_id" id="country_id">
                                     <option selected hidden disabled value="">&nbsp;&nbsp;</option>
@@ -173,32 +185,7 @@
                                 </div>
                                 <label class="focus-label">Country </label>
                             </div>
-                            {{-- <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">Country</label>
-                                <select class="js-example-basic-single form-select country_id" id="country_id" data-width="100%"
-                                        name="country_id">
-                                    <option value="">Select Country</option>
-                                    @foreach($countries as $country)
-                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
-                            <!-- <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">Influencer State</label>
-                                <select class="js-example-basic-single form-select state_id" data-width="100%"
-                                        name="state_id">
-                                    <option value="" disabled>Select State</option>
-
-                                </select>
-                            </div> -->
-                            {{-- <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">City</label>
-                                <select class="js-example-basic-single form-select city_id" data-width="100%" id="city_id"
-                                        name="city_id">
-                                    <option value="" disabled>Select City</option>
-
-                                </select>
-                            </div> --}}
+                          
                             <div class="form-group form-focus">
                                 <select name="city_id" class="form-control floating city_id" id="city_id">
                                     <option selected hidden disabled value="">&nbsp;&nbsp;</option>
@@ -210,22 +197,22 @@
                             </div>
                             <div class="form-group form-focus">
                                 <input type="password" class="form-control floating" name="password"
-                                       id="influencer_password"
+                                       id="admin_password"
                                 {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
                                  >
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('influencer_password')"></i>
+                                 <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword('admin_password')" style="cursor: pointer;">👁️</span>
+                                </div>
 
                                 <label class="focus-label">Password</label>
                             </div>
                             <div class="form-group form-focus mb-0">
                                 <input type="password" class="form-control floating"
-                                       name="confirm_password" id="influencer_confirm_password">
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('influencer_confirm_password')"></i>
-                                <div class="invalid-feedback">
-                                    Please provide a valid Confirm Password.
-                                </div>
+                                       name="confirm_password" id="admin_confirm_password">
+                                       <div class="input-group-append">
+                                        <span class="toggle-password" onclick="togglePassword('admin_confirm_password')" style="cursor: pointer;">👁️</span>
+                                    </div>
+                                
                                 <label class="focus-label">Confirm Password</label>
                             </div>
 
@@ -301,12 +288,7 @@ $(document).ready(function() {
         }
 
         // Toggle Password Visibility
-        $('#togglePassword').on('click', function() {
-            let input = $(this).siblings('input');
-            let type = input.attr('type') === 'password' ? 'text' : 'password';
-            input.attr('type', type);
-            $(this).toggleClass('fa-eye fa-eye-slash');
-        });
+   
 });
     
 
@@ -317,18 +299,18 @@ $(document).ready(function() {
         });
        
 
-        function togglePassword(inputId, iconId) {
-            var passwordInput = document.getElementById(inputId);
-            // var toggleIcon = document.getElementById(iconId);
+        function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/invisible.png';
-            } else {
-                passwordInput.type = 'password';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/visible.png';
-            }
-        }
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
+    }
+}
 
         $(document).on('submit', '#form_date', function (e) {
             e.preventDefault();

@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 function getDropdownMenu($role)
 {
@@ -58,6 +59,12 @@ function getCityByStateId($stateId)
     $Cities = \App\Models\City::where('state_id', $stateId)->get();
 
     return $Cities;
+}
+function getnationality()
+{
+    $nationality = DB::table('nationality')->orderBy("name",'ASC')->get();
+
+    return $nationality;
 }
 
 function getCityByStateIds($stateId)

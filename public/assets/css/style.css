@@ -402,10 +402,10 @@ table.table td h2 span {
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
-.table td,
+/* .table td,
 .table th {
     padding: 1rem 0.75rem;
-}
+} */
 
 .table thead tr th {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -437,7 +437,7 @@ table.table td h2 span {
 
 .table tr td:first-child,
 .table tr th:first-child {
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 .table tr td:last-child,

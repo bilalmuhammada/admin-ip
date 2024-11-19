@@ -17,13 +17,13 @@
     border-color: blue !important;
     
 }
-.fa-eye-slash {
-    position: absolute !important;
-    top: 28% !important;
-    right: 4% !important;
-    cursor: pointer !important;
-    /* color: lightgray !important; */
-    }
+.toggle-password {
+            position: absolute;
+            right: 23px;
+            top: 43%;
+            transform: translateY(-50%);
+            cursor: pointer;
+}
 
 </style>
 @section('content')
@@ -163,11 +163,20 @@
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating"   pattern="\+?\d*" oninput="validateInput(this)" name="age">
-                                {{-- <div class="invalid-feedback">
-                                    Please provide a valid age.
-                                </div> --}}
-                                <label class="focus-label">Age</label>
+                                <input type="text" class="form-control datepicker1 floating" id="datepicker1" name="age">
+                                
+                                <label class="focus-label">Date of Birth</label>
+                            </div>
+                            <div class="form-group form-focus">
+                                {{--    <input type="text" class="form-control floating" name="country">--}}
+                                <select name="nationality_id" class="form-control nationality floating" id="nationality_id">
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
+                                    @foreach(getnationality() as $nationality)
+                                        <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
+                                    @endforeach
+                                </select>
+                               
+                                <label class="focus-label">Nationality </label>
                             </div>
 
                             <div class="form-group form-focus">
@@ -178,9 +187,7 @@
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please provide a valid Country.
-                                </div>
+                               
                                 <label class="focus-label">Country </label>
                             </div>
                             <!-- <div class="mb-3">
@@ -227,22 +234,22 @@
                             </div> -->
                             <div class="form-group form-focus">
                                 <input type="password" class="form-control floating" name="password"
-                                       id="brand"
+                                       id="password"
                                         {{-- placeholder="8  Characters - 1 Capital, 1 Number, 1 Special" --}}
                                         >
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('brand')"></i>
+                                        <div class="input-group-append">
+                                            <span class="toggle-password" onclick="togglePassword('password')" style="cursor: pointer;">👁️</span>
+                                        </div>
                                 
                                 <label class="inner_label focus-label bilal-register">Password</label>
                             </div>
                             <div class="form-group form-focus mb-0">
                                 <input type="password" class="form-control floating"
                                        name="confirm_password" id="brand_confirm_password">
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('brand_confirm_password')"></i>
-                                <div class="invalid-feedback">
-                                    Please provide a valid Confirm Password.
-                                </div>
+                                       <div class="input-group-append">
+                                        <span class="toggle-password" onclick="togglePassword('brand_confirm_password')" style="cursor: pointer;">👁️</span>
+                                    </div>
+                                
                                 <label class="focus-label">Confirm Password</label>
                             </div>
                             {{--                            <div class="mb-3">--}}
@@ -281,31 +288,24 @@
             
         }
 
-        // Toggle Password Visibility
-        $('#togglePassword').on('click', function() {
-            let input = $(this).siblings('input');
-            let type = input.attr('type') === 'password' ? 'text' : 'password';
-            input.attr('type', type);
-            $(this).toggleClass('fa-eye fa-eye-slash');
-        });
+     
 });
 
-        function togglePassword(inputId, iconId) {
-            var passwordInput = document.getElementById(inputId);
-            // var toggleIcon = document.getElementById(iconId);
+function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/invisible.png';
-            } else {
-                passwordInput.type = 'password';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/visible.png';
-            }
-        }
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
+    }
+}
 
-        // $(document).on('change', '#country_id', function () {
-        //     getCitiesByCountry($(this).val());
-        // });
+     
+
 
         $(document).on('submit', '#form_date', function (e) {
             e.preventDefault();

@@ -25,6 +25,9 @@
     /* margin-right: 161px !important; */
 
 }
+.table> :not(caption)>*>*, .datepicker table> :not(caption)>*>* {
+    padding: 0px 0px !important;
+}
 .dataTables_filter{
     
     padding: 2px 29px 0px 0px !important ;
@@ -108,6 +111,13 @@ th{
     .open-popup{
         margin-right: 7px !important;
         color: blue !important;
+    }
+    .table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 0px 10px !important;
     }
 </style>
 @section('content')

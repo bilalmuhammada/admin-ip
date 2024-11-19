@@ -8,6 +8,9 @@
     border-color: #997045 !important;
 
 }
+.table> :not(caption)>*>*, .datepicker table> :not(caption)>*>* {
+    padding: 0px 0px !important;
+}
 th{
         font-weight: 900 !important;
     }

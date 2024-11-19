@@ -29,7 +29,7 @@
     <script src="{{ asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.js')}}"></script>
     <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+    {{-- <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script> --}}
     <script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
     <!-- End plugin js for this page -->
 
@@ -40,7 +40,7 @@
 
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/dashboard-light.js')}}"></script>
-    <script src="{{ asset('assets/js/datepicker.js')}}"></script>
+    {{-- <script src="{{ asset('assets/js/datepicker.js')}}"></script> --}}
     <!-- End custom js for this page -->
 
     <!-- Custom js for this page -->
@@ -65,13 +65,14 @@
     <script src="{{ asset('assets/js/authenticate.js')}}"></script>
 
 
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 {{--Datetime picker--}}
 {{--https://xdsoft.net/jqplugins/datetimepicker/--}}
-<link rel="stylesheet" href="{{asset('assets/datetimepicker/build/jquery.datetimepicker.min.css')}}">
-<script src="{{asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
 
-   
+
   <style>
     .dataTables_wrapper .dataTables_filter input{
         padding: 5px 0px 6px 14px !important; 
@@ -112,6 +113,19 @@ function formatCountry(country) {
             templateSelection: formatCountry,
             templateResult: formatCountry,
         });
+
+        $(".datepicker1").datepicker({
+            'dateFormat':"dd-mm-yy",
+            changeMonth: true,
+             changeYear: true,
+             yearRange: "1950:+0",
+        });
+        $(".datepicker1").change(function() {
+    var input = $(this); // Store reference to `this`
+    setTimeout(function() {
+        input.parents('.form-focus').toggleClass('focused', input.val().length > 0);
+    }, 10);
+});
         $(".country_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

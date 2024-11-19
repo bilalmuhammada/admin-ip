@@ -92,6 +92,9 @@
         transition: 0.4s;
         border-radius: 50%;
     }
+    .table> :not(caption)>*>*, .datepicker table> :not(caption)>*>* {
+    padding: 0px 0px !important;
+}
 
     /* Toggle to active (checked) state */
     input:checked + .c-slider {
