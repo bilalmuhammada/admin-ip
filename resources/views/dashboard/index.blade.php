@@ -7,6 +7,10 @@
       width: 16% !important;
         }
         }
+        .ui-datepicker {
+
+            width:12.5rem !important; 
+        }
         .align-items-baseline {
             text-align: center !important;
         }
@@ -38,6 +42,7 @@ font-weight:bold !important;
 .topcard{
     margin-bottom: 10px !important;
 }
+
 .select2-selection--single:hover{
     color: blue;
 }
@@ -49,6 +54,7 @@ font-weight:bold !important;
     text-align: center;
 }
 .select2-results__option{
+    padding: 0px !important;
     margin: 5px 0px 5px 15px !important;
 }
 /* option{
@@ -99,7 +105,9 @@ font-weight:bold !important;
     color: blue !important;
 }
 
-
+.select2-search__field{
+border:1px solid #997045 !important;
+}
 .select2-search__field:hover{
 border:1px solid blue !important;
 }
@@ -709,7 +717,7 @@ label{
                
                     <select class="js-example-basic-single form-select country_dropdown form-control country_id" id="country_id" data-width="100%"
                             name="country_id">
-                        <option value=""> Country</option>
+                        <option value=""> All Countries</option>
                         @foreach($countries as $country)
 
                             <option  {{$country->name == request()->name ? 'selected' : '' }}  data-flag-url="{{ $country->flag_url }}" style="margin-bottom: 5px;width: 31px;" 
@@ -720,7 +728,7 @@ label{
             </div>
             <div class="col">
                 
-                <select class="js-example-basic-single form-control country_dropdown  form-select city_id" data-width="100%"
+                <select class="js-example-basic-single form-control city_dropdown  form-select city_id" data-width="100%"
                                         id="city_id"
                                         name="city_id">
                                     <option value=""  > All Cities</option>
@@ -742,12 +750,12 @@ label{
                 </select>
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="DD-MM-YYYY"
+                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="Date"
                        value="">
             </div>
             <div class="col">
                 <input type="text" class="form-control datepicker1" id="to_date1"
-                       placeholder="DD-MM-YYYY" value="" >
+                       placeholder="Date" value="" >
             </div>
             {{--            <div class="col">--}}
             {{--                <input type="text" placeholder="Search" class="form-control">--}}
@@ -946,6 +954,7 @@ function numberFormat(number) {
         });
         $(document).on('change', '#from_date1, #tod_date1, #filtergraph', function () {
             render_monthly_sale_chart();
+            $('.currency_dropdown').prop('disabled', true);
         })
 
 

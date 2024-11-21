@@ -143,6 +143,17 @@
                                 
                                 <label class="focus-label">Date of Birth</label>
                             </div>
+                            <div class="form-group form-focus">
+                                {{--    <input type="text" class="form-control floating" name="country">--}}
+                                <select name="nationality_id" class="form-control nationality floating" id="nationality_id">
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
+                                    @foreach(getnationality() as $nationality)
+                                        <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
+                                    @endforeach
+                                </select>
+                               
+                                <label class="focus-label">Nationality </label>
+                            </div>
                           
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating position"   oninput="validateInputText(this)"
@@ -161,17 +172,7 @@
                             </div>
 
                            
-                            <div class="form-group form-focus">
-                                {{--    <input type="text" class="form-control floating" name="country">--}}
-                                <select name="nationality_id" class="form-control nationality floating" id="nationality_id">
-                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                    @foreach(getnationality() as $nationality)
-                                        <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
-                                    @endforeach
-                                </select>
-                               
-                                <label class="focus-label">Nationality </label>
-                            </div>
+                          
 
                             <div class="form-group form-focus">
                                 <select name="country_id" class="form-control floating country_id" id="country_id">

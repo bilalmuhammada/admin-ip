@@ -33,7 +33,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-    
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         api_url = "{{env('API_URL')}}";
         base_url = "{{env('BASE_URL')}}";

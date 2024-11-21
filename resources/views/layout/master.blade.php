@@ -46,7 +46,8 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/data-table.js')}}"></script>
     <!-- End custom js for this page -->
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
     <script src="{{ asset('assets/js/dropify.js')}}"></script>
@@ -60,6 +61,8 @@
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
     {{--datatable link end--}}
+    {{-- <script src="js/jquery.dataTables.min.js" type="text/javascript"></script> --}}
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
     <script src="{{ asset('assets/js/authenticate.js')}}"></script>
@@ -67,15 +70,14 @@
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+   
 {{--Datetime picker--}}
 {{--https://xdsoft.net/jqplugins/datetimepicker/--}}
 
 
   <style>
     .dataTables_wrapper .dataTables_filter input{
-        padding: 5px 0px 6px 14px !important; 
+        padding: 7px 0px 6px 14px !important; 
     }
     ::-webkit-scrollbar {
   width: 6px; /* You can adjust this value based on your preference */
@@ -113,12 +115,16 @@ function formatCountry(country) {
             templateSelection: formatCountry,
             templateResult: formatCountry,
         });
+        $(".city_dropdown").select2({
+            // templateSelection: formatCountry,
+            // templateResult: formatCountry,
+        });
 
         $(".datepicker1").datepicker({
-            'dateFormat':"dd-mm-yy",
+            'dateFormat':"dd-M-yy",
             changeMonth: true,
              changeYear: true,
-             yearRange: "1950:+0",
+             yearRange: "2024:+0",
         });
         $(".datepicker1").change(function() {
     var input = $(this); // Store reference to `this`

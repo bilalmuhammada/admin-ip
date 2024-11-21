@@ -9,11 +9,11 @@
     }
 
     .dropdown-menu .dropdown-item:hover {
-        background-color: blue !important;
+        background-color: transparent !important;
     }
 
     .dropdown-menu .dropdown-item:hover a {
-        color: white !important;
+        color: blue !important;
     }
 
     .dropdown-item, .tt-menu .tt-suggestion {
@@ -52,14 +52,14 @@
                         </div> --}}
                     {{-- </div> --}}
                     <ul class="list-unstyled p-1 text-center">
-                        <li class="dropdown-item py-2">
+                        <li class="dropdown-item">
                             <a href="{{ env('BASE_URL') }}/edit-profile" class="text-body  text-bold ms-0" style="font-weight: bold;">
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
                                 <span>Edit Profile</span>
                             </a>
                         </li>
-                        <hr class="m-0 p-0">
-                        <li class="dropdown-item py-2">
+                       
+                        <li class="dropdown-item ">
                             <a href="javascript:;" class="text-body  text-bold ms-0 logout-btn" style="font-weight: bold;">
                                 {{-- <i class="me-2 icon-md" data-feather="log-out"></i> --}}
                                 <span>Log Out</span>
