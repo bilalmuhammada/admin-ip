@@ -118,8 +118,12 @@
         font-weight: 900 !important;
     }
     .table> :not(caption)>*>*, .datepicker table> :not(caption)>*>* {
-    padding: 0px 0px !important;
+    padding: 4px 4px !important;
 }
+table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
 </style>
 @section('content')
 
