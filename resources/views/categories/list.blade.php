@@ -117,7 +117,7 @@ th{
         height: 25px !important;
     }
     table.dataTable tbody th, table.dataTable tbody td {
-        padding: 0px 10px !important;
+        padding: 6px 10px !important;
     }
 </style>
 @section('content')

@@ -244,7 +244,7 @@ table td img, .datepicker table td img {
        <td>${value.city_name ?? '-'}</td>
                                     <td>${value.country_name ?? '-'}</td>
 
-<td>${value.member_since.split('/').join('-')}</td> 
+<td>${ convertToShortMonthFormat(value.member_since) }</td> 
                                                     <td class='td-toggle'>
     <label class="c-toggle">
         <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>

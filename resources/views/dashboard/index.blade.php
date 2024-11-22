@@ -81,11 +81,7 @@ font-weight:bold !important;
     width: 60px;
 
 }
-/* .btn__search::placeholder{
-    
-    padding-left: 10px !important;
 
-} */
 .select2-dropdown{
     border: 1px solid transparent !important;
 }
@@ -717,7 +713,7 @@ label{
                
                     <select class="js-example-basic-single form-select country_dropdown form-control country_id" id="country_id" data-width="100%"
                             name="country_id">
-                        <option value=""> All Countries</option>
+                        <option value="0"> All Countries</option>
                         @foreach($countries as $country)
 
                             <option  {{$country->name == request()->name ? 'selected' : '' }}  data-flag-url="{{ $country->flag_url }}" style="margin-bottom: 5px;width: 31px;" 
@@ -731,7 +727,7 @@ label{
                 <select class="js-example-basic-single form-control city_dropdown  form-select city_id" data-width="100%"
                                         id="city_id"
                                         name="city_id">
-                                    <option value=""  > All Cities</option>
+                                    <option value=""> All Cities</option>
 
                                 </select>
             </div>
@@ -750,11 +746,11 @@ label{
                 </select>
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="Date"
+                <input type="text" class="form-control datepicker" id="from_date1" placeholder="Date"
                        value="">
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker1" id="to_date1"
+                <input type="text" class="form-control datepicker" id="to_date1"
                        placeholder="Date" value="" >
             </div>
             {{--            <div class="col">--}}
@@ -954,7 +950,14 @@ function numberFormat(number) {
         });
         $(document).on('change', '#from_date1, #tod_date1, #filtergraph', function () {
             render_monthly_sale_chart();
-            $('.currency_dropdown').prop('disabled', true);
+           var filtergraph= $('#filtergraph').val();
+            if(filtergraph === 'counts'){
+                $('.currency_dropdown').prop('disabled', true);
+            }else{
+                $('.currency_dropdown').prop('disabled', false);
+            }
+        
+      
         })
 
 

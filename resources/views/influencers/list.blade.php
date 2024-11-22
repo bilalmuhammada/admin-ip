@@ -268,7 +268,7 @@ function validateInput(input) {
                                       <td>${value.city_name}</td>
                                     <td>${value.country_name}</td>
                                      <td>${'--'}</td>
-                                    <td>${value.member_since.split('/').join('-')}</td>
+                                    <td>${  convertToShortMonthFormat(value.member_since)}</td>
                                      <td>${value.plane ? value.plane.name : '-'}</td>
                                     <td>${value.amount}</td>
                                    <td>--</td> 

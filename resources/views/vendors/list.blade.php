@@ -215,6 +215,7 @@ th{
     </div>
 @endsection
 @section('page_scripts')
+
     <script type="text/javascript">
 function validateInput(input) {
             
@@ -267,7 +268,8 @@ $(document).ready(function() {
                                     <td>${value.city_name}</td>
                                     <td>${value.country_name}</td>
                                     <td>${value.nationality ?? '--'}</td>
-                                    <td>${value.member_since.split('/').join('-')}</td>
+                                    
+                                    <td>${ convertToShortMonthFormat(value.member_since) }</td>
                                     <td>${'--'}</td>
                                     <td>${"--"}</td>
                                      <td>${value.plan ? value.plan.name : '-'}</td>

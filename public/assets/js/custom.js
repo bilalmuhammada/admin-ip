@@ -60,8 +60,8 @@ function initializeDatatable(selector = '#table') {
         buttons: [
               'excel', 'pdf','print'
         ],
-        responsive: true 
-        // scrollX: true 
+        
+    
     });
     $('#datatable_filter label').contents().filter(function() {
         return this.nodeType === 3; // Removes the text node inside the label
@@ -143,6 +143,9 @@ function getCitiesByState(state_id) {
 }
 
 function getCitiesByCountry(country_id) {
+  
+
+
 
     // alert(country_id);
     $.ajax({
@@ -167,10 +170,18 @@ function getCitiesByCountry(country_id) {
             } else {
                 $("#city_id").empty();
             }
+            $("#city_id").append('<option  value=""> All Cities </option>');
         }
     });
 }
 
+
+function convertToShortMonthFormat(date) {
+    const [day, month, year] = date.split('/'); // Split the input date
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; // Month abbreviations
+    return `${day}-${monthNames[parseInt(month, 10) - 1]}-${year}`; // Format the date
+}
 function datetimepicker_load() {
     $('.datepicker').datetimepicker({
         format: 'd/m/Y',
