@@ -176,12 +176,35 @@ function getCitiesByCountry(country_id) {
 }
 
 
-function convertToShortMonthFormat(date) {
-    const [day, month, year] = date.split('/'); // Split the input date
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; // Month abbreviations
-    return `${day}-${monthNames[parseInt(month, 10) - 1]}-${year}`; // Format the date
+function convertToShortMonthFormat(inputDate, separator = '-') {
+    // Check if input is in ISO format
+    let dateObj;
+    if (inputDate.includes('T') || inputDate.includes('Z')) {
+        // Parse ISO string
+        dateObj = new Date(inputDate);
+    } else {
+        // Assume input is in "DD/MM/YYYY" or similar format
+        const [day, month, year] = inputDate.split('/');
+        dateObj = new Date(`${year}-${month}-${day}`);
+    }
+
+    // Check for invalid date
+    if (isNaN(dateObj)) {
+        return 'Invalid Date';
+    }
+
+    // Extract components
+    const day = dateObj.getDate().toString().padStart(2, '0');
+    const month = dateObj.getMonth(); // Zero-based index for months
+    const year = dateObj.getFullYear();
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    // Format the output
+    return `${day}${separator}${monthNames[month]}${separator}${year}`;
 }
+
 function datetimepicker_load() {
     $('.datepicker').datetimepicker({
         format: 'd/m/Y',

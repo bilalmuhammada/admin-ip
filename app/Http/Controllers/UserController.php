@@ -309,10 +309,11 @@ class UserController extends Controller
         }
         $role_id = Role::where('code', $request->role)->first()->id;
 
-        $Reviews = Review::with(['user', 'category'])->whereHas('user', function ($User) use ($role_id) {
+        $Reviews = Review::with(['user', 'category'] )->whereHas('user', function ($User) use ($role_id) {
             $User->where('role_id', $role_id);
         })->get();
 
+        //  dd($Reviews);
         if ($Reviews->isNotEmpty()) {
             return response()->json([
                 'status' => true,

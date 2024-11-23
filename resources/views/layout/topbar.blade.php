@@ -22,6 +22,10 @@
     padding: 0px;
  border-radius: 2px;
     }
+    .p-12{
+        padding: 0rem 0.5rem 0rem 0.5rem !important;
+
+    }
 </style>
 <nav class="navbar">
     <a href="#" class="sidebar-toggler">
@@ -51,18 +55,18 @@
                             <p class="tx-12 text-muted">admin@gmail.com</p>
                         </div> --}}
                     {{-- </div> --}}
-                    <ul class="list-unstyled p-1 ">
+                    <ul class="list-unstyled p-12 ">
                         <li class="dropdown-item">
                             <a href="{{ env('BASE_URL') }}/edit-profile" class="text-body  text-bold ms-0" >
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
-                                <span>Edit Profile</span>
+                                <span style="font-weight: 600;">Edit Profile</span>
                             </a>
                         </li>
                        
                         <li class="dropdown-item ">
                             <a href="javascript:;" class="text-body  text-bold ms-0 logout-btn" >
                                 {{-- <i class="me-2 icon-md" data-feather="log-out"></i> --}}
-                                <span>Log Out</span>
+                                <span style="font-weight: 600;">Log Out</span>
                             </a>
                         </li>
                     </ul>

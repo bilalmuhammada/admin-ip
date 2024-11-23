@@ -4,13 +4,31 @@
     th{
         font-weight: 900 !important;
     }
+    .dataTables_filter>input:focus{
+   border-color:blue !important; 
+}
+
+.dataTables_filter>input{
+    
+    
+    border-color:#997045 !important;
+    /* margin-right: 161px !important; */
+
+}
+.dataTables_filter{
+    
+    padding: 0px 55px 0px 0px !important ;
+    /* border-color:#997045 !important; */
+    margin-right: 137px !important;
+
+}
 </style>
 @section('content')
 
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title" style="color: blue; font-weight: bold; "> Reported Influencer</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold; "> Reported Influencers</h6>
             </ol>
         </nav>
         <div class="row">
@@ -63,6 +81,8 @@
             var table_body = '';
             var count = 1;
             data.forEach(function (value, key) {
+
+                console.log(value);
                 var checked = '';
                 if (value.status === 'active') {
                     checked = 'checked';
@@ -72,23 +92,29 @@
                                       <td>${value.id}</td>
                                     <td><img src="${value.user.attachment ? value.user.attachment.file_url : '-'}" alt=""></td>
                                   
-                                    <td>${value.category ? value.category.name : '-'}</td>
+                                   
                                     <td>${value.user ? value.user.name : '-'} ${value.user ? value.user.last_name : ''}</td>
-                                    <td>${value.overall_rating}</td>
+                                   
+                                       <td>${value.user_personal_information ? value.user_personal_information.age : '-'} </td>
+                                  <td>${value.user ? value.user.phone : '-'}</td>
+                                   <td>${value.user ? value.user.email : '-'}</td>
+                                      <td>${value.country ? value.country.name : '-'}</td>
+                                        <td>${value.user ? value.user.name : '-'} ${value.user ? value.user.last_name : ''}</td>
+                                   
+                                       <td>${value.user.id ?? '-'}</td>
                                     <td>${value.message ?? '-'}</td>
-                                    <td>${value.language ?? '-'}</td>
+                                     <td>${value.message ?? '-'}</td>
+                                    <td>${convertToShortMonthFormat(value.created_at) ?? '-'}</td>
 
-      <td>${value.message ?? '-'}</td>
-                                    <td>${value.language ?? '-'}</td>
-                                          <td>${value.message ?? '-'}</td>
-                                    <td>${value.language ?? '-'}</td>
-
-                                          <td>${value.message ?? '-'}</td>
-                                    <td>${value.language ?? '-'}</td>
-                                          <td>${value.message ?? '-'}</td>
+     
+                                  <td>${value.user ? value.user.name : '-'} ${value.user ? value.user.last_name : ''}</td>
+                                   
+                                       <td>${value.user.id ?? '-'}</td>
+                                  
                                     
+            <td>${convertToShortMonthFormat(value.date_formatted) ?? '-'}</td>
 
-                                    <td>${value.date_formatted}</td>
+                                    
                                     <td>${value.status ?? '-'}</td>
                                     <td>
                                     <a href='#' id='delete-btn' review-id='${value.id}' class='remove-review text-danger'><i class='fa fa-trash'></i></a></td>

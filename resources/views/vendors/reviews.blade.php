@@ -4,6 +4,24 @@
         th{
         font-weight: 900 !important;
     }
+    .dataTables_filter>input:focus{
+   border-color:blue !important; 
+}
+
+.dataTables_filter>input{
+    
+    
+    border-color:#997045 !important;
+    /* margin-right: 161px !important; */
+
+}
+.dataTables_filter{
+    
+    padding: 0px 55px 0px 0px !important ;
+    /* border-color:#997045 !important; */
+    margin-right: 137px !important;
+
+}
 </style>
 @section('content')
 
@@ -65,7 +83,7 @@
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody class="t-body1">
+                                <tbody class="t-body">
                                    
                                 </tbody>
                             </table>
@@ -84,10 +102,13 @@
             var table_body = '';
             var count = 1;
             data.forEach(function (value, key) {
+
+                console.log(value);
                 var checked = '';
                 if (value.status === 'active') {
                     checked = 'checked';
                 }
+                
                 table_body += `<tr>
 
 
@@ -100,19 +121,18 @@
                                     <td>${value.user.company_name ?? '-'}</td>
                                     <td>${value.user ? value.user.name : '-'} ${value.user.last_name ?? ''}</td>
                                     <td>${value.position}</td>
-                                    <td>${value.overall_rating}</td>
-                                    <td>${value.message ?? '-'}</td>
-                                    <td>${value.language ?? '-'}</td>
+                                   <td>${value.user_personal_information ? value.user_personal_information.age : '-'} </td>
+                                       <td>${value.user ? value.user.phone : '-'}</td>
+                                   <td>${value.user ? value.user.email : '-'}</td>
 
                                     <td>${value.message ?? '-'}</td>
                                     <td>${value.language ?? '-'}</td>
                                       <td>${value.message ?? '-'}</td>
                                     <td>${value.language ?? '-'}</td>
-                                      <td>${value.message ?? '-'}</td>
-                                    <td>${value.language ?? '-'}</td>
+                                     
                                       <td>${value.message ?? '-'}</td>
                                    
-
+ <td>${value.date_formatted}</td>
                                     <td>${value.date_formatted}</td>
                                     <td>${value.status ?? '-'}</td>
                                     <td>
@@ -133,6 +153,7 @@
                 dataType: "JSON",
                 success: function (response) {
                     if (response.status) {
+                        
                         makeTableBody(response.data);
                     } else {
                         $('.t-body').html("<tr><td class='text-center' colspan='18'>No Data</td></tr>");
