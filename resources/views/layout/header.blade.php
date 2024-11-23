@@ -28,8 +28,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/demo1/style.css')}}">
     <!-- End layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/toggle.css')}}">
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css"/>
+
+
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"/>
+
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
@@ -68,16 +73,7 @@
             border: 2px solid red !important;
         }
 
-        /*Move buttons to the right */
-        /*.dataTables_wrapper .dt-buttons {*/
-        /*    float: right;*/
-        /*}*/
-
-        /* Adjust search input style */
-        /*.dataTables_wrapper .dataTables_filter input {*/
-        /*    width: 100%;*/
-        /*    display: inline-block;*/
-        /*}*/
+      
 
     </style>
 </head>

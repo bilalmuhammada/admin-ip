@@ -8,6 +8,14 @@
     border-color: #997045 !important;
 
 }
+.table-responsive {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        table {
+            width: 100%;
+            table-layout: auto;
+}
 .table> :not(caption)>*>*, .datepicker table> :not(caption)>*>* {
     padding: 4px 4px !important;
 }
@@ -155,25 +163,7 @@ th{
                             <table id="datatable" class="table">
                                 <thead>
                                 <tr>
-                                    <!-- <th>Sr.No</th>
-                                    <th>Image</th>
-                                    <th>Vendor.Id</th>
-                                    <th>Vendor.Name</th>
-                                    <th>Vendor.Type</th>
-                                    <th>Member.Since</th>
-                                    <th>Number.of.Outlets</th>
-                                    <th>Number.of.Deals</th>
-                                    <th>Pending.Deals</th>
-                                    <th>Amount.Paid</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
-                                    <th>Rating.by.InfluencerPro</th>
-                                    <th>Submitted Files</th>
-                                    <th>Vendor’s.User.Person.Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th> -->
+                                  
                                     
                                     <th>#</th>
                                     <th>ID #</th>
@@ -260,9 +250,9 @@ $(document).ready(function() {
                                     <td> ${value.website ?? '-'}</td>
                                     <td>${value.email ?? '-'}</td>
                                     <td>${value.name} ${value.last_name ?? '-'}</td>
-                                     <td>${value.position ?? '-'}</td>
+                                    <td>${value.position ?? '-'}</td>
                                     <td>${value.phone ?? '-'}</td>
-                                     <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
+                                    <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
                                     <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
                                     <td>${ value.personal_information ? value.personal_information.dob :'-'}</td>
                                     <td>${value.city_name}</td>
@@ -272,16 +262,16 @@ $(document).ready(function() {
                                     <td>${ convertToShortMonthFormat(value.member_since) }</td>
                                     <td>${'--'}</td>
                                     <td>${"--"}</td>
-                                     <td>${value.plan ? value.plan.name : '-'}</td>
+                                    <td>${value.plan ? value.plan.name : '-'}</td>
                                     <td>${value.amount_received}</td>
-                                     <td>${value.invoice_no ?? '-inv'}</td>
+                                    <td>${value.invoice_no ?? '-inv'}</td>
 
-                                   <td class='td-toggle'>
-    <label class="c-toggle">
-        <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
-        <span class="c-slider"></span>
-    </label>
-</td>
+                                    <td class='td-toggle'>
+                                    <label class="c-toggle">
+                                        <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
+                                        <span class="c-slider"></span>
+                                    </label>
+                                    </td>
                                     <td>
                                     <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>
                                        

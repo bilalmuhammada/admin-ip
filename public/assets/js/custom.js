@@ -60,7 +60,7 @@ function initializeDatatable(selector = '#table') {
         buttons: [
               'excel', 'pdf','print'
         ],
-        
+        autoWidth: false, 
     
     });
     $('#datatable_filter label').contents().filter(function() {

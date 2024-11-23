@@ -138,7 +138,8 @@ table td img, .datepicker table td img {
                     <div class="card-body">
                         
                             <div class="table-responsive">
-                                <table id="datatable" class="table">
+                            <table id="datatable" class="table">
+                                
                             <div style="margin-bottom:10px;">
                                 <a href="{{ env('BASE_URL') . '/admins/create'}}">
                                     {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
@@ -158,7 +159,7 @@ table td img, .datepicker table td img {
                                 @include('modals.edit-vendor-and-influencer-status-modal')
                                 <thead>
                         <!-- <h6 class="card-title">All Transactions</h6> -->
-                        <tr>
+                                <tr>
                                     <th>#</th>
                                     <th>ID #</th>
                                     <th>Photo</th>
