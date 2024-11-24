@@ -16,16 +16,17 @@
         color: blue !important;
     }
 
+    .p-12{
+        padding: 0rem 0.5rem 0rem 0.5rem !important;
+
+    }
     .dropdown-item, .tt-menu .tt-suggestion {
    
     font-size: 14px;
     padding: 0px;
  border-radius: 2px;
     }
-    .p-12{
-        padding: 0rem 0.5rem 0rem 0.5rem !important;
-
-    }
+    
 </style>
 <nav class="navbar">
     <a href="#" class="sidebar-toggler">
