@@ -3,16 +3,32 @@
     .changeColor:hover{
      color: blue !important;
     }
+    .shaking {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+   }
+      .shaking:hover {
+    animation: shake 2s linear infinite;
+   }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+
 </style>
 <footer class="footer" style="border:0px solid red;">
     <div class="container mb-30">
         <div class="col-lg-12 col-md-12 col-12 m-10" style="border:0px solid red;">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <h5>
+                    <h6>
                         Join Us & Discover More.<br/>
                         <div style="color:#0000FF;"><b>Download our App now!</b></div>
-                    </h5>
+                    </h6>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px;">
                     <img src="{{ asset('assets/img/icons/iphone.png') }}" alt=" " height="80px" width="140px">
@@ -106,22 +122,19 @@
                     <div class="footer-widget footer-menu">
                         <h5  style="font-size:15px;font-weight: bold;" class="footer-title">Socials</h5>
                         <ul style="margin-left: 14px;">
-                            <li ><a href="https://www.facebook.com/profile.php?id=61564513546656&mibextid=LQQJ4d" class="icon" target="_blank"><img
+                            <li ><a href="https://www.facebook.com/profile.php?id=61564513546656&mibextid=LQQJ4d" class="icon shaking" target="_blank"><img
                                         src="{{ asset('assets/img/social-icon/fb.png') }}" alt="fb"
                                         width="25" style="margin-bottom: 5px;"
                                         height="25"></a></li>
-                            <li><a href="https://www.instagram.com/influencerpro_org?igsh=MWIzb3pzMnQzMmFrcA==" class="icon" target="_blank"><img
+                            <li><a href="https://www.instagram.com/influencerpro_org?igsh=MWIzb3pzMnQzMmFrcA==" class="icon shaking" target="_blank"><img
                                         src="{{ asset('assets/img/social-icon/instagram.png')}}"
                                         alt="insta" width="25" style="margin-bottom: 5px;"
                                         height="25"></a></li>
-                            <li><a href="https://x.com/influencerpro_" class="icon" target="_blank"><img
+                            <li><a href="https://x.com/influencerpro_" class="icon shaking" target="_blank"><img
                                         src="{{ asset('assets/img/social-icon/twitter.png') }}"
                                         alt="twitter"    style="margin-bottom: 5px;"
                                         width="25" height="25"></a></li>
-                            {{-- <li><a href="http://www.youtube.com/@InfluencerPro_org" class="icon" target="_blank"><img
-                                        src="{{ asset('assets/img/social-icon/youtube.png') }}" alt="youtube"
-                                        width="30"
-                                        height="30"></a></li> --}}
+                            
                         </ul>
                     </div>
                 </div>
@@ -169,10 +182,10 @@
                         <div class="footer-bottom-logo">
                             <a href="{{ env('BASE_URL') }}" class="menu-logo">
                                 <img src="{{ asset('assets/images/logo/Influencers Pro-01-01.png') }}" class="img-fluid"
-                                     alt="Logo">
+                                     alt="Logo" width="150">
                             </a>
                         </div>
-                        <div class="copyright-text bilal-footer1"   style="    margin-bottom: 8px;">
+                        <div class="copyright-text bilal-footer1"   style="margin-top: -14px;">
                             <p class="mb-0">© InfluencerPro.org 2024, All Rights Reserved.</p>
                         </div>
                     </div>

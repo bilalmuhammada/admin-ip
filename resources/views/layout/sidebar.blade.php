@@ -106,13 +106,13 @@
             <li class="nav-item @if (isset($menu) && $menu == 'vendors/reviews') {{ 'active'}} @endif">
                 <a href="{{ env('BASE_URL') . '/vendors/reviews'}}" class="nav-link">
                     <i class="link-icon" data-feather="activity"></i>
-                    <span class="link-title">Reported Brand</span>
+                    <span class="link-title">Reported Brands</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers/reviews') {{ 'active'}} @endif ">
                 <a href="{{ env('BASE_URL') . '/influencers/reviews'}}" class="nav-link">
                     <i class="link-icon" data-feather="activity"></i>
-                    <span class="link-title">Reported Influencer</span>
+                    <span class="link-title">Reported Influencers</span>
                 </a>
             </li>
            

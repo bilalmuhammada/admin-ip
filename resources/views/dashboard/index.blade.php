@@ -40,7 +40,7 @@ font-weight:bold !important;
 /* margin-bottom: 30px; */
 }
 .topcard{
-    margin-bottom: 10px !important;
+    margin-bottom: 14px !important;
 }
 
 .select2-selection--single:hover{
@@ -54,7 +54,7 @@ font-weight:bold !important;
     text-align: center;
 }
 .select2-results__option{
-    padding: 0px !important;
+    padding: 0px 0px 0px 6px !important;
     margin: 5px 0px 5px 15px !important;
 }
 /* option{
@@ -124,6 +124,14 @@ color: white;
     color: blue !important;
     margin-top: 0.5rem !important;
 }
+
+.table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
+    }
 
 label{
     color: blue;

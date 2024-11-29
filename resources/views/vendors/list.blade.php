@@ -288,7 +288,7 @@ $(document).ready(function() {
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Brands');
         }
 
         function fetchRecords() {

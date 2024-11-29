@@ -120,9 +120,13 @@
     .table> :not(caption)>*>*, .datepicker table> :not(caption)>*>* {
     padding: 4px 4px !important;
 }
-table td img, .datepicker table td img {
+
+    .table td img, .datepicker table td img {
         width: 25px !important;
         height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
     }
 </style>
 @section('content')
@@ -298,7 +302,7 @@ function validateInput(input) {
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Influencers');
         }
 
         function fetchRecords() {

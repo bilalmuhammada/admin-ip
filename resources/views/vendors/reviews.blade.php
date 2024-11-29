@@ -22,6 +22,14 @@
     margin-right: 137px !important;
 
 }
+
+.table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
+    }
 </style>
 @section('content')
 
@@ -29,7 +37,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title" style="color: blue; font-weight: bold;" >Reported Brand</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold;" >Reported Brands</h6>
             </ol>
         </nav>
 {{--        <div class="row">--}}

@@ -217,7 +217,7 @@ th{
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Categories');
         }
 
         function fetchRecords() {
