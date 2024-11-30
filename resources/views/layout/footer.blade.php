@@ -24,13 +24,13 @@
     <div class="container mb-30">
         <div class="col-lg-12 col-md-12 col-12 m-10" style="border:0px solid red;">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12" style="margin-top: 16px;">
                     <h6>
                         Join Us & Discover More.<br/>
                         <div style="color:#0000FF;"><b>Download our App now!</b></div>
                     </h6>
                 </div>
-                <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px;">
+                <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px; margin-top: 14px;">
                     <img src="{{ asset('assets/img/icons/iphone.png') }}" alt=" " height="80px" width="140px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="padding-left: 26px;">

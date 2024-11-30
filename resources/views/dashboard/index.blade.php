@@ -850,36 +850,36 @@ function numberFormat(number) {
                     influencer_counts = response.influencer_counts;
                     vendor_counts = response.vendor_counts;
 
-                    $('.total-influencer').html(formatNumber(influencer_counts.total_Influencer_count));
-                    $('.popular-influencer').html(formatNumber(influencer_counts.popular_Influencer_count));
-                    $('.pending-influencer').html(formatNumber(influencer_counts.pending_Influencer_count));
-                    $('.active-influencer').html(formatNumber(influencer_counts.active_Influencer_count));
-                    $('.block-influencer').html(formatNumber(influencer_counts.block_Influencer_count));
-                    $('.rated-influencer').html(formatNumber(influencer_counts.rated_Influencer_count));
-                    $('.favorite-influencer').html(formatNumber(influencer_counts.favorite_Influencer_count));
+                    $('.total-influencer').html((influencer_counts.total_Influencer_count).toLocaleString());
+                    $('.popular-influencer').html((influencer_counts.popular_Influencer_count).toLocaleString());
+                    $('.pending-influencer').html((influencer_counts.pending_Influencer_count).toLocaleString());
+                    $('.active-influencer').html((influencer_counts.active_Influencer_count).toLocaleString());
+                    $('.block-influencer').html((influencer_counts.block_Influencer_count).toLocaleString());
+                    $('.rated-influencer').html((influencer_counts.rated_Influencer_count).toLocaleString());
+                    $('.favorite-influencer').html((influencer_counts.favorite_Influencer_count).toLocaleString());
 
 
-                    $('.total-vendor').html(formatNumber(vendor_counts.total_vendor_count));
-                    $('.popular-vendor').html(formatNumber(vendor_counts.popular_vendor_count));
-                    $('.pending-vendor').html(formatNumber(vendor_counts.pending_vendor_count));
-                    $('.active-vendor').html(formatNumber(vendor_counts.active_vendor_count));
-                    $('.block-vendor').html(formatNumber(vendor_counts.block_vendor_count));
-                    $('.rated-vendor').html(formatNumber(vendor_counts.rated_vendor_count));
-                    $('.favorite-vendor').html(formatNumber(vendor_counts.favorite_vendor_count));
+                    $('.total-vendor').html((vendor_counts.total_vendor_count).toLocaleString());
+                    $('.popular-vendor').html((vendor_counts.popular_vendor_count).toLocaleString());
+                    $('.pending-vendor').html((vendor_counts.pending_vendor_count).toLocaleString());
+                    $('.active-vendor').html((vendor_counts.active_vendor_count).toLocaleString());
+                    $('.block-vendor').html((vendor_counts.block_vendor_count).toLocaleString());
+                    $('.rated-vendor').html((vendor_counts.rated_vendor_count).toLocaleString());
+                    $('.favorite-vendor').html((vendor_counts.favorite_vendor_count).toLocaleString());
 
 
                     data = [
-                        {category: 'Total Influencers', count: formatNumber(influencer_counts.total_Influencer_count)},
-                        {category: 'Popular', count: formatNumber(influencer_counts.popular_Influencer_count)},
-                        {category: 'Pending ', count: formatNumber(influencer_counts.pending_Influencer_count)},
-                        {category: 'Blocked', count: formatNumber(influencer_counts.block_Influencer_count)},
+                        {category: 'Total Influencers', count: (influencer_counts.total_Influencer_count).toLocaleString()},
+                        {category: 'Popular', count: (influencer_counts.popular_Influencer_count).toLocaleString()},
+                        {category: 'Pending ', count: (influencer_counts.pending_Influencer_count).toLocaleString()},
+                        {category: 'Blocked', count: (influencer_counts.block_Influencer_count).toLocaleString()},
                         // {category: 'Favorite Influencers', count: influencer_counts.favorite_Influencer_count},
                         {category: 'Subscriptions', count: 0},
-                        {category: 'Total Brands', count: formatNumber( vendor_counts.total_vendor_count)},
-                        {category: 'Popular', count: formatNumber(vendor_counts.popular_vendor_count)},
-                        {category: 'Active', count: formatNumber(vendor_counts.active_vendor_count)},
-                        {category: 'Pending', count: formatNumber(vendor_counts.pending_vendor_count)},
-                        {category: 'Blocked', count: formatNumber(vendor_counts.block_vendor_count)},
+                        {category: 'Total Brands', count: ( vendor_counts.total_vendor_count).toLocaleString()},
+                        {category: 'Popular', count: (vendor_counts.popular_vendor_count).toLocaleString()},
+                        {category: 'Active', count: (vendor_counts.active_vendor_count).toLocaleString()},
+                        {category: 'Pending', count: (vendor_counts.pending_vendor_count).toLocaleString()},
+                        {category: 'Blocked', count: (vendor_counts.block_vendor_count).toLocaleString()},
                         // {category: 'Favorite Brands', count: vendor_counts.favorite_vendor_count},
                         {category: 'Subscriptions', count: 0},
                     ];
