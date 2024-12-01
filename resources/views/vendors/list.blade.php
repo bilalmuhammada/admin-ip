@@ -188,8 +188,8 @@ th{
                                     <th>Subscription</th>
                                     <th>Amount</th>
                                     <th>Invoice#</th>
-                                   <th>Status</th>
-                                    <th>Action</th>
+                                   <th class="noExport">Status</th>
+                                    <th class="noExport">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody class="t-body">

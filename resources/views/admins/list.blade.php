@@ -268,7 +268,7 @@ table td img, .datepicker table td img {
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable','Admin');
+            initializeDatatable('#datatable','Admins');
         }
 
         function fetchRecords() {

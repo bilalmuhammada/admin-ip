@@ -16803,7 +16803,7 @@ ul {
     font-weight: 600;
     margin-bottom: 10px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 h2.footer-title:after {
